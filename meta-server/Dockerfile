@@ -1,0 +1,35 @@
+FROM autokit/micro-builder:latest as builder
+
+WORKDIR /opt
+
+
+# Configure Git to download private modules
+RUN mkdir -p /root/.ssh
+COPY .gitconfig /root/.gitconfig
+COPY id_rsa /root/.ssh/id_rsa
+RUN git config --global url."git@code.aliyun.com:".insteadOf "https://code.aliyun.com/" && \
+    echo "ssh -l git -o StrictHostKeyChecking=no \"\$@\"" > /root/ssh.sh && \
+    chmod +x /root/ssh.sh
+ENV GIT_SSH=/root/ssh.sh
+
+
+
+RUN go env -w GOPROXY=https://goproxy.cn,direct && go env -w GO111MODULE=on
+ADD go.mod .
+ADD go.sum .
+RUN go mod download
+
+COPY . /opt
+
+RUN make submodule build
+
+FROM alpine:3.10
+WORKDIR /app
+COPY --from=builder /opt/meta-server /app/bin/meta-server
+COPY --from=builder /opt/alipay.crt /etc/ssl/certs/
+COPY --from=builder /usr/local/go/lib/time/zoneinfo.zip /opt/zoneinfo.zip
+## 解决alipay获取时区错误
+ENV ZONEINFO /opt/zoneinfo.zip
+VOLUME [ "/app/config", "/app/logs" ]
+
+ENTRYPOINT ["./bin/meta-server"]

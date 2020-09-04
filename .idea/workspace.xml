@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d8139158-f01c-4dd2-a577-6370ac330db6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/meta-server/app/models/custom_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/meta-server/app/domain/models/custom_field.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meta-server/app/models/custom_value.go" beforeDir="false" afterPath="$PROJECT_DIR$/meta-server/app/domain/models/custom_value.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meta-server/app/models/delete_constraint.go" beforeDir="false" afterPath="$PROJECT_DIR$/meta-server/app/domain/models/delete_constraint.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meta-server/app/models/encryption_schema.go" beforeDir="false" afterPath="$PROJECT_DIR$/meta-server/app/domain/models/encryption_schema.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meta-server/app/models/field_type.go" beforeDir="false" afterPath="$PROJECT_DIR$/meta-server/app/domain/models/field_type.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meta-server/app/models/filter_item.go" beforeDir="false" afterPath="$PROJECT_DIR$/meta-server/app/domain/models/filter_item.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meta-server/app/models/filter_operation.go" beforeDir="false" afterPath="$PROJECT_DIR$/meta-server/app/domain/models/filter_operation.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meta-server/app/models/forecast_category.go" beforeDir="false" afterPath="$PROJECT_DIR$/meta-server/app/domain/models/forecast_category.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meta-server/app/models/lookup_filter.go" beforeDir="false" afterPath="$PROJECT_DIR$/meta-server/app/domain/models/lookup_filter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meta-server/app/models/security_classification.go" beforeDir="false" afterPath="$PROJECT_DIR$/meta-server/app/domain/models/security_classification.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meta-server/app/models/standard_value.go" beforeDir="false" afterPath="$PROJECT_DIR$/meta-server/app/domain/models/standard_value.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meta-server/app/models/summary_operations.go" beforeDir="false" afterPath="$PROJECT_DIR$/meta-server/app/domain/models/summary_operations.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meta-server/app/models/treat_blanks_as.go" beforeDir="false" afterPath="$PROJECT_DIR$/meta-server/app/domain/models/treat_blanks_as.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meta-server/app/models/value_set.go" beforeDir="false" afterPath="$PROJECT_DIR$/meta-server/app/domain/models/value_set.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meta-server/app/models/value_set_values_definition.go" beforeDir="false" afterPath="$PROJECT_DIR$/meta-server/app/domain/models/value_set_values_definition.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meta-server/app/models/value_settings.go" beforeDir="false" afterPath="$PROJECT_DIR$/meta-server/app/domain/models/value_settings.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meta-server/app/providers/config.provider.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/meta-server/app/providers/database.provider.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/meta-server/app/repositories/custom_field.repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/meta-server/app/domain/repositories/custom_field.repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meta-server/app/services/custom_field.service.go" beforeDir="false" afterPath="$PROJECT_DIR$/meta-server/app/domain/services/custom_field.service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meta-server/config/database.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/meta-server/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/meta-server/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meta-server/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/meta-server/go.sum" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="GOROOT" path="/usr/local/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="ProjectId" id="1h2wzSg6Emr4dZ8cg4oFnQCmx5F" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Module.GOPATH.is.expanded" value="false" />
+    <property name="configurable.Project.GOPATH.is.expanded" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/meta-server/app/domain" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2432" y="294" key="SettingsEditor" timestamp="1599223415304">
+      <screen x="1680" y="-12" width="2560" height="1417" />
+    </state>
+    <state x="2432" y="294" key="SettingsEditor/1680.-12.2560.1417/0.23.1680.972@1680.-12.2560.1417" timestamp="1599223415303" />
+    <state x="2648" y="417" width="615" height="490" key="find.popup" timestamp="1599222883977">
+      <screen x="1680" y="-12" width="2560" height="1417" />
+    </state>
+    <state x="2648" y="417" width="615" height="490" key="find.popup/1680.-12.2560.1417/0.23.1680.972@1680.-12.2560.1417" timestamp="1599222883977" />
+  </component>
+</project>

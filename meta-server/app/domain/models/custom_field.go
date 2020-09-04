@@ -1,21 +1,19 @@
 package models
 
-
-
 type CustomField struct {
 	Id string `json:"id"`
 	ObjId string `json:"objId"`
 	DefaultValue string `json:"defaultValue"`
-	DeleteConstraint DeleteConstraint `json:"deleteConstraint"`
+	DeleteConstraint string `json:"deleteConstraint"`
 	Deprecated bool `json:"deprecated"`	// 是否保留使用
 	Description string `json:"description"`	// 字段描述
 	DisplayFormat string `json:"displayFormat"` // 展示格式
 	Encrypted bool `json:encrypted` // 字段是否加密
-	EncryptionScheme EncryptionScheme `json:"encryptionScheme"`
+	EncryptionScheme string `json:"encryptionScheme"`
 	External bool `json:"external"` // 表明是否一个外部映射列
 	ExternalColumnName string `json:"externalColumnName"` // 对应的外部数据源 的 列名
 	Formula string `json:"formula"` // 应用在字段上的公式
-	FormulaTreatBlankAs TreatBlanksAs `json:"formulaTreatBlankAs "` // 如何处理空格
+	FormulaTreatBlankAs string `json:"formulaTreatBlankAs "` // 如何处理空格
 	InlineHelpText string `json:"inlineHelpText"` // 字段的帮助提示
 	IsFilteringDisabled bool `json:"isFilteringDisabled"` // Available only for external objects. Indicates whether the custom field is available in filters
 	
@@ -93,7 +91,7 @@ type CustomField struct {
 	 */
 	Scale int `json:"scale"`
 
-	SecurityClassification SecurityClassification `json:"securityClassification"`
+	SecurityClassification string `json:"securityClassification"`
 
 	/**
 	 * If specified, indicates the starting number for the field. When you create records, Starting Number’s value increments to store the number that will be assigned to the next auto-number field created
@@ -157,7 +155,7 @@ type CustomField struct {
 	/**
 		Indicates whether the field is unique (true) or not (false).
 	 */
-	Unique bool `json:"unique"`
+	IsUnique bool `json:"unique"`
 
 	/**
 
@@ -179,4 +177,10 @@ type CustomField struct {
 		For example, if you set to true on both master-detail fields, but users have “Read” access to one master record and “Read/Write” access to the other master record, users won't be able to create, edit, or delete child records.
 	 */
 	WriteRequiresMasterRead bool `json:"writeRequiresMasterRead"`
+}
+
+func (m *CustomField) Unique() interface{} {
+	return map[string]interface{}{
+		"id": m.Id,
+	}
 }

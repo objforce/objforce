@@ -2,27 +2,33 @@ package bootstrap
 
 import(
 	"go.uber.org/fx"
+	xconfig "github.com/xxxmicro/base/config"
+	xsource "github.com/xxxmicro/base/config/source"
+	gorm "github.com/xxxmicro/base/database/gorm"
+	"github.com/xxxmicro/base/opentracing/jaeger"
 	"github.com/objforce/meta-server/config"
 	"github.com/objforce/meta-server/app/http/controllers"
 	"github.com/objforce/meta-server/app/http/middlewares"
-	"github.com/objforce/meta-server/app/services"
 	"github.com/objforce/meta-server/app/providers"
-	"github.com/objforce/meta-server/app/repositories"
+	"github.com/objforce/meta-server/app/domain/services"
+	"github.com/objforce/meta-server/app/domain/repositories"
 	"github.com/objforce/meta-server/routes"
 )
 
 
 func App() *fx.App {
 	return fx.New(
+		fx.Provide(providers.NewMicroService),
+
 		// Configurations (./config)
 		fx.Provide(config.NewAppConfig),
-		fx.Provide(config.NewDatabaseConfig),
 
 		// Providers (./app/providers)
-		fx.Provide(providers.NewConfigProvider),
-		fx.Provide(providers.NewDatabaseProvider),
-		fx.Provide(providers.NewLoggerProvider),
-		fx.Provide(providers.NewServerProvider),
+		fx.Provide(xsource.NewSourceProvider),
+		fx.Provide(xconfig.NewConfigProvider),
+		fx.Provide(jaeger.NewTracerProvider),
+		fx.Provide(gorm.NewDbProvider),
+		fx.Provide(providers.NewGinProvider),
 
 		// Repositories (./app/repositories)
 		fx.Provide(repositories.NewCustomFieldRepository),
@@ -36,7 +42,6 @@ func App() *fx.App {
 		// Controllers (./app/controllers)
 		fx.Provide(controllers.NewAPIController),
 		fx.Provide(controllers.NewCustomFieldController),
-
 
 		/*
 		|--------------------------------------------------------------------------
