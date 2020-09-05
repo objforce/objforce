@@ -1,4 +1,4 @@
-package dtos
+package models
 
 
 type CustomObject struct {
@@ -11,11 +11,11 @@ type CustomObject struct {
 	CompactLayouts []*CompactLayout
 	CustomHelp string `json:"customHelp"`
 	CustomHelpPage string `json:"customHelpPage"`
-	CustomSettingsType CustomSettingsType `json:"customSettingsType"`
-	CustomSettingsVisibility CustomSettingsVisibility `json:"customSettingsVisibility"`
+	CustomSettingsType string `json:"customSettingsType"`
+	CustomSettingsVisibility string `json:"customSettingsVisibility"`
 	DataStewardGroup string `json:"dataStewardGroup"`
 	DataStewardUser string `json:"dataStewardUser"`
-	DeploymentStatus DeploymentStatus `json:"deploymentStatus"`
+	DeploymentStatus string `json:"deploymentStatus"`
 	Deprecated bool `json:"deprecated"`
 	Description string `json:"description"`
 	EnableActivities bool `json:"enableActivities"`
@@ -28,33 +28,39 @@ type CustomObject struct {
 	EnableSearch bool `json:"enableSearch"`
 	EnableSharing bool `json:"enableSharing"`
 	EnableStreamingApi bool `json:"enableStreamingApi"`
-	EventType PlatformEventType `json:"eventType"`
+	EventType string `json:"eventType"`
 	ExternalDataSource string `json:"externalDataSource"`
 	ExternalName string `json:"externalName"`
 	ExternalRepository string `json:"externalRepository"`
-	ExternalSharingModel SharingModel `json:"externalSharingModel"`
+	ExternalSharingModel string `json:"externalSharingModel"`
 	Fields []CustomField `json:"fields"`
-	FieldSets FieldSet `json:"fieldSets"`
-	Gender Gender `json:"gender"`
+	FieldSets *FieldSet `json:"fieldSets"`
+	Gender string `json:"gender"`
 	Household bool `json:"household"`
-	HistoryRetentionPolicy HistoryRetentionPolicy `json:"historyRetentionPolicy"`
-	Indexes []Index `json:"indexes"`
+	HistoryRetentionPolicy *HistoryRetentionPolicy `json:"historyRetentionPolicy"`
+	Indexes []*Index `json:"indexes"`
 	Label string `json:"label"`
 	ListViews []*ListView `json:"listViews"`
 	NamedFilter []*NamedFilter `json:"namedFilter"`
 	NameField CustomField `json:"nameField"`
 	PluralLabel string `json:"pluralLabel"`
 	ProfileSearchLayouts *ProfileSearchLayouts `json:"profileSearchLayouts"`
-	PublishBehavior *PlatformEventPublishBehavior `json:"publishBehavior"`
+	PublishBehavior string `json:"publishBehavior"`
 	RecordTypes []*RecordType `json:"recordTypes"`
 	RecordTypeTrackFeedHistory bool `json:"recordTypeTrackFeedHistory"`
 	RecordTypeTrackHistory bool `json:"recordTypeTrackHistory"`
 	SearchLayouts *SearchLayouts `json:"searchLayouts"`
-	SharingModel SharingModel `json:"sharingModel"`
+	SharingModel string `json:"sharingModel"`
 	SharingReasons *SharingReason `json:"sharingReason"`
 	SharingRecalculations []*SharingRecalculation `json:"sharingRecalculations"`
-	StartsWith *StartsWith `json:"startsWith"`
+	StartsWith string `json:"startsWith"`
 	ValidationRules []*ValidationRule `json:"validationRules"`
-	Visibility SetupObjectVisibility `json:"visibility"`
+	Visibility string `json:"visibility"`
 	WebLinks []*WebLink `json:"webLinks"`
+}
+
+func (m *CustomObject) Unique() interface{} {
+	return map[string]interface{}{
+		"id": m.Id,
+	}
 }

@@ -8,8 +8,21 @@ import(
 	"github.com/objforce/meta-server/app/mapper"
 )
 
+type CustomFieldService interface {
+	Create(c context.Context, dto *dtos.CustomField) (*dtos.CustomField, error)
+	Update(c context.Context, dto *dtos.CustomField) (*dtos.CustomField, error)
+	FindOne(c context.Context, id string) (*dtos.CustomField, error)
+	Delete(c context.Context, id string) error
+}
+
 type customFieldService struct {
 	customFieldRepository repositories.CustomFieldRepository
+}
+
+func NewCustomFieldService(customFieldRepository repositories.CustomFieldRepository) CustomFieldService {
+	return &customFieldService{
+		customFieldRepository,
+	}
 }
 
 func (s *customFieldService) Create(c context.Context, dto *dtos.CustomField) (*dtos.CustomField, error) {
@@ -56,17 +69,4 @@ func (s *customFieldService) FindOne(c context.Context, id string) (*dtos.Custom
 
 func (s *customFieldService) Delete(c context.Context, id string) error {
 	return s.customFieldRepository.Delete(c, &models.CustomField{Id: id})
-}
-
-type CustomFieldService interface {
-	Create(c context.Context, dto *dtos.CustomField) (*dtos.CustomField, error)
-	Update(c context.Context, dto *dtos.CustomField) (*dtos.CustomField, error)
-	FindOne(c context.Context, id string) (*dtos.CustomField, error)
-	Delete(c context.Context, id string) error
-}
-
-func NewCustomFieldService(customFieldRepository repositories.CustomFieldRepository) CustomFieldService {
-	return &customFieldService{
-		customFieldRepository,
-	}
 }

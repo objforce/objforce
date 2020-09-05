@@ -23,7 +23,7 @@ func newCustomerFieldMapper() *CustomerFieldMapper {
 		panic(err)
 	}
 
-	c2, err := coven.NewConverter(models.CustomField{}, dtos.CustomField{})
+	c2, err := coven.NewConverter(dtos.CustomField{}, models.CustomField{})
 	if err != nil {
 		panic(err)
 	}

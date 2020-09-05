@@ -3,9 +3,9 @@ package dtos
 type ForecastCategories string
 
 const(
-	Omitted ForecastCategories = "Omitted"
-	Pipeline ForecastCategories = "Pipeline"
-	BestCase ForecastCategories = "BestCase"
-	Forecast ForecastCategories = "Forecast"
-	Closed ForecastCategories = "Closed"
+	ForecastCategoriesOmitted ForecastCategories = "Omitted"
+	ForecastCategoriesPipeline ForecastCategories = "Pipeline"
+	ForecastCategoriesBestCase ForecastCategories = "BestCase"
+	ForecastCategoriesForecast ForecastCategories = "Forecast"
+	ForecastCategoriesClosed ForecastCategories = "Closed"
 )

@@ -20,81 +20,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c3d8dcd-72d0-489f-8855-7bc2834e64b2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/actionOverride.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/action_override_type.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/business_process.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/compact_layout.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/custom_field.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/custom_object.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/custom_settings_type.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/custom_settings_visibility.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/custom_value.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/deployment_status.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/field_set.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/field_type.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/filter_item.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/filter_operation.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/filter_scope.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/forecast_categories.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/form_factor.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/gender.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/history_retention_policy.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/index.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/language.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/list_view.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/list_view_filter.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/metadata.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/named_filter.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/picklist_value.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/platform_event_publish_behavior.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/platform_event_type.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/profile_search_layouts.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/record_type.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/search_layouts.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/setup_object_visibility.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/share_to.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/sharing_model.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/sharing_reason.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/sharing_recalculation.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/starts_with.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/summary_operations.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/validation_rule.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/value_set.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/value_set_values_definition.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/value_settings.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/web_link.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/mapper/customer_field.mapper.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/mapper/customer_field.mapper_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/providers/gin.provider.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/providers/micro.web.service.provider.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/http/controllers/custom_field.controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/http/controllers/custom_field.controller.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/custom_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/models/custom_field.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/custom_value.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/models/custom_value.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/delete_constraint.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/dtos/delete_constraint.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/encryption_schema.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/dtos/encryption_schema.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/field_type.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/models/field_type.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/filter_item.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/models/filter_item.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/filter_operation.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/models/filter_operation.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/forecast_category.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/models/forecast_category.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/lookup_filter.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/models/lookup_filter.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/security_classification.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/dtos/security_classification.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/standard_value.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/models/standard_value.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/summary_operations.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/models/summary_operations.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/treat_blanks_as.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/dtos/treat_blanks_as.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/value_set.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/models/value_set.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/value_set_values_definition.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/models/value_set_values_definition.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/value_settings.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/models/value_settings.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/providers/config.provider.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/providers/database.provider.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/providers/server.provider.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/repositories/custom_field.repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/repositories/custom_field.repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/custom_field.service.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/services/custom_field.service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/app.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/models/business_process.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/models/compact_layout.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/models/custom_object.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/models/field_set.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/models/history_retention_policy.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/models/index.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/models/list_view.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/models/list_view_filter.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/models/metadata.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/models/named_filter.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/models/picklist_value.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/models/profile_search_layouts.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/models/record_type.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/models/search_layouts.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/models/share_to.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/models/sharing_reason.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/models/sharing_recalculation.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/models/validation_rule.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/models/web_link.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/repositories/custom_object.repository.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/services/custom_object.service.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/dtos/action_override.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/mapper/customer_object.mapper.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/domain/models/filter_operation.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/models/filter_operation.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/domain/services/custom_field.service.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/services/custom_field.service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/dtos/actionOverride.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/models/action_override.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/dtos/action_override_type.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/dtos/action_override_type.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/dtos/custom_object.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/dtos/custom_object.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/dtos/deployment_status.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/dtos/deployment_status.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/dtos/forecast_categories.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/dtos/forecast_categories.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/dtos/platform_event_type.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/dtos/platform_event_type.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/mapper/customer_field.mapper.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/mapper/customer_field.mapper.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,14 +87,15 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/dtos" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/domain/models" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/dtos" />
+      <recent name="$PROJECT_DIR$/app/domain/models" />
       <recent name="$PROJECT_DIR$/app/mapper" />
+      <recent name="$PROJECT_DIR$/app/domain/repositories" />
+      <recent name="$PROJECT_DIR$/app/dtos" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/app/providers" />
     </key>
   </component>
   <component name="RunManager" selected="Go Test.TestCustomerField in github.com/objforce/meta-server/app/mapper (4)">
@@ -224,51 +183,56 @@
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1896" height="452" key="GridCell.Tab.0.bottom" timestamp="1599236273666">
+    <state width="1896" height="452" key="GridCell.Tab.0.bottom" timestamp="1599245395846">
       <screen x="1680" y="-12" width="2560" height="1417" />
     </state>
-    <state width="1896" height="452" key="GridCell.Tab.0.bottom/1680.-12.2560.1417/0.23.1680.971@1680.-12.2560.1417" timestamp="1599236273666" />
+    <state width="1896" height="452" key="GridCell.Tab.0.bottom/1680.-12.2560.1417/0.23.1680.971@1680.-12.2560.1417" timestamp="1599245395846" />
     <state width="1896" height="452" key="GridCell.Tab.0.bottom/1680.-12.2560.1417/0.23.1680.972@1680.-12.2560.1417" timestamp="1599226253839" />
-    <state width="1896" height="452" key="GridCell.Tab.0.center" timestamp="1599236273665">
+    <state width="1896" height="452" key="GridCell.Tab.0.center" timestamp="1599245395845">
       <screen x="1680" y="-12" width="2560" height="1417" />
     </state>
-    <state width="1896" height="452" key="GridCell.Tab.0.center/1680.-12.2560.1417/0.23.1680.971@1680.-12.2560.1417" timestamp="1599236273665" />
+    <state width="1896" height="452" key="GridCell.Tab.0.center/1680.-12.2560.1417/0.23.1680.971@1680.-12.2560.1417" timestamp="1599245395845" />
     <state width="1896" height="452" key="GridCell.Tab.0.center/1680.-12.2560.1417/0.23.1680.972@1680.-12.2560.1417" timestamp="1599226253838" />
-    <state width="1896" height="452" key="GridCell.Tab.0.left" timestamp="1599236273665">
+    <state width="1896" height="452" key="GridCell.Tab.0.left" timestamp="1599245395845">
       <screen x="1680" y="-12" width="2560" height="1417" />
     </state>
-    <state width="1896" height="452" key="GridCell.Tab.0.left/1680.-12.2560.1417/0.23.1680.971@1680.-12.2560.1417" timestamp="1599236273665" />
+    <state width="1896" height="452" key="GridCell.Tab.0.left/1680.-12.2560.1417/0.23.1680.971@1680.-12.2560.1417" timestamp="1599245395845" />
     <state width="1896" height="452" key="GridCell.Tab.0.left/1680.-12.2560.1417/0.23.1680.972@1680.-12.2560.1417" timestamp="1599226253838" />
-    <state width="1896" height="452" key="GridCell.Tab.0.right" timestamp="1599236273666">
+    <state width="1896" height="452" key="GridCell.Tab.0.right" timestamp="1599245395845">
       <screen x="1680" y="-12" width="2560" height="1417" />
     </state>
-    <state width="1896" height="452" key="GridCell.Tab.0.right/1680.-12.2560.1417/0.23.1680.971@1680.-12.2560.1417" timestamp="1599236273666" />
+    <state width="1896" height="452" key="GridCell.Tab.0.right/1680.-12.2560.1417/0.23.1680.971@1680.-12.2560.1417" timestamp="1599245395845" />
     <state width="1896" height="452" key="GridCell.Tab.0.right/1680.-12.2560.1417/0.23.1680.972@1680.-12.2560.1417" timestamp="1599226253839" />
-    <state width="1896" height="452" key="GridCell.Tab.1.bottom" timestamp="1599236273742">
+    <state width="1896" height="452" key="GridCell.Tab.1.bottom" timestamp="1599245395848">
       <screen x="1680" y="-12" width="2560" height="1417" />
     </state>
-    <state width="1896" height="452" key="GridCell.Tab.1.bottom/1680.-12.2560.1417/0.23.1680.971@1680.-12.2560.1417" timestamp="1599236273742" />
+    <state width="1896" height="452" key="GridCell.Tab.1.bottom/1680.-12.2560.1417/0.23.1680.971@1680.-12.2560.1417" timestamp="1599245395848" />
     <state width="1896" height="452" key="GridCell.Tab.1.bottom/1680.-12.2560.1417/0.23.1680.972@1680.-12.2560.1417" timestamp="1599226253944" />
-    <state width="1896" height="452" key="GridCell.Tab.1.center" timestamp="1599236273741">
+    <state width="1896" height="452" key="GridCell.Tab.1.center" timestamp="1599245395847">
       <screen x="1680" y="-12" width="2560" height="1417" />
     </state>
-    <state width="1896" height="452" key="GridCell.Tab.1.center/1680.-12.2560.1417/0.23.1680.971@1680.-12.2560.1417" timestamp="1599236273741" />
+    <state width="1896" height="452" key="GridCell.Tab.1.center/1680.-12.2560.1417/0.23.1680.971@1680.-12.2560.1417" timestamp="1599245395847" />
     <state width="1896" height="452" key="GridCell.Tab.1.center/1680.-12.2560.1417/0.23.1680.972@1680.-12.2560.1417" timestamp="1599226253943" />
-    <state width="1896" height="452" key="GridCell.Tab.1.left" timestamp="1599236273740">
+    <state width="1896" height="452" key="GridCell.Tab.1.left" timestamp="1599245395847">
       <screen x="1680" y="-12" width="2560" height="1417" />
     </state>
-    <state width="1896" height="452" key="GridCell.Tab.1.left/1680.-12.2560.1417/0.23.1680.971@1680.-12.2560.1417" timestamp="1599236273740" />
+    <state width="1896" height="452" key="GridCell.Tab.1.left/1680.-12.2560.1417/0.23.1680.971@1680.-12.2560.1417" timestamp="1599245395847" />
     <state width="1896" height="452" key="GridCell.Tab.1.left/1680.-12.2560.1417/0.23.1680.972@1680.-12.2560.1417" timestamp="1599226253942" />
-    <state width="1896" height="452" key="GridCell.Tab.1.right" timestamp="1599236273741">
+    <state width="1896" height="452" key="GridCell.Tab.1.right" timestamp="1599245395847">
       <screen x="1680" y="-12" width="2560" height="1417" />
     </state>
-    <state width="1896" height="452" key="GridCell.Tab.1.right/1680.-12.2560.1417/0.23.1680.971@1680.-12.2560.1417" timestamp="1599236273741" />
+    <state width="1896" height="452" key="GridCell.Tab.1.right/1680.-12.2560.1417/0.23.1680.971@1680.-12.2560.1417" timestamp="1599245395847" />
     <state width="1896" height="452" key="GridCell.Tab.1.right/1680.-12.2560.1417/0.23.1680.972@1680.-12.2560.1417" timestamp="1599226253944" />
-    <state x="2897" y="465" width="615" height="490" key="find.popup" timestamp="1599245264968">
-      <screen x="1680" y="-12" width="2560" height="1417" />
+    <state x="2897" y="438" width="615" height="490" key="find.popup" timestamp="1599307835407">
+      <screen x="1680" y="-12" width="2560" height="1337" />
     </state>
+    <state x="2897" y="438" width="615" height="490" key="find.popup/1680.-12.2560.1337/0.23.1680.1027@1680.-12.2560.1337" timestamp="1599307835407" />
     <state x="2897" y="465" width="615" height="490" key="find.popup/1680.-12.2560.1417/0.23.1680.971@1680.-12.2560.1417" timestamp="1599245264968" />
     <state x="2897" y="465" width="615" height="490" key="find.popup/1680.-12.2560.1417/0.23.1680.972@1680.-12.2560.1417" timestamp="1599223786931" />
+    <state x="2546" y="588" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1599308175346">
+      <screen x="1680" y="-12" width="2560" height="1337" />
+    </state>
+    <state x="2546" y="588" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/1680.-12.2560.1337/0.23.1680.1027@1680.-12.2560.1337" timestamp="1599308175346" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

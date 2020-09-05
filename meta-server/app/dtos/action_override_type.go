@@ -3,10 +3,10 @@ package dtos
 type ActionOverrideType string
 
 const(
-	DEFAULT ActionOverrideType = "default"
-	FLEXIPAGE ActionOverrideType = "flexipage"
-	LIGHTNINGCOMPONENT ActionOverrideType = "lightningcomponent"
-	SCONTROL ActionOverrideType = "scontrol"
-	STANDARD ActionOverrideType = "standard"
-	VISUALFORCE ActionOverrideType = "visualforce"
+	ActionOverrideTypeDefault ActionOverrideType = "default"
+	ActionOverrideTypeFlexipage ActionOverrideType = "flexipage"
+	ActionOverrideTypeLightningcomponent ActionOverrideType = "lightningcomponent"
+	ActionOverrideTypeScontrol ActionOverrideType = "scontrol"
+	ActionOverrideTypeStandard ActionOverrideType = "standard"
+	ActionOverrideTypeVisualforce ActionOverrideType = "visualforce"
 )
