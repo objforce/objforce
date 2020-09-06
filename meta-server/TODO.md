@@ -1,11 +1,9 @@
 
 
 ### 问题
-1. mapper工具
-支持 struct to struct, struct to map, map to struct 的转换，支持内嵌对象
-目前没有找到合适的
-1. coven难用, api设计有问题
-2. https://github.com/devfeel/mapper 不支持内嵌对象
-
-2. gorm 类型转换问题
+1. gorm 类型转换问题
 复合对象转json字段
+
+2. 参考 salesforce的架构实现, 初步准备用 mycat or vitess 实现多租户
+在微服务系统中，由于微服务众多，目前采用schema隔离.
+采用database隔离需要在一个比较内聚的系统比较合适.
