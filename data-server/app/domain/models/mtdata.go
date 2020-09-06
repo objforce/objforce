@@ -8,8 +8,14 @@ type MTData struct {
 	OrgId string `json:"orgId,omitempty"`
 	Name string `json:"name"`
 	Fields map[string]interface{}	`json:"fields"`
-	Created time.Time `json:"created"`
-	CreateBy string `json:"createuser"`
-	LastModified time.Time	`json:"lastModified"`
-	LastModifiedBy string `json:"lastModifiedBy"`
+	CreatedAt time.Time `json:"createdAt"`
+	CreatedBy string `json:"createdBy"`
+	UpdatedAt time.Time	`json:"updatedAt"`
+	UpdatedBy string `json:"updatedBy"`
+}
+
+func (m *MTData) Unique() interface{} {
+	return map[string]interface{}{
+		"id": m.Id,
+	}
 }
