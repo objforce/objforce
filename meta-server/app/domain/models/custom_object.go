@@ -3,7 +3,9 @@ package models
 
 type CustomObject struct {
 	*Metadata
-	Id string `json:"id"`
+	ObjId string `json:"objId,omitempty" gorm:"primary_key"`
+	OrgId string `json:"orgId,omitempty"`
+	ObjName string `json:"objName,omitempty"`
 	ActionOverrides []*ActionOverride	`json:"actionOverrides,omitempty"`
 	AllowInChatterGroups bool `json:"allowInChatterGroups,omitempty"`
 	BusinessProcesses []*BusinessProcess
@@ -61,6 +63,6 @@ type CustomObject struct {
 
 func (m *CustomObject) Unique() interface{} {
 	return map[string]interface{}{
-		"id": m.Id,
+		"objId": m.ObjId,
 	}
 }

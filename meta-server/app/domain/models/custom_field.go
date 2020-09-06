@@ -1,8 +1,10 @@
 package models
 
 type CustomField struct {
-	Id string `json:"id"`
-	ObjId string `json:"objId"`
+	ObjId string `json:"objId,omitempty" gorm:"primary_key"`
+	FieldId string `json:"fieldId,omitempty" gorm:"unique"`
+	OrgId string `json:"orgID,omitempty"`
+	FieldName string `json:"fieldName,omitempty"`
 	DefaultValue string `json:"defaultValue"`
 	DeleteConstraint string `json:"deleteConstraint"`
 	Deprecated bool `json:"deprecated"`	// 是否保留使用
@@ -12,7 +14,7 @@ type CustomField struct {
 	EncryptionScheme string `json:"encryptionScheme"`
 	External bool `json:"external"` // 表明是否一个外部映射列
 	ExternalColumnName string `json:"externalColumnName"` // 对应的外部数据源 的 列名
-	Formula string `json:"formula"` // 应用在字段上的公式
+	Formula string `json:"formula"` // 应用在字段上的公式, 代表字段的值是公式计算出来的，公式推导的字段值为只读
 	FormulaTreatBlankAs string `json:"formulaTreatBlankAs "` // 如何处理空格
 	InlineHelpText string `json:"inlineHelpText"` // 字段的帮助提示
 	IsFilteringDisabled bool `json:"isFilteringDisabled"` // Available only for external objects. Indicates whether the custom field is available in filters
@@ -38,7 +40,7 @@ type CustomField struct {
 		The object specified in the controlling field determines the values available in its dependent field definition or entity particle. 
 		For example, specifying the Account object filters the available fields in the field definition to Account fields only.
    */
-	MetadataRelationshipControllingField string `json:"metadataRelationship​ControllingField"`
+	MetadataRelationshipControllingField string `json:"MetadataRelationshipControllingField"`
 
 	/*
 		The precision for number values. Precision is the number of digits in a number. For example, the number 256.99 has a precision of 5
@@ -160,7 +162,7 @@ type CustomField struct {
 	/**
 
 	 */
-	ValueSet ValueSet `json:"valueSet"`
+	ValueSet *ValueSet `json:"valueSet"`
 
 	/**
 		Indicates the number of lines displayed for the field.
@@ -181,6 +183,6 @@ type CustomField struct {
 
 func (m *CustomField) Unique() interface{} {
 	return map[string]interface{}{
-		"id": m.Id,
+		"fieldId": m.FieldId,
 	}
 }

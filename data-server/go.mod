@@ -1,4 +1,4 @@
-module github.com/objforce/objforce/meta-server
+module github.com/objforce/objforce/data-server
 
 go 1.14
 

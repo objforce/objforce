@@ -2,9 +2,9 @@ package services
 
 import(
 	"context"
-	"github.com/objforce/meta-server/app/domain/models"
-	"github.com/objforce/meta-server/app/domain/repositories"
-	"github.com/objforce/meta-server/app/dtos"
+	"github.com/objforce/objforce/meta-server/app/domain/models"
+	"github.com/objforce/objforce/meta-server/app/domain/repositories"
+	"github.com/objforce/objforce/meta-server/app/dtos"
 	"github.com/xxxmicro/base/mapper"
 )
 
@@ -40,7 +40,7 @@ func (s *customFieldService) Create(c context.Context, dto *dtos.CustomField) (*
 }
 
 func (s *customFieldService) Update(c context.Context, dto *dtos.CustomField) (*dtos.CustomField, error) {
-	entity := &models.CustomField{Id: dto.Id}
+	entity := &models.CustomField{ObjId: dto.Id}
 
 	mapper.Map(dto, entity)
 
@@ -60,7 +60,7 @@ func (s *customFieldService) Update(c context.Context, dto *dtos.CustomField) (*
 }
 
 func (s *customFieldService) FindOne(c context.Context, id string) (*dtos.CustomField, error) {
-	entity := &models.CustomField{Id: id}
+	entity := &models.CustomField{ObjId: id}
 	s.customFieldRepository.FindOne(c, entity)
 
 	dto := &dtos.CustomField{}
@@ -69,5 +69,5 @@ func (s *customFieldService) FindOne(c context.Context, id string) (*dtos.Custom
 }
 
 func (s *customFieldService) Delete(c context.Context, id string) error {
-	return s.customFieldRepository.Delete(c, &models.CustomField{Id: id})
+	return s.customFieldRepository.Delete(c, &models.CustomField{ObjId: id})
 }

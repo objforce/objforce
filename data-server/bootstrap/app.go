@@ -6,13 +6,13 @@ import(
 	xsource "github.com/xxxmicro/base/config/source"
 	gorm "github.com/xxxmicro/base/database/gorm"
 	"github.com/xxxmicro/base/opentracing/jaeger"
-	"github.com/objforce/objforce/meta-server/config"
-	"github.com/objforce/objforce/meta-server/app/http/controllers"
-	"github.com/objforce/objforce/meta-server/app/http/middlewares"
-	"github.com/objforce/objforce/meta-server/app/providers"
-	"github.com/objforce/objforce/meta-server/app/domain/services"
-	"github.com/objforce/objforce/meta-server/app/domain/repositories"
-	"github.com/objforce/objforce/meta-server/routes"
+	"github.com/objforce/objforce/data-server/config"
+	"github.com/objforce/objforce/data-server/app/http/controllers"
+	"github.com/objforce/objforce/data-server/app/http/middlewares"
+	"github.com/objforce/objforce/data-server/app/providers"
+	"github.com/objforce/objforce/data-server/app/domain/services"
+	"github.com/objforce/objforce/data-server/app/domain/repositories"
+	"github.com/objforce/objforce/data-server/routes"
 )
 
 
@@ -31,17 +31,17 @@ func App() *fx.App {
 		fx.Provide(providers.NewGinProvider),
 
 		// Repositories (./app/repositories)
-		fx.Provide(repositories.NewCustomFieldRepository),
+		fx.Provide(repositories.NewDataRepository),
 
 		// Services (./app/services)
-		fx.Provide(services.NewCustomFieldService),
+		fx.Provide(services.NewDataService),
 
 		// Middlewares (./app/middlewares)
 		fx.Provide(middlewares.NewLogMiddleware),
 
 		// Controllers (./app/controllers)
 		fx.Provide(controllers.NewAPIController),
-		fx.Provide(controllers.NewCustomFieldController),
+		fx.Provide(controllers.NewSObjectController),
 
 		/*
 		|--------------------------------------------------------------------------

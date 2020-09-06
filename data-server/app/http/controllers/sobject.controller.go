@@ -2,28 +2,28 @@ package controllers
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/objforce/objforce/meta-server/app/domain/services"
-	"github.com/objforce/objforce/meta-server/app/dtos"
+	"github.com/objforce/objforce/data-server/app/domain/services"
+	"github.com/objforce/objforce/data-server/app/dtos"
 	"go.uber.org/zap"
 	"net/http"
 )
 
-type CustomFieldController struct {
-	customFieldService services.CustomFieldService
+type SObjectController struct {
+	dataService services.DataService
 	log *zap.SugaredLogger 
 }
 
-func (c *CustomFieldController) Create(ctx *gin.Context) {
+func (c *SObjectController) Create(ctx *gin.Context) {
 	c.log.Info("STARTING CustomFieldController.Create()")
 
-	customField := &dtos.CustomField{}
+	customField := &dtos.SObject{}
 
 	if err := ctx.ShouldBindJSON(&customField); err != nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 
-	customField, err := c.customFieldService.Create(ctx.Request.Context(), customField)
+	customField, err := c.dataService.Create(ctx.Request.Context(), customField)
 	if err != nil {
 		ctx.AbortWithError(http.StatusInternalServerError, err)
 		return
@@ -36,7 +36,7 @@ func (c *CustomFieldController) Create(ctx *gin.Context) {
 	)
 }
 
-func (c *CustomFieldController) Delete(ctx *gin.Context) {
+func (c *SObjectController) Delete(ctx *gin.Context) {
 	c.log.Info("STARTING CustomFieldController.Delete()")
 
 	id := ctx.Param("id")
@@ -44,7 +44,7 @@ func (c *CustomFieldController) Delete(ctx *gin.Context) {
 		ctx.JSON(http.StatusBadRequest, gin.H{"msg": "need id"})
 	}
 
-	err := c.customFieldService.Delete(ctx.Request.Context(), id)
+	err := c.dataService.Delete(ctx.Request.Context(), id)
 	if err != nil {
 		ctx.AbortWithError(http.StatusInternalServerError, err)
 		return
@@ -53,9 +53,9 @@ func (c *CustomFieldController) Delete(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, gin.H{"code": 0})
 }
 
-func NewCustomFieldController(customFieldService services.CustomFieldService, log *zap.SugaredLogger) *CustomFieldController {
-	return &CustomFieldController{
-		customFieldService,
+func NewSObjectController(dataService services.DataService, log *zap.SugaredLogger) *SObjectController {
+	return &SObjectController{
+		dataService,
 		log,
 	}
 }

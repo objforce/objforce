@@ -7,7 +7,7 @@ import (
 	"github.com/gin-contrib/gzip"
 	"github.com/gin-contrib/static"
 	"github.com/gin-gonic/gin"
-	"github.com/objforce/objforce/meta-server/config"
+	"github.com/objforce/objforce/data-server/config"
 	"github.com/thinkerou/favicon"
 )
 
