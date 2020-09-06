@@ -20,47 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9e58f31-a64e-4a68-81e0-e4a44ce8d986" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/data-server.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/models/mtdata.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/repositories/data.repository.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/services/data.service.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/sobject.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/http/controllers/api.controller.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/http/controllers/sobject.controller.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/http/middlewares/global.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/http/middlewares/log.middleware.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/mapper/customer_field.mapper_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/providers/gin.provider.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/providers/logger.provider.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/providers/micro.web.service.provider.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/app.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/app.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/env.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/api.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/repositories/clob.repository.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bot/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bot/app/commands/migrate.command.go" beforeDir="false" afterPath="$PROJECT_DIR$/../bot/app/commands/migrate.command.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bot/app/providers/commands.provider.go" beforeDir="false" afterPath="$PROJECT_DIR$/../bot/app/providers/commands.provider.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bot/bootstrap/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/../bot/bootstrap/app.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bot/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../bot/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bot/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/../bot/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/domain/models/mtdata.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/models/mtdata.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/app.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../meta-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../meta-server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meta-server/app/domain/models/custom_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/../meta-server/app/domain/models/custom_field.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meta-server/app/domain/models/custom_object.go" beforeDir="false" afterPath="$PROJECT_DIR$/../meta-server/app/domain/models/custom_object.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meta-server/app/domain/models/field_type.go" beforeDir="false" afterPath="$PROJECT_DIR$/../meta-server/app/domain/models/field_type.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meta-server/app/domain/models/summary_operations.go" beforeDir="false" afterPath="$PROJECT_DIR$/../meta-server/app/domain/models/summary_operations.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meta-server/app/domain/services/custom_field.service.go" beforeDir="false" afterPath="$PROJECT_DIR$/../meta-server/app/domain/services/custom_field.service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meta-server/app/domain/services/custom_object.service.go" beforeDir="false" afterPath="$PROJECT_DIR$/../meta-server/app/domain/services/custom_object.service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meta-server/app/http/controllers/custom_field.controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/../meta-server/app/http/controllers/custom_field.controller.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meta-server/app/http/middlewares/global.go" beforeDir="false" afterPath="$PROJECT_DIR$/../meta-server/app/http/middlewares/global.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meta-server/app/mapper/customer_field.mapper_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/../meta-server/app/mapper/customer_field.mapper_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meta-server/app/providers/logger.provider.go" beforeDir="false" afterPath="$PROJECT_DIR$/../meta-server/app/providers/logger.provider.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meta-server/bootstrap/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/../meta-server/bootstrap/app.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meta-server/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../meta-server/go.mod" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,10 +59,11 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/domain/repositories" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/domain/repositories" />
       <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/app/domain/models" />

@@ -3,8 +3,9 @@ package dtos
 
 
 type CustomField struct {
-	Id string `json:"id"`
+	FieldId string `json:"fieldId"`
 	ObjId string `json:"objId"`
+	OrgId string `json:"orgId"`
 	DefaultValue string `json:"defaultValue"`
 	DeleteConstraint DeleteConstraint `json:"deleteConstraint"`
 	Deprecated bool `json:"deprecated"`	// 是否保留使用

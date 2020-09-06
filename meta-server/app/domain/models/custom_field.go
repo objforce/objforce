@@ -1,8 +1,8 @@
 package models
 
 type CustomField struct {
-	ObjId string `json:"objId,omitempty" gorm:"primary_key"`
-	FieldId string `json:"fieldId,omitempty" gorm:"unique"`
+	FieldId string `json:"fieldId,omitempty" gorm:"primary_key"`
+	ObjId string `json:"objId,omitempty"`
 	OrgId string `json:"orgID,omitempty"`
 	FieldName string `json:"fieldName,omitempty"`
 	DefaultValue string `json:"defaultValue"`
