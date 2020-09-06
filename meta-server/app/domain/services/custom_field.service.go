@@ -27,21 +27,22 @@ func NewCustomFieldService(customFieldRepository repositories.CustomFieldReposit
 
 func (s *customFieldService) Create(c context.Context, dto *dtos.CustomField) (*dtos.CustomField, error) {
 	entity := &models.CustomField{}
-	mapper.CUSTOMER_FIELD_MAPPER.ConvertToEntity(dto, entity)
+	mapper.Map(dto, entity)
 
 	err := s.customFieldRepository.Create(c, entity)
 	if err != nil {
 		return nil, err
 	}
 
-	mapper.CUSTOMER_FIELD_MAPPER.ConvertToDto(entity, dto)
+	mapper.Map(entity, dto)
 
 	return dto, nil
 }
 
 func (s *customFieldService) Update(c context.Context, dto *dtos.CustomField) (*dtos.CustomField, error) {
-	entity := &models.CustomField{}
-	mapper.CUSTOMER_FIELD_MAPPER.ConvertToEntity(dto, entity)
+	entity := &models.CustomField{Id: dto.Id}
+
+	mapper.Map(dto, entity)
 
 	err := s.customFieldRepository.Update(c, entity, entity)
 	if err != nil {
@@ -53,7 +54,7 @@ func (s *customFieldService) Update(c context.Context, dto *dtos.CustomField) (*
 		return nil, err
 	}
 
-	mapper.CUSTOMER_FIELD_MAPPER.ConvertToDto(entity, dto)
+	mapper.Map(entity, dto)
 
 	return dto, nil
 }
@@ -63,7 +64,7 @@ func (s *customFieldService) FindOne(c context.Context, id string) (*dtos.Custom
 	s.customFieldRepository.FindOne(c, entity)
 
 	dto := &dtos.CustomField{}
-	mapper.CUSTOMER_FIELD_MAPPER.ConvertToDto(entity, dto)
+	mapper.Map(entity, dto)
 	return dto, nil
 }
 

@@ -6,7 +6,6 @@ import (
 	"github.com/objforce/meta-server/app/domain/repositories"
 	"github.com/objforce/meta-server/app/dtos"
 	"github.com/objforce/meta-server/app/mapper"
-	xmapper "github.com/devfeel/mapper"
 )
 
 type CustomObjectService interface {
@@ -28,14 +27,14 @@ func NewCustomObjectService(customObjectRepository repositories.CustomObjectRepo
 
 func (s *customObjectService) Create(c context.Context, dto *dtos.CustomObject) (*dtos.CustomObject, error) {
 	entity := &models.CustomField{}
-	mapper.CUSTOMER_OBJECT_MAPPER.ConvertToEntity(dto, entity)
+	mapper.Map(dto, entity)
 
 	err := s.customObjectRepository.Create(c, entity)
 	if err != nil {
 		return nil, err
 	}
 
-	mapper.CUSTOMER_OBJECT_MAPPER.ConvertToDto(entity, dto)
+	mapper.Map(entity, dto)
 
 	return dto, nil
 }
@@ -43,10 +42,9 @@ func (s *customObjectService) Create(c context.Context, dto *dtos.CustomObject) 
 func (s *customObjectService) Update(c context.Context, dto *dtos.CustomObject) (*dtos.CustomObject, error) {
 	entity := &models.CustomField{Id: dto.Id}
 
-	var change map[string]interface{}
-	xmapper.Mapper(dto, change)
+	mapper.Map(dto, entity)
 
-	err := s.customObjectRepository.Update(c, entity, change)
+	err := s.customObjectRepository.Update(c, entity, entity)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +54,7 @@ func (s *customObjectService) Update(c context.Context, dto *dtos.CustomObject) 
 		return nil, err
 	}
 
-	mapper.CUSTOMER_OBJECT_MAPPER.ConvertToDto(entity, dto)
+	mapper.Map(entity, dto)
 
 	return dto, nil
 }
@@ -66,7 +64,7 @@ func (s *customObjectService) FindOne(c context.Context, id string) (*dtos.Custo
 	s.customObjectRepository.FindOne(c, entity)
 
 	dto := &dtos.CustomObject{}
-	mapper.CUSTOMER_OBJECT_MAPPER.ConvertToDto(entity, dto)
+	mapper.Map(entity, dto)
 	return dto, nil
 }
 

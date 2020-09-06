@@ -1,0 +1,1 @@
+{"appId":"objforce-bot","cluster":"default","namespaceName":"application","releaseKey":"20200906071205-78dcd1df2f0b03f9","configurations":{"db.connection_string":"root:root@tcp(localhost:3306)/objforce_meta?charset=utf8mb4\u0026parseTime=True\u0026loc=Local","db.driver":"mysql"}}

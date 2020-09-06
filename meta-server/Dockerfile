@@ -2,18 +2,6 @@ FROM autokit/micro-builder:latest as builder
 
 WORKDIR /opt
 
-
-# Configure Git to download private modules
-RUN mkdir -p /root/.ssh
-COPY .gitconfig /root/.gitconfig
-COPY id_rsa /root/.ssh/id_rsa
-RUN git config --global url."git@code.aliyun.com:".insteadOf "https://code.aliyun.com/" && \
-    echo "ssh -l git -o StrictHostKeyChecking=no \"\$@\"" > /root/ssh.sh && \
-    chmod +x /root/ssh.sh
-ENV GIT_SSH=/root/ssh.sh
-
-
-
 RUN go env -w GOPROXY=https://goproxy.cn,direct && go env -w GO111MODULE=on
 ADD go.mod .
 ADD go.sum .
@@ -21,7 +9,7 @@ RUN go mod download
 
 COPY . /opt
 
-RUN make submodule build
+RUN make build
 
 FROM alpine:3.10
 WORKDIR /app

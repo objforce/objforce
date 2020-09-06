@@ -113,7 +113,7 @@ type CustomField struct {
 	/**
 	Represents the set of filter conditions for this field if it is a summary field. This field will be summed on the child if the filter conditions are met.
 	*/
-	SummaryFilterItems []FilterItem `json:"summaryFilterItems"`
+	SummaryFilterItems []*FilterItem `json:"summaryFilterItems"`
 
 	/**
 	Represents the master-detail field on the child that defines the relationship between the parent and the child

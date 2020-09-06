@@ -19,40 +19,35 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6c3d8dcd-72d0-489f-8855-7bc2834e64b2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/domain/models/business_process.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/models/compact_layout.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/models/custom_object.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/models/field_set.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/models/history_retention_policy.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/models/index.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/models/list_view.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/models/list_view_filter.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/models/metadata.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/models/named_filter.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/models/picklist_value.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/models/profile_search_layouts.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/models/record_type.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/models/search_layouts.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/models/share_to.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/models/sharing_reason.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/models/sharing_recalculation.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/models/validation_rule.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/models/web_link.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/repositories/custom_object.repository.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/services/custom_object.service.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/dtos/action_override.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/mapper/customer_object.mapper.go" afterDir="false" />
+    <list default="true" id="2a55b871-7446-45ae-84dd-f0e00be0c424" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../bot/.idea/bot.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bot/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bot/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bot/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bot/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bot/app/commands/migrate.command.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bot/app/providers/commands.provider.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bot/app/providers/micro.bot.service.provider.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bot/application.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bot/bootstrap/app.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bot/config/app.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bot/config/env.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bot/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/mapper/mappers.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/mapper/options.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/domain/models/filter_operation.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/models/filter_operation.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/domain/models/custom_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/models/custom_field.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/domain/services/custom_field.service.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/services/custom_field.service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/dtos/actionOverride.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/models/action_override.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/dtos/action_override_type.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/dtos/action_override_type.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/dtos/custom_object.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/dtos/custom_object.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/dtos/deployment_status.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/dtos/deployment_status.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/dtos/forecast_categories.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/dtos/forecast_categories.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/dtos/platform_event_type.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/dtos/platform_event_type.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/mapper/customer_field.mapper.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/mapper/customer_field.mapper.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/domain/services/custom_object.service.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/services/custom_object.service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/dtos/custom_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/dtos/custom_field.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/dtos/filter_item.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/dtos/filter_item.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/dtos/treat_blanks_as.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/dtos/treat_blanks_as.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/mapper/customer_field.mapper.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/mapper/customer_field.mapper_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/mapper/customer_field.mapper_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/mapper/customer_object.mapper.go" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,43 +57,40 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Go Application" />
         <option value="Go File" />
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="/usr/local/go" />
+  <component name="GOROOT" path="/usr/local/Cellar/go/1.14.2_1/libexec" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
   </component>
-  <component name="ProjectId" id="1h2yYYE27JtF8q5EdBtrWg0Nx9q" />
+  <component name="ProjectId" id="1h6fhwq1B7mtF4JJZjGjevkdy4v" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/domain/models" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/domain/models" />
-      <recent name="$PROJECT_DIR$/app/mapper" />
-      <recent name="$PROJECT_DIR$/app/domain/repositories" />
-      <recent name="$PROJECT_DIR$/app/dtos" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestCustomerField in github.com/objforce/meta-server/app/mapper (4)">
+  <component name="RunManager" selected="Go Test.TestCustomerField in github.com/objforce/meta-server/app/mapper (3)">
     <configuration name="TestCustomerField in github.com/objforce/meta-server/app/mapper (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="meta-server" />
       <working_directory value="$PROJECT_DIR$/app/mapper" />
@@ -132,17 +124,6 @@
       <pattern value="^\QTestCustomerField\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestCustomerField in github.com/objforce/meta-server/app/mapper (4)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="meta-server" />
-      <working_directory value="$PROJECT_DIR$/app/mapper" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="github.com/objforce/meta-server/app/mapper" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTestCustomerField\E$" />
-      <method v="2" />
-    </configuration>
     <configuration name="TestCustomerField in github.com/objforce/meta-server/app/mapper" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="meta-server" />
       <working_directory value="$PROJECT_DIR$/app/mapper" />
@@ -156,7 +137,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.TestCustomerField in github.com/objforce/meta-server/app/mapper (4)" />
         <item itemvalue="Go Test.TestCustomerField in github.com/objforce/meta-server/app/mapper (3)" />
         <item itemvalue="Go Test.TestCustomerField in github.com/objforce/meta-server/app/mapper (2)" />
         <item itemvalue="Go Test.TestCustomerField in github.com/objforce/meta-server/app/mapper (1)" />
@@ -183,64 +163,50 @@
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1896" height="452" key="GridCell.Tab.0.bottom" timestamp="1599245395846">
-      <screen x="1680" y="-12" width="2560" height="1417" />
+    <state width="1494" height="252" key="GridCell.Tab.0.bottom" timestamp="1599339900467">
+      <screen x="0" y="23" width="1536" height="891" />
     </state>
-    <state width="1896" height="452" key="GridCell.Tab.0.bottom/1680.-12.2560.1417/0.23.1680.971@1680.-12.2560.1417" timestamp="1599245395846" />
-    <state width="1896" height="452" key="GridCell.Tab.0.bottom/1680.-12.2560.1417/0.23.1680.972@1680.-12.2560.1417" timestamp="1599226253839" />
-    <state width="1896" height="452" key="GridCell.Tab.0.center" timestamp="1599245395845">
-      <screen x="1680" y="-12" width="2560" height="1417" />
+    <state width="1494" height="252" key="GridCell.Tab.0.bottom/0.23.1536.891@0.23.1536.891" timestamp="1599339900467" />
+    <state width="1494" height="252" key="GridCell.Tab.0.center" timestamp="1599339900467">
+      <screen x="0" y="23" width="1536" height="891" />
     </state>
-    <state width="1896" height="452" key="GridCell.Tab.0.center/1680.-12.2560.1417/0.23.1680.971@1680.-12.2560.1417" timestamp="1599245395845" />
-    <state width="1896" height="452" key="GridCell.Tab.0.center/1680.-12.2560.1417/0.23.1680.972@1680.-12.2560.1417" timestamp="1599226253838" />
-    <state width="1896" height="452" key="GridCell.Tab.0.left" timestamp="1599245395845">
-      <screen x="1680" y="-12" width="2560" height="1417" />
+    <state width="1494" height="252" key="GridCell.Tab.0.center/0.23.1536.891@0.23.1536.891" timestamp="1599339900467" />
+    <state width="1494" height="252" key="GridCell.Tab.0.left" timestamp="1599339900466">
+      <screen x="0" y="23" width="1536" height="891" />
     </state>
-    <state width="1896" height="452" key="GridCell.Tab.0.left/1680.-12.2560.1417/0.23.1680.971@1680.-12.2560.1417" timestamp="1599245395845" />
-    <state width="1896" height="452" key="GridCell.Tab.0.left/1680.-12.2560.1417/0.23.1680.972@1680.-12.2560.1417" timestamp="1599226253838" />
-    <state width="1896" height="452" key="GridCell.Tab.0.right" timestamp="1599245395845">
-      <screen x="1680" y="-12" width="2560" height="1417" />
+    <state width="1494" height="252" key="GridCell.Tab.0.left/0.23.1536.891@0.23.1536.891" timestamp="1599339900466" />
+    <state width="1494" height="252" key="GridCell.Tab.0.right" timestamp="1599339900467">
+      <screen x="0" y="23" width="1536" height="891" />
     </state>
-    <state width="1896" height="452" key="GridCell.Tab.0.right/1680.-12.2560.1417/0.23.1680.971@1680.-12.2560.1417" timestamp="1599245395845" />
-    <state width="1896" height="452" key="GridCell.Tab.0.right/1680.-12.2560.1417/0.23.1680.972@1680.-12.2560.1417" timestamp="1599226253839" />
-    <state width="1896" height="452" key="GridCell.Tab.1.bottom" timestamp="1599245395848">
-      <screen x="1680" y="-12" width="2560" height="1417" />
+    <state width="1494" height="252" key="GridCell.Tab.0.right/0.23.1536.891@0.23.1536.891" timestamp="1599339900467" />
+    <state width="1494" height="252" key="GridCell.Tab.1.bottom" timestamp="1599339900468">
+      <screen x="0" y="23" width="1536" height="891" />
     </state>
-    <state width="1896" height="452" key="GridCell.Tab.1.bottom/1680.-12.2560.1417/0.23.1680.971@1680.-12.2560.1417" timestamp="1599245395848" />
-    <state width="1896" height="452" key="GridCell.Tab.1.bottom/1680.-12.2560.1417/0.23.1680.972@1680.-12.2560.1417" timestamp="1599226253944" />
-    <state width="1896" height="452" key="GridCell.Tab.1.center" timestamp="1599245395847">
-      <screen x="1680" y="-12" width="2560" height="1417" />
+    <state width="1494" height="252" key="GridCell.Tab.1.bottom/0.23.1536.891@0.23.1536.891" timestamp="1599339900468" />
+    <state width="1494" height="252" key="GridCell.Tab.1.center" timestamp="1599339900467">
+      <screen x="0" y="23" width="1536" height="891" />
     </state>
-    <state width="1896" height="452" key="GridCell.Tab.1.center/1680.-12.2560.1417/0.23.1680.971@1680.-12.2560.1417" timestamp="1599245395847" />
-    <state width="1896" height="452" key="GridCell.Tab.1.center/1680.-12.2560.1417/0.23.1680.972@1680.-12.2560.1417" timestamp="1599226253943" />
-    <state width="1896" height="452" key="GridCell.Tab.1.left" timestamp="1599245395847">
-      <screen x="1680" y="-12" width="2560" height="1417" />
+    <state width="1494" height="252" key="GridCell.Tab.1.center/0.23.1536.891@0.23.1536.891" timestamp="1599339900467" />
+    <state width="1494" height="252" key="GridCell.Tab.1.left" timestamp="1599339900467">
+      <screen x="0" y="23" width="1536" height="891" />
     </state>
-    <state width="1896" height="452" key="GridCell.Tab.1.left/1680.-12.2560.1417/0.23.1680.971@1680.-12.2560.1417" timestamp="1599245395847" />
-    <state width="1896" height="452" key="GridCell.Tab.1.left/1680.-12.2560.1417/0.23.1680.972@1680.-12.2560.1417" timestamp="1599226253942" />
-    <state width="1896" height="452" key="GridCell.Tab.1.right" timestamp="1599245395847">
-      <screen x="1680" y="-12" width="2560" height="1417" />
+    <state width="1494" height="252" key="GridCell.Tab.1.left/0.23.1536.891@0.23.1536.891" timestamp="1599339900467" />
+    <state width="1494" height="252" key="GridCell.Tab.1.right" timestamp="1599339900468">
+      <screen x="0" y="23" width="1536" height="891" />
     </state>
-    <state width="1896" height="452" key="GridCell.Tab.1.right/1680.-12.2560.1417/0.23.1680.971@1680.-12.2560.1417" timestamp="1599245395847" />
-    <state width="1896" height="452" key="GridCell.Tab.1.right/1680.-12.2560.1417/0.23.1680.972@1680.-12.2560.1417" timestamp="1599226253944" />
-    <state x="2897" y="438" width="615" height="490" key="find.popup" timestamp="1599307835407">
-      <screen x="1680" y="-12" width="2560" height="1337" />
+    <state width="1494" height="252" key="GridCell.Tab.1.right/0.23.1536.891@0.23.1536.891" timestamp="1599339900468" />
+    <state x="465" y="424" width="598" height="490" key="find.popup" timestamp="1599347409373">
+      <screen x="0" y="23" width="1536" height="891" />
     </state>
-    <state x="2897" y="438" width="615" height="490" key="find.popup/1680.-12.2560.1337/0.23.1680.1027@1680.-12.2560.1337" timestamp="1599307835407" />
-    <state x="2897" y="465" width="615" height="490" key="find.popup/1680.-12.2560.1417/0.23.1680.971@1680.-12.2560.1417" timestamp="1599245264968" />
-    <state x="2897" y="465" width="615" height="490" key="find.popup/1680.-12.2560.1417/0.23.1680.972@1680.-12.2560.1417" timestamp="1599223786931" />
-    <state x="2546" y="588" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1599308175346">
-      <screen x="1680" y="-12" width="2560" height="1337" />
-    </state>
-    <state x="2546" y="588" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/1680.-12.2560.1337/0.23.1680.1027@1680.-12.2560.1337" timestamp="1599308175346" />
+    <state x="465" y="424" width="598" height="490" key="find.popup/0.23.1536.891@0.23.1536.891" timestamp="1599347409373" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/app/mapper/customer_field.mapper_test.go</url>
-          <line>31</line>
-          <option name="timeStamp" value="5" />
+          <line>24</line>
+          <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -3,7 +3,7 @@ GOPATH:=$(shell go env GOPATH)
 .PHONY: run
 run:
 	go run main.go \
-		--server_name=com.objforce.api.meta \
+		--server_name=com.xapis.api.meta \
 		--apollo_namespace=application \
 		--apollo_address=http://apollo-dev.dev.lucfish.com:8080 \
 		--apollo_app_id=meta-server \
@@ -12,12 +12,8 @@ run:
         --registry_address=localhost:8500
 
 .PHONY: build
-build: proto
+build:
 	go build -o meta-server *.go
-
-.PHONY: proto
-proto:
-	make -C proto/objforce go
 
 .PHONY: test
 test:
