@@ -47,7 +47,7 @@ func NewMicroService() (micro.Service, *cli.Context) {
 	service.Init(
 		micro.Action(func(c *cli.Context) error {
 			serverName := c.String("server_name")
-			logger.Logf(logger.DebugLevel, "service.Init: %s", serverName)
+			logger.Debugf("service.Init: %s", serverName)
 			cc = c
 
 			// prometheusBoot
