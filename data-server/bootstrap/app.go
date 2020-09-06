@@ -32,7 +32,7 @@ func App() *fx.App {
 
 		// Repositories (./app/repositories)
 		fx.Provide(repositories.NewDataRepository),
-		fx.Provide(repositories.NewClobRepository(),
+		fx.Provide(repositories.NewClobRepository),
 
 		// Services (./app/services)
 		fx.Provide(services.NewDataService),
