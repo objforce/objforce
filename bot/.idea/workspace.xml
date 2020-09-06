@@ -20,12 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7a643c8-a3e8-48fa-9f41-6c7b94c4f245" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../data-server/app/domain/repositories/clob.repository.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../data-server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-server/app/domain/models/mtdata.go" beforeDir="false" afterPath="$PROJECT_DIR$/../data-server/app/domain/models/mtdata.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-server/bootstrap/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/../data-server/bootstrap/app.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meta-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../meta-server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +67,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="go build github.com/objforce/bot" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="go build github.com/objforce/objforce/bot" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="bot" />
       <working_directory value="$PROJECT_DIR$" />
       <parameters value="--server_name com.xapis.bot.objforce -apollo_namespace application -apollo_address http://apollo-dev.dev.lucfish.com:8080 -apollo_app_id objforce-bot -apollo_cluster=dev --registry consul --registry_address localhost:8500" />
@@ -80,13 +76,13 @@
       </envs>
       <kind value="PACKAGE" />
       <filePath value="$PROJECT_DIR$/main.go" />
-      <package value="github.com/objforce/bot" />
+      <package value="github.com/objforce/objforce/bot" />
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build github.com/objforce/bot" />
+        <item itemvalue="Go Build.go build github.com/objforce/objforce/bot" />
       </list>
     </recent_temporary>
   </component>
@@ -113,10 +109,10 @@
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="WindowStateProjectService">
-    <state x="232" y="130" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599349024495">
+    <state x="232" y="130" width="1071" height="701" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599394230729">
       <screen x="0" y="23" width="1536" height="891" />
     </state>
-    <state x="232" y="130" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1536.891@0.23.1536.891" timestamp="1599349024495" />
+    <state x="232" y="130" width="1071" height="701" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1536.891@0.23.1536.891" timestamp="1599394230729" />
     <state width="1494" height="291" key="GridCell.Tab.0.bottom" timestamp="1599392059609">
       <screen x="0" y="23" width="1536" height="891" />
     </state>
