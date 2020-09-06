@@ -20,6 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7a643c8-a3e8-48fa-9f41-6c7b94c4f245" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../meta-server/app/commands/command.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../meta-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../meta-server/.idea/workspace.xml" afterDir="false" />
     </list>
