@@ -20,34 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7a643c8-a3e8-48fa-9f41-6c7b94c4f245" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/bot.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/commands/migrate.command.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/providers/commands.provider.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/providers/micro.bot.service.provider.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/app.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/app.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/env.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meta-server/app/mapper/mappers.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meta-server/app/mapper/options.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meta-server/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../meta-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../meta-server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meta-server/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../meta-server/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meta-server/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../meta-server/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meta-server/app/domain/models/custom_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/../meta-server/app/domain/models/custom_field.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meta-server/app/domain/services/custom_field.service.go" beforeDir="false" afterPath="$PROJECT_DIR$/../meta-server/app/domain/services/custom_field.service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meta-server/app/domain/services/custom_object.service.go" beforeDir="false" afterPath="$PROJECT_DIR$/../meta-server/app/domain/services/custom_object.service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meta-server/app/dtos/custom_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/../meta-server/app/dtos/custom_field.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meta-server/app/dtos/filter_item.go" beforeDir="false" afterPath="$PROJECT_DIR$/../meta-server/app/dtos/filter_item.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meta-server/app/dtos/treat_blanks_as.go" beforeDir="false" afterPath="$PROJECT_DIR$/../meta-server/app/dtos/treat_blanks_as.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meta-server/app/mapper/customer_field.mapper.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meta-server/app/mapper/customer_field.mapper_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/../meta-server/app/mapper/customer_field.mapper_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meta-server/app/mapper/customer_object.mapper.go" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,38 +113,38 @@
       <screen x="0" y="23" width="1536" height="891" />
     </state>
     <state x="232" y="130" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1536.891@0.23.1536.891" timestamp="1599349024495" />
-    <state width="1494" height="291" key="GridCell.Tab.0.bottom" timestamp="1599351818131">
+    <state width="1494" height="291" key="GridCell.Tab.0.bottom" timestamp="1599352232346">
       <screen x="0" y="23" width="1536" height="891" />
     </state>
-    <state width="1494" height="291" key="GridCell.Tab.0.bottom/0.23.1536.891@0.23.1536.891" timestamp="1599351818131" />
-    <state width="1494" height="291" key="GridCell.Tab.0.center" timestamp="1599351818130">
+    <state width="1494" height="291" key="GridCell.Tab.0.bottom/0.23.1536.891@0.23.1536.891" timestamp="1599352232346" />
+    <state width="1494" height="291" key="GridCell.Tab.0.center" timestamp="1599352232346">
       <screen x="0" y="23" width="1536" height="891" />
     </state>
-    <state width="1494" height="291" key="GridCell.Tab.0.center/0.23.1536.891@0.23.1536.891" timestamp="1599351818130" />
-    <state width="1494" height="291" key="GridCell.Tab.0.left" timestamp="1599351818130">
+    <state width="1494" height="291" key="GridCell.Tab.0.center/0.23.1536.891@0.23.1536.891" timestamp="1599352232346" />
+    <state width="1494" height="291" key="GridCell.Tab.0.left" timestamp="1599352232345">
       <screen x="0" y="23" width="1536" height="891" />
     </state>
-    <state width="1494" height="291" key="GridCell.Tab.0.left/0.23.1536.891@0.23.1536.891" timestamp="1599351818130" />
-    <state width="1494" height="291" key="GridCell.Tab.0.right" timestamp="1599351818131">
+    <state width="1494" height="291" key="GridCell.Tab.0.left/0.23.1536.891@0.23.1536.891" timestamp="1599352232345" />
+    <state width="1494" height="291" key="GridCell.Tab.0.right" timestamp="1599352232346">
       <screen x="0" y="23" width="1536" height="891" />
     </state>
-    <state width="1494" height="291" key="GridCell.Tab.0.right/0.23.1536.891@0.23.1536.891" timestamp="1599351818131" />
-    <state width="1494" height="291" key="GridCell.Tab.1.bottom" timestamp="1599351818132">
+    <state width="1494" height="291" key="GridCell.Tab.0.right/0.23.1536.891@0.23.1536.891" timestamp="1599352232346" />
+    <state width="1494" height="291" key="GridCell.Tab.1.bottom" timestamp="1599352232128">
       <screen x="0" y="23" width="1536" height="891" />
     </state>
-    <state width="1494" height="291" key="GridCell.Tab.1.bottom/0.23.1536.891@0.23.1536.891" timestamp="1599351818132" />
-    <state width="1494" height="291" key="GridCell.Tab.1.center" timestamp="1599351818132">
+    <state width="1494" height="291" key="GridCell.Tab.1.bottom/0.23.1536.891@0.23.1536.891" timestamp="1599352232128" />
+    <state width="1494" height="291" key="GridCell.Tab.1.center" timestamp="1599352232128">
       <screen x="0" y="23" width="1536" height="891" />
     </state>
-    <state width="1494" height="291" key="GridCell.Tab.1.center/0.23.1536.891@0.23.1536.891" timestamp="1599351818132" />
-    <state width="1494" height="291" key="GridCell.Tab.1.left" timestamp="1599351818131">
+    <state width="1494" height="291" key="GridCell.Tab.1.center/0.23.1536.891@0.23.1536.891" timestamp="1599352232128" />
+    <state width="1494" height="291" key="GridCell.Tab.1.left" timestamp="1599352232128">
       <screen x="0" y="23" width="1536" height="891" />
     </state>
-    <state width="1494" height="291" key="GridCell.Tab.1.left/0.23.1536.891@0.23.1536.891" timestamp="1599351818131" />
-    <state width="1494" height="291" key="GridCell.Tab.1.right" timestamp="1599351818132">
+    <state width="1494" height="291" key="GridCell.Tab.1.left/0.23.1536.891@0.23.1536.891" timestamp="1599352232128" />
+    <state width="1494" height="291" key="GridCell.Tab.1.right" timestamp="1599352232128">
       <screen x="0" y="23" width="1536" height="891" />
     </state>
-    <state width="1494" height="291" key="GridCell.Tab.1.right/0.23.1536.891@0.23.1536.891" timestamp="1599351818132" />
+    <state width="1494" height="291" key="GridCell.Tab.1.right/0.23.1536.891@0.23.1536.891" timestamp="1599352232128" />
     <state x="469" y="223" width="598" height="490" key="find.popup" timestamp="1599349147742">
       <screen x="0" y="23" width="1536" height="891" />
     </state>

@@ -5,7 +5,7 @@ import(
 	"github.com/objforce/meta-server/app/domain/models"
 	"github.com/objforce/meta-server/app/domain/repositories"
 	"github.com/objforce/meta-server/app/dtos"
-	"github.com/objforce/meta-server/app/mapper"
+	"github.com/xxxmicro/base/mapper"
 )
 
 type CustomFieldService interface {

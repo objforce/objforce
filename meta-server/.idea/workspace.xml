@@ -20,34 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a55b871-7446-45ae-84dd-f0e00be0c424" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../bot/.idea/bot.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../bot/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../bot/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../bot/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../bot/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../bot/app/commands/migrate.command.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../bot/app/providers/commands.provider.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../bot/app/providers/micro.bot.service.provider.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../bot/application.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../bot/bootstrap/app.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../bot/config/app.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../bot/config/env.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../bot/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/mapper/mappers.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/mapper/options.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bot/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/domain/models/custom_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/models/custom_field.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/domain/services/custom_field.service.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/services/custom_field.service.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/domain/services/custom_object.service.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/services/custom_object.service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/dtos/custom_field.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/dtos/custom_field.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/dtos/filter_item.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/dtos/filter_item.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/dtos/treat_blanks_as.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/dtos/treat_blanks_as.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/mapper/customer_field.mapper.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/mapper/customer_field.mapper_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/mapper/customer_field.mapper_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/mapper/customer_object.mapper.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/mapper/mappers.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/mapper/options.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
