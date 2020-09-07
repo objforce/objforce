@@ -563,6 +563,8 @@ github.com/xiang90/probing v0.0.0-20190116061207-43a291ad63a2 h1:eY9dn8+vbi4tKz5
 github.com/xiang90/probing v0.0.0-20190116061207-43a291ad63a2/go.mod h1:UETIi67q53MR2AWcXfiuqkDkRtnGDLqkBTpCHuJHxtU=
 github.com/xxxmicro/base v0.1.27 h1:6c9Fjcp0p3JhijiKaNVgClZsYaB7MougOqEfTUFFhuA=
 github.com/xxxmicro/base v0.1.27/go.mod h1:2knSIDaKvoLg9j/I6SikL3dJ15PdBevKybs8PqqmRMA=
+github.com/xxxmicro/base v0.1.28 h1:+7ExZec4m7Ml0X4CfKKTfmvYq2sBOAotaBYMRp3u25w=
+github.com/xxxmicro/base v0.1.28/go.mod h1:3+L4x/CtcafugW0ds3kaA6aPZuNyqsLxY9XEvHHXPv8=
 github.com/xxxmicro/go-micro-apollo-plugin v1.1.4 h1:G4Dy/nQQMLvA7u7p/q7btQkarGsOtYVx7g4fGsuL4cw=
 github.com/xxxmicro/go-micro-apollo-plugin v1.1.4/go.mod h1:RUlvNaOFL5JMNL+oBUn/8jD5M2h3IVBp6X6r5bKoZng=
 github.com/ziutek/mymysql v1.5.4/go.mod h1:LMSpPZ6DbqWFxNCHW77HeMg9I646SAhApZ/wKdgO/C0=

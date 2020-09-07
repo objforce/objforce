@@ -31,7 +31,7 @@ func (c *CustomFieldController) Create(ctx *gin.Context) {
 
 	ctx.JSON(http.StatusCreated, customField)
 	c.log.Infow("FINISHED CustomFieldController.Create()",
-		"id", customField.Id,
+		"FieldId", customField.FieldId,
 		"ObjId", customField.ObjId,
 	)
 }
