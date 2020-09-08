@@ -19,7 +19,33 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96d97105-8074-4e3f-bf6e-e2b6c6f6b6ec" name="Default Changelist" comment="" />
+    <list default="true" id="96d97105-8074-4e3f-bf6e-e2b6c6f6b6ec" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TODO.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/models/index.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/repositories/index.repository.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/domain/services/index.service.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/dtos/index.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/http/controllers/api.controller.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/http/controllers/index.controller.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/http/middlewares/global.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/http/middlewares/log.middleware.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/providers/gin.provider.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/providers/logger.provider.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/providers/micro.web.service.provider.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap/app.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/app.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/env.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/api.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,6 +72,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -81,5 +108,11 @@
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="496" y="223" width="598" height="548" key="find.popup" timestamp="1599563492593">
+      <screen x="0" y="23" width="1536" height="891" />
+    </state>
+    <state x="496" y="223" width="598" height="548" key="find.popup/0.23.1536.891@0.23.1536.891" timestamp="1599563492593" />
   </component>
 </project>
