@@ -22,15 +22,15 @@ func APIRoutes(c RouterContext) {
 
 		api.GET("/ping", c.APIController.Ping)
 
-		indexes := api.Group("/indexes")
+		documents := api.Group("/documents")
 		{
-			indexes.POST(
+			documents.POST(
 				"", 
 				throttle.Policy(&throttle.Quota{
 					Limit:  100,
 					Within: time.Minute,
 				}),
-				c.IndexController.Create)
+				c.DocumentController.Create)
 		}
 	}
 }
@@ -43,6 +43,6 @@ type RouterContext struct {
 
 	LogMiddleware *middlewares.LogMiddleware
 
-	APIController   *controllers.APIController
-	IndexController *controllers.IndexController
+	APIController      *controllers.APIController
+	DocumentController *controllers.DocumentController
 }

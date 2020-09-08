@@ -1,6 +1,7 @@
 package bootstrap
 
 import(
+	"github.com/objforce/objforce/index-server/app/events"
 	"go.uber.org/fx"
 	xconfig "github.com/xxxmicro/base/config"
 	xsource "github.com/xxxmicro/base/config/source"
@@ -30,6 +31,7 @@ func App() *fx.App {
 		fx.Provide(gorm.NewDbProvider),
 		fx.Provide(providers.NewGinProvider),
 		fx.Provide(providers.NewLoggerProvider),
+		fx.Provide(providers.NewElasticClientProvider),
 
 		// Repositories (./app/repositories)
 		fx.Provide(repositories.NewIndexRepository),
@@ -42,7 +44,10 @@ func App() *fx.App {
 
 		// Controllers (./app/controllers)
 		fx.Provide(controllers.NewAPIController),
-		fx.Provide(controllers.NewIndexController),
+		fx.Provide(controllers.NewDocumentController),
+
+		// Events (./app/events)
+		fx.Invoke(events.NewIndexSubscriber),
 
 		/*
 		|--------------------------------------------------------------------------
