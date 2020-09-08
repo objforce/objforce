@@ -20,10 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9e58f31-a64e-4a68-81e0-e4a44ce8d986" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bot/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meta-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../meta-server/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../index-server/app/http/middlewares/monitor.middleware.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../index-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../index-server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../index-server/app/http/middlewares/global.go" beforeDir="false" afterPath="$PROJECT_DIR$/../index-server/app/http/middlewares/global.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../index-server/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../index-server/go.mod" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
