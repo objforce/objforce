@@ -14,7 +14,7 @@ func NewElasticClientProvider(config config.Config) (*elastic.Client, error) {
 
 	client, err := elastic.NewClient(
 		elastic.SetURL(urls...),
-		elastic.SetSniff(false),
+		elastic.SetSniff(false),	// 如果打开 sniff 后，会嗅探到 docker 内网地址，导致无法连接节点
 	)
 	return client, err
 }

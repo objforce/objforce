@@ -20,24 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96d97105-8074-4e3f-bf6e-e2b6c6f6b6ec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/domain/models/document.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/repositories/index.repository_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/domain/services/document.service.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/events/index.subscriber.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/http/controllers/document.controller.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/providers/elastic.provider.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bot/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../data-server/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/domain/repositories/index.repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/domain/repositories/index.repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/domain/services/index.service.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/http/controllers/index.controller.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/app.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meta-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../meta-server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/providers/elastic.provider.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/providers/elastic.provider.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,38 +129,38 @@
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1494" height="291" key="GridCell.Tab.0.bottom" timestamp="1599597495720">
+    <state width="1494" height="291" key="GridCell.Tab.0.bottom" timestamp="1599597529750">
       <screen x="0" y="23" width="1536" height="891" />
     </state>
-    <state width="1494" height="291" key="GridCell.Tab.0.bottom/0.23.1536.891@0.23.1536.891" timestamp="1599597495720" />
-    <state width="1494" height="291" key="GridCell.Tab.0.center" timestamp="1599597495720">
+    <state width="1494" height="291" key="GridCell.Tab.0.bottom/0.23.1536.891@0.23.1536.891" timestamp="1599597529750" />
+    <state width="1494" height="291" key="GridCell.Tab.0.center" timestamp="1599597529750">
       <screen x="0" y="23" width="1536" height="891" />
     </state>
-    <state width="1494" height="291" key="GridCell.Tab.0.center/0.23.1536.891@0.23.1536.891" timestamp="1599597495720" />
-    <state width="1494" height="291" key="GridCell.Tab.0.left" timestamp="1599597495719">
+    <state width="1494" height="291" key="GridCell.Tab.0.center/0.23.1536.891@0.23.1536.891" timestamp="1599597529750" />
+    <state width="1494" height="291" key="GridCell.Tab.0.left" timestamp="1599597529749">
       <screen x="0" y="23" width="1536" height="891" />
     </state>
-    <state width="1494" height="291" key="GridCell.Tab.0.left/0.23.1536.891@0.23.1536.891" timestamp="1599597495719" />
-    <state width="1494" height="291" key="GridCell.Tab.0.right" timestamp="1599597495720">
+    <state width="1494" height="291" key="GridCell.Tab.0.left/0.23.1536.891@0.23.1536.891" timestamp="1599597529749" />
+    <state width="1494" height="291" key="GridCell.Tab.0.right" timestamp="1599597529750">
       <screen x="0" y="23" width="1536" height="891" />
     </state>
-    <state width="1494" height="291" key="GridCell.Tab.0.right/0.23.1536.891@0.23.1536.891" timestamp="1599597495720" />
-    <state width="1494" height="291" key="GridCell.Tab.1.bottom" timestamp="1599597496356">
+    <state width="1494" height="291" key="GridCell.Tab.0.right/0.23.1536.891@0.23.1536.891" timestamp="1599597529750" />
+    <state width="1494" height="291" key="GridCell.Tab.1.bottom" timestamp="1599597529751">
       <screen x="0" y="23" width="1536" height="891" />
     </state>
-    <state width="1494" height="291" key="GridCell.Tab.1.bottom/0.23.1536.891@0.23.1536.891" timestamp="1599597496356" />
-    <state width="1494" height="291" key="GridCell.Tab.1.center" timestamp="1599597496354">
+    <state width="1494" height="291" key="GridCell.Tab.1.bottom/0.23.1536.891@0.23.1536.891" timestamp="1599597529751" />
+    <state width="1494" height="291" key="GridCell.Tab.1.center" timestamp="1599597529750">
       <screen x="0" y="23" width="1536" height="891" />
     </state>
-    <state width="1494" height="291" key="GridCell.Tab.1.center/0.23.1536.891@0.23.1536.891" timestamp="1599597496354" />
-    <state width="1494" height="291" key="GridCell.Tab.1.left" timestamp="1599597496353">
+    <state width="1494" height="291" key="GridCell.Tab.1.center/0.23.1536.891@0.23.1536.891" timestamp="1599597529750" />
+    <state width="1494" height="291" key="GridCell.Tab.1.left" timestamp="1599597529750">
       <screen x="0" y="23" width="1536" height="891" />
     </state>
-    <state width="1494" height="291" key="GridCell.Tab.1.left/0.23.1536.891@0.23.1536.891" timestamp="1599597496353" />
-    <state width="1494" height="291" key="GridCell.Tab.1.right" timestamp="1599597496355">
+    <state width="1494" height="291" key="GridCell.Tab.1.left/0.23.1536.891@0.23.1536.891" timestamp="1599597529750" />
+    <state width="1494" height="291" key="GridCell.Tab.1.right" timestamp="1599597529750">
       <screen x="0" y="23" width="1536" height="891" />
     </state>
-    <state width="1494" height="291" key="GridCell.Tab.1.right/0.23.1536.891@0.23.1536.891" timestamp="1599597496355" />
+    <state width="1494" height="291" key="GridCell.Tab.1.right/0.23.1536.891@0.23.1536.891" timestamp="1599597529750" />
     <state x="496" y="223" width="598" height="548" key="find.popup" timestamp="1599596497448">
       <screen x="0" y="23" width="1536" height="891" />
     </state>
