@@ -1,0 +1,111 @@
+version: "3.5"
+services:
+  jaeger:
+    image: jaegertracing/all-in-one:1.18
+    environment:
+      COLLECTOR_ZIPKIN_HTTP_PORT: 9411
+    networks:
+      biz:
+        aliases:
+          - jaeger
+    ports:
+      - 5775:5775/udp
+      - 6831:6831/udp
+      - 6832:6832/udp
+      - 5778:5778
+      - 16686:16686
+      - 14268:14268
+      - 14250:14250
+      - 9411:9411
+  consul:
+    image: consul:latest
+    command: agent -dev -client 0.0.0.0
+    ports:
+      - 8500:8500
+    networks:
+      biz:
+        aliases:
+          - consul
+  mysql:
+    image: mariadb:latest
+    volumes:
+      - ~/opt/mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci --explicit_defaults_for_timestamp=true
+    environment:
+      TZ: Asia/Shanghai
+      MYSQL_DATABASE: objforce_meta
+      MYSQL_ROOT_PASSWORD: root
+    networks:
+      biz:
+        aliases:
+          - mysql
+  mongo:
+    image: mongo:3.4
+    volumes:
+      - ~/opt/mongo:/data/db
+    ports:
+      - 27017:27017
+    environment:
+      TZ: Asia/Shanghai
+    networks:
+      biz:
+        aliases:
+          - mongo
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
+    environment:
+      TZ: Asia/Shanghai
+    networks:
+      biz:
+        aliases:
+          - redis
+  meta-srv:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - consul
+      - mysql
+      - mongo
+      - redis
+      - jaeger
+      - xapis.micro.api
+    environment:
+      - TZ=Asia/Shanghai
+      - MICRO_REGISTRY=consul
+      - MICRO_REGISTRY_ADDRESS=consul:8500
+    command: /app/bin/meta-srv --server_name com.xapis.srv.meta -apollo_namespace application -apollo_address http://apollo-dev.dev.lucfish.com:8080 -apollo_app_id meta-srv -apollo_cluster=dev
+    volumes:
+      - $PWD/config:/app/config
+    networks:
+      biz:
+        aliases:
+          - meta-srv
+  xapis.micro.api:
+    image: ccr.ccs.tencentyun.com/lf_base/micro:2.9.1
+    depends_on:
+      - consul
+    environment:
+      - TZ=Asia/Shanghai
+      - MICRO_REGISTRY=consul
+      - MICRO_REGISTRY_ADDRESS=consul:8500
+    command: --server_name com.xapis.micro.api --auth_namespace com.xapis api --namespace com.xapis --address 0.0.0.0:8080 --handler http
+    ports:
+      - 10250:8080
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "5"
+    networks:
+      biz:
+        aliases:
+          - xapis.micro.api
+networks:
+  biz:
+    name: biz
+    driver: bridge
