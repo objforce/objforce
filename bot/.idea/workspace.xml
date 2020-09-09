@@ -19,26 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7a643c8-a3e8-48fa-9f41-6c7b94c4f245" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../index-server/app/domain/models/document.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../index-server/app/domain/repositories/index.repository_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../index-server/app/domain/services/document.service.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../index-server/app/events/index.subscriber.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../index-server/app/http/controllers/document.controller.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../index-server/app/providers/elastic.provider.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../data-server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../index-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../index-server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../index-server/app/domain/repositories/index.repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/../index-server/app/domain/repositories/index.repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../index-server/app/domain/services/index.service.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../index-server/app/http/controllers/index.controller.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../index-server/bootstrap/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/../index-server/bootstrap/app.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../index-server/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../index-server/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../index-server/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../index-server/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../index-server/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/../index-server/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../index-server/routes/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/../index-server/routes/api.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../meta-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../meta-server/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="f7a643c8-a3e8-48fa-9f41-6c7b94c4f245" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
