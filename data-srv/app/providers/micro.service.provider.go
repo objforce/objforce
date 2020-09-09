@@ -28,7 +28,7 @@ func NewMicroService() (micro.Service, *cli.Context) {
 	QPS := 5000
 
 	service := micro.NewService(
-		micro.Name("com.xapis.srv.meta"),
+		micro.Name("com.xapis.srv.data"),
 		micro.Version("v1"),
 		micro.RegisterTTL(time.Minute),
 		micro.RegisterInterval(time.Second*30),

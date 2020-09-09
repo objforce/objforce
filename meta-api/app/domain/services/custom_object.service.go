@@ -2,9 +2,8 @@ package services
 
 import (
 	"context"
-	"github.com/objforce/objforce/meta-server/app/domain/models"
-	"github.com/objforce/objforce/meta-server/app/domain/repositories"
-	"github.com/objforce/objforce/meta-server/app/dtos"
+	"github.com/objforce/objforce/meta-api/app/dtos"
+	meta "github.com/objforce/objforce/meta-api/proto/meta/gen-go"
 	"github.com/xxxmicro/base/mapper"
 )
 
@@ -16,58 +15,57 @@ type CustomObjectService interface {
 }
 
 type customObjectService struct {
-	customObjectRepository repositories.CustomObjectRepository
+	customObjectServiceClient meta.CustomObjectService
 }
 
-func NewCustomObjectService(customObjectRepository repositories.CustomObjectRepository) CustomObjectService {
+func NewCustomObjectService(customObjectServiceClient meta.CustomObjectService) CustomObjectService {
 	return &customObjectService{
-		customObjectRepository,
+		customObjectServiceClient,
 	}
 }
 
 func (s *customObjectService) Create(c context.Context, dto *dtos.CustomObject) (*dtos.CustomObject, error) {
-	entity := &models.CustomField{}
-	mapper.Map(dto, entity)
+	pb := &meta.CustomObject{}
+	mapper.Map(dto, pb)
 
-	err := s.customObjectRepository.Create(c, entity)
+	rsp, err := s.customObjectServiceClient.Create(c, pb)
 	if err != nil {
 		return nil, err
 	}
 
-	mapper.Map(entity, dto)
+	mapper.Map(rsp, dto)
 
 	return dto, nil
 }
 
 func (s *customObjectService) Update(c context.Context, dto *dtos.CustomObject) (*dtos.CustomObject, error) {
-	entity := &models.CustomField{ObjId: dto.Id}
+	pb := &meta.CustomObject{}
 
-	mapper.Map(dto, entity)
+	mapper.Map(dto, pb)
 
-	err := s.customObjectRepository.Update(c, entity, entity)
+	rsp, err := s.customObjectServiceClient.Update(c, pb)
 	if err != nil {
 		return nil, err
 	}
 
-	err = s.customObjectRepository.FindOne(c, entity)
-	if err != nil {
-		return nil, err
-	}
-
-	mapper.Map(entity, dto)
+	mapper.Map(rsp, dto)
 
 	return dto, nil
 }
 
 func (s *customObjectService) FindOne(c context.Context, id string) (*dtos.CustomObject, error) {
-	entity := &models.CustomObject{ObjId: id}
-	s.customObjectRepository.FindOne(c, entity)
+	pb, err := s.customObjectServiceClient.FindOne(c, &meta.FindCustomObjectRequest{ObjId: id})
+	if err != nil {
+		return nil, err
+	}
 
 	dto := &dtos.CustomObject{}
-	mapper.Map(entity, dto)
+	mapper.Map(pb, dto)
+
 	return dto, nil
 }
 
 func (s *customObjectService) Delete(c context.Context, id string) error {
-	return s.customObjectRepository.Delete(c, &models.CustomObject{ObjId: id})
+	_, err := s.customObjectServiceClient.Delete(c, &meta.DeleteCustomObjectRequest{ObjId: id})
+	return err
 }

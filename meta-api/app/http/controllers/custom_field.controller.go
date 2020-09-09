@@ -2,8 +2,8 @@ package controllers
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/objforce/objforce/meta-server/app/domain/services"
-	"github.com/objforce/objforce/meta-server/app/dtos"
+	"github.com/objforce/objforce/meta-api/app/domain/services"
+	"github.com/objforce/objforce/meta-api/app/dtos"
 	"go.uber.org/zap"
 	"net/http"
 )

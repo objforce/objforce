@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package meta;
+option go_package = "";
+
+import "google/protobuf/any.proto";
+
+message SObject {
+  string type = 1;
+  repeated string fieldsToNull = 2;
+  string id = 3;
+  string objId = 4;
+  string orgId = 5;
+  map<string, google.protobuf.Any> Fields = 6;
+}
+
+service SObjectService {
+  rpc Create(SObject) returns (SObject) {}
+  rpc Update(SObject) returns (SObject) {}
+  rpc FindOne(FindSObjectRequest) returns (SObject) {}
+  rpc Delete(DeleteSObjectRequest) returns (SObject) {}
+}
+
+message FindSObjectRequest {
+  string id = 1;
+}
+
+message DeleteSObjectRequest {
+  string id = 1;
+}
+

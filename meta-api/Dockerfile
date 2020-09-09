@@ -13,11 +13,11 @@ RUN make build
 
 FROM alpine:3.10
 WORKDIR /app
-COPY --from=builder /opt/meta-server /app/bin/meta-server
+COPY --from=builder /opt/meta-api /app/bin/meta-api
 COPY --from=builder /opt/alipay.crt /etc/ssl/certs/
 COPY --from=builder /usr/local/go/lib/time/zoneinfo.zip /opt/zoneinfo.zip
 ## 解决alipay获取时区错误
 ENV ZONEINFO /opt/zoneinfo.zip
 VOLUME [ "/app/config", "/app/logs" ]
 
-ENTRYPOINT ["./bin/meta-server"]
+ENTRYPOINT ["./bin/meta-api"]

@@ -1,61 +1,71 @@
 package handlers
 
 import (
-	"github.com/gin-gonic/gin"
+	"context"
+	"github.com/micro/go-micro/v2/logger"
 	"github.com/objforce/objforce/meta-srv/app/domain/services"
 	"github.com/objforce/objforce/meta-srv/app/dtos"
-	"go.uber.org/zap"
-	"net/http"
+	meta "github.com/objforce/objforce/meta-srv/proto/meta/gen-go"
+	"github.com/xxxmicro/base/mapper"
 )
 
-type CustomFieldController struct {
+type CustomFieldHandler struct {
 	customFieldService services.CustomFieldService
-	log *zap.SugaredLogger 
 }
 
-func (c *CustomFieldController) Create(ctx *gin.Context) {
-	c.log.Info("STARTING CustomFieldController.Create()")
+func (h *CustomFieldHandler) Create(c context.Context, req *meta.CustomField, rsp *meta.CustomField) error {
+	logger.Info("STARTING CustomFieldHandler.Create()")
 
-	customField := &dtos.CustomField{}
+	dto := &dtos.CustomField{}
+	mapper.Map(req, dto)
 
-	if err := ctx.ShouldBindJSON(&customField); err != nil {
-		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
-	}
-
-	customField, err := c.customFieldService.Create(ctx.Request.Context(), customField)
+	dto1, err := h.customFieldService.Create(c, dto)
 	if err != nil {
-		ctx.AbortWithError(http.StatusInternalServerError, err)
-		return
+		return err
 	}
 
-	ctx.JSON(http.StatusCreated, customField)
-	c.log.Infow("FINISHED CustomFieldController.Create()",
-		"FieldId", customField.FieldId,
-		"ObjId", customField.ObjId,
-	)
+	mapper.Map(dto1, rsp)
+
+	return nil
 }
 
-func (c *CustomFieldController) Delete(ctx *gin.Context) {
-	c.log.Info("STARTING CustomFieldController.Delete()")
+func (h *CustomFieldHandler) Delete(c context.Context, req *meta.DeleteCustomFieldRequest, rsp *meta.CustomField) error {
+	logger.Info("STARTING CustomFieldHandler.Delete()")
 
-	id := ctx.Param("id")
-	if len(id) == 0 {
-		ctx.JSON(http.StatusBadRequest, gin.H{"msg": "need id"})
-	}
-
-	err := c.customFieldService.Delete(ctx.Request.Context(), id)
+	err := h.customFieldService.Delete(c, req.FieldId)
 	if err != nil {
-		ctx.AbortWithError(http.StatusInternalServerError, err)
-		return
+		return err
 	}
 
-	ctx.JSON(http.StatusOK, gin.H{"code": 0})
+	return nil
 }
 
-func NewCustomFieldHandler(customFieldService services.CustomFieldService, log *zap.SugaredLogger) *CustomFieldController {
-	return &CustomFieldController{
+func (h *CustomFieldHandler) Update(c context.Context, req *meta.CustomField, rsp *meta.CustomField) error {
+	dto := &dtos.CustomField{}
+	mapper.Map(req, dto)
+
+	dto, err := h.customFieldService.Update(c, dto)
+	if err != nil {
+		return err
+	}
+
+	mapper.Map(dto, rsp)
+
+	return nil
+}
+
+func (h *CustomFieldHandler) FindOne(c context.Context, req *meta.FindCustomFieldRequest, rsp *meta.CustomField) error {
+	dto, err := h.customFieldService.FindOne(c, req.FieldId)
+	if err != nil {
+		return err
+	}
+
+	mapper.Map(dto, rsp)
+	return nil
+}
+
+func NewCustomFieldHandler(customFieldService services.CustomFieldService) *CustomFieldHandler {
+	return &CustomFieldHandler{
 		customFieldService,
-		log,
 	}
 }

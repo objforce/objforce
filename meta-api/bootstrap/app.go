@@ -4,15 +4,13 @@ import(
 	"go.uber.org/fx"
 	xconfig "github.com/xxxmicro/base/config"
 	xsource "github.com/xxxmicro/base/config/source"
-	gorm "github.com/xxxmicro/base/database/gorm"
 	"github.com/xxxmicro/base/opentracing/jaeger"
-	"github.com/objforce/objforce/meta-server/config"
-	"github.com/objforce/objforce/meta-server/app/http/controllers"
-	"github.com/objforce/objforce/meta-server/app/http/middlewares"
-	"github.com/objforce/objforce/meta-server/app/providers"
-	"github.com/objforce/objforce/meta-server/app/domain/services"
-	"github.com/objforce/objforce/meta-server/app/domain/repositories"
-	"github.com/objforce/objforce/meta-server/routes"
+	"github.com/objforce/objforce/meta-api/config"
+	"github.com/objforce/objforce/meta-api/app/http/controllers"
+	"github.com/objforce/objforce/meta-api/app/http/middlewares"
+	"github.com/objforce/objforce/meta-api/app/providers"
+	"github.com/objforce/objforce/meta-api/app/domain/services"
+	"github.com/objforce/objforce/meta-api/routes"
 )
 
 
@@ -27,13 +25,13 @@ func App() *fx.App {
 		fx.Provide(xsource.NewSourceProvider),
 		fx.Provide(xconfig.NewConfigProvider),
 		fx.Provide(jaeger.NewTracerProvider),
-		fx.Provide(gorm.NewDbProvider),
 		fx.Provide(providers.NewGinProvider),
-
-		// Repositories (./app/repositories)
-		fx.Provide(repositories.NewCustomFieldRepository),
+		fx.Provide(providers.NewMicroClientProvider),
+		fx.Provide(providers.NewCustomObjectService),
+		fx.Provide(providers.NewCustomFieldService),
 
 		// Services (./app/services)
+		fx.Provide(services.NewCustomObjectService),
 		fx.Provide(services.NewCustomFieldService),
 
 		// Middlewares (./app/middlewares)

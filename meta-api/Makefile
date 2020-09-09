@@ -6,14 +6,14 @@ run:
 		--server_name=com.xapis.api.meta \
 		--apollo_namespace=application \
 		--apollo_address=http://apollo-dev.dev.lucfish.com:8080 \
-		--apollo_app_id=meta-server \
+		--apollo_app_id=meta-api \
 		--apollo_cluster=dev \
 		--registry=consul \
         --registry_address=localhost:8500
 
 .PHONY: build
 build:
-	go build -o meta-server *.go
+	go build -o meta-api *.go
 
 .PHONY: test
 test:
@@ -21,7 +21,7 @@ test:
 
 .PHONY: docker
 docker:
-	docker build -t meta-server:latest .
+	docker build -t meta-api:latest .
 
 .PHONY: submodule
 submodule:
@@ -29,9 +29,9 @@ submodule:
 
 .PHONY: publish-image
 publish-image: docker
-	docker tag meta-server:latest objforce/meta-server:latest
-	docker push objforce/meta-server:latest
+	docker tag meta-api:latest objforce/meta-api:latest
+	docker push objforce/meta-api:latest
 
 .PHONY: k8s-deploy
 k8s-deploy: publish-image
-	kubectl -n xapis apply -f deploy/k8s/app/meta-server.yml
+	kubectl -n xapis apply -f deploy/k8s/app/meta-api.yml

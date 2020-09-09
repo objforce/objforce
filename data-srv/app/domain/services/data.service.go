@@ -2,9 +2,9 @@ package services
 
 import(
 	"context"
-	"github.com/objforce/objforce/data-server/app/domain/models"
-	"github.com/objforce/objforce/data-server/app/domain/repositories"
-	"github.com/objforce/objforce/data-server/app/dtos"
+	"github.com/objforce/objforce/data-srv/app/domain/models"
+	"github.com/objforce/objforce/data-srv/app/domain/repositories"
+	"github.com/objforce/objforce/data-srv/app/dtos"
 	"github.com/xxxmicro/base/mapper"
 )
 
@@ -19,14 +19,14 @@ type dataService struct {
 	dataRepository repositories.DataRepository
 }
 
-func NewDataService(customFieldRepository repositories.DataRepository) DataService {
+func NewDataService(dataRepository repositories.DataRepository) DataService {
 	return &dataService{
 		dataRepository,
 	}
 }
 
 func (s *dataService) Create(c context.Context, dto *dtos.SObject) (*dtos.SObject, error) {
-	entity := &models.SObject{}
+	entity := &models.MTData{}
 	mapper.Map(dto, entity)
 
 	err := s.dataRepository.Create(c, entity)
@@ -60,7 +60,7 @@ func (s *dataService) Update(c context.Context, dto *dtos.SObject) (*dtos.SObjec
 }
 
 func (s *dataService) FindOne(c context.Context, id string) (*dtos.SObject, error) {
-	entity := &models.SObject{ObjId: id}
+	entity := &models.MTData{Id: id}
 	s.dataRepository.FindOne(c, entity)
 
 	dto := &dtos.SObject{}
@@ -69,5 +69,5 @@ func (s *dataService) FindOne(c context.Context, id string) (*dtos.SObject, erro
 }
 
 func (s *dataService) Delete(c context.Context, id string) error {
-	return s.dataRepository.Delete(c, &models.SObject{ObjId: id})
+	return s.dataRepository.Delete(c, &models.MTData{Id: id})
 }

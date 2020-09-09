@@ -2,16 +2,14 @@ package providers
 
 import (
 	"github.com/micro/go-micro/v2"
-	"lucfish.com/uim/uim-srv/proto/uim/gen-go"
-	"lucfish.com/uim/uim-srv/app/handlers"
+	"github.com/objforce/objforce/meta-srv/app/handlers"
+	"github.com/objforce/objforce/meta-srv/proto/meta/gen-go"
 )
 
 func RegisterHandlers(service micro.Service,
-	echoHandler *handlers.EchoHandler,
-	channelHandler *handlers.ChannelHandler,
-	chatHandler *handlers.ChatHandler,
+	customObjectHandler *handlers.CustomObjectHandler,
+	customFieldHandler *handlers.CustomFieldHandler,
 ) {
-	uim.RegisterEchoServiceHandler(service.Server(), echoHandler)
-	uim.RegisterChannelServiceHandler(service.Server(), channelHandler)
-	uim.RegisterChatServiceHandler(service.Server(), chatHandler)
+	meta.RegisterCustomObjectServiceHandler(service.Server(), customObjectHandler)
+	meta.RegisterCustomFieldServiceHandler(service.Server(), customFieldHandler)
 }

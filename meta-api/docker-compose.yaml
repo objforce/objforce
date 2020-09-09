@@ -26,65 +26,25 @@ services:
       biz:
         aliases:
           - consul
-  mysql:
-    image: mariadb:latest
-    volumes:
-      - ~/opt/mysql:/var/lib/mysql
-    ports:
-      - 3306:3306
-    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci --explicit_defaults_for_timestamp=true
-    environment:
-      TZ: Asia/Shanghai
-      MYSQL_DATABASE: objforce_meta
-      MYSQL_ROOT_PASSWORD: root
-    networks:
-      biz:
-        aliases:
-          - mysql
-  mongo:
-    image: mongo:3.4
-    volumes:
-      - ~/opt/mongo:/data/db
-    ports:
-      - 27017:27017
-    environment:
-      TZ: Asia/Shanghai
-    networks:
-      biz:
-        aliases:
-          - mongo
-  redis:
-    image: redis:latest
-    ports:
-      - 6379:6379
-    environment:
-      TZ: Asia/Shanghai
-    networks:
-      biz:
-        aliases:
-          - redis
-  meta-server:
+  meta-api:
     build:
       context: ./
       dockerfile: Dockerfile
     depends_on:
       - consul
-      - mysql
-      - mongo
-      - redis
       - jaeger
       - xapis.micro.api
     environment:
       - TZ=Asia/Shanghai
       - MICRO_REGISTRY=consul
       - MICRO_REGISTRY_ADDRESS=consul:8500
-    command: /app/bin/meta-server --server_name com.xapis.srv.meta -apollo_namespace application -apollo_address http://apollo-dev.dev.lucfish.com:8080 -apollo_app_id meta-server -apollo_cluster=dev
+    command: /app/bin/meta-api --server_name com.xapis.srv.meta -apollo_namespace application -apollo_address http://apollo-dev.dev.lucfish.com:8080 -apollo_app_id meta-api -apollo_cluster=dev
     volumes:
       - $PWD/config:/app/config
     networks:
       biz:
         aliases:
-          - meta-server
+          - meta-api
   xapis.micro.api:
     image: ccr.ccs.tencentyun.com/lf_base/micro:2.9.1
     depends_on:

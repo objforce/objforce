@@ -12,6 +12,13 @@ service CustomObjectService {
   rpc Delete(DeleteCustomObjectRequest) returns (CustomObject) {}
 }
 
+service CustomFieldService {
+  rpc Create(CustomField) returns (CustomField) {}
+  rpc Update(CustomField) returns (CustomField) {}
+  rpc FindOne(FindCustomFieldRequest) returns (CustomField) {}
+  rpc Delete(DeleteCustomFieldRequest) returns (CustomField) {}
+}
+
 message FindCustomObjectRequest {
   string objId = 1;
 }
@@ -19,3 +26,12 @@ message FindCustomObjectRequest {
 message DeleteCustomObjectRequest {
   string objId = 1;
 }
+
+message FindCustomFieldRequest {
+  string fieldId = 1;
+}
+
+message DeleteCustomFieldRequest {
+  string fieldId = 1;
+}
+

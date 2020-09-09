@@ -1,18 +1,16 @@
 package bootstrap
 
 import(
+	"github.com/objforce/objforce/data-srv/app/handlers"
 	"go.uber.org/fx"
 	xconfig "github.com/xxxmicro/base/config"
 	xsource "github.com/xxxmicro/base/config/source"
-	gorm "github.com/xxxmicro/base/database/gorm"
+	"github.com/xxxmicro/base/database/gorm"
 	"github.com/xxxmicro/base/opentracing/jaeger"
-	"github.com/objforce/objforce/data-server/config"
-	"github.com/objforce/objforce/data-server/app/http/controllers"
-	"github.com/objforce/objforce/data-server/app/http/middlewares"
-	"github.com/objforce/objforce/data-server/app/providers"
-	"github.com/objforce/objforce/data-server/app/domain/services"
-	"github.com/objforce/objforce/data-server/app/domain/repositories"
-	"github.com/objforce/objforce/data-server/routes"
+	"github.com/objforce/objforce/data-srv/config"
+	"github.com/objforce/objforce/data-srv/app/providers"
+	"github.com/objforce/objforce/data-srv/app/domain/services"
+	"github.com/objforce/objforce/data-srv/app/domain/repositories"
 )
 
 
@@ -28,7 +26,8 @@ func App() *fx.App {
 		fx.Provide(xconfig.NewConfigProvider),
 		fx.Provide(jaeger.NewTracerProvider),
 		fx.Provide(gorm.NewDbProvider),
-		fx.Provide(providers.NewGinProvider),
+		fx.Provide(providers.NewBrokerProvider),
+		fx.Provide(providers.NewMicroClientProvider),
 
 		// Repositories (./app/repositories)
 		fx.Provide(repositories.NewDataRepository),
@@ -37,24 +36,12 @@ func App() *fx.App {
 		// Services (./app/services)
 		fx.Provide(services.NewDataService),
 
-		// Middlewares (./app/middlewares)
-		fx.Provide(middlewares.NewLogMiddleware),
+		// Handlers (./app/handlers)
+		fx.Provide(handlers.NewSObjectHandler),
+		fx.Invoke(providers.RegisterHandlers),
 
-		// Controllers (./app/controllers)
-		fx.Provide(controllers.NewAPIController),
-		fx.Provide(controllers.NewSObjectController),
+		fx.Invoke(providers.InitLogger),
 
-		/*
-		|--------------------------------------------------------------------------
-		| Invoke Register Routes
-		|--------------------------------------------------------------------------
-		|
-		| Here we add our api endpoints to the application. These routes are prefixed
-		| with the default value 'api'. Moreover we pass a function to the container build
-		| up, which can create a new database connection.
-		|
-		*/
-		fx.Invoke(middlewares.GlobalMiddlewares),
-		fx.Invoke(routes.APIRoutes),
+		fx.Invoke(providers.StartMicroService),
 	)
 }

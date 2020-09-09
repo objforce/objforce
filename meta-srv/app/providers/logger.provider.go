@@ -2,7 +2,7 @@ package providers
 
 import (
 	// "os/exec"
-	"lucfish.com/uim/uim-srv/config"
+	"github.com/objforce/objforce/meta-srv/config"
 
 	"github.com/micro/go-micro/v2/logger"
 	// "go.uber.org/zap"

@@ -4,7 +4,6 @@ import (
 	"github.com/objforce/objforce/meta-srv/app/domain/repositories"
 	"github.com/objforce/objforce/meta-srv/app/domain/services"
 	"github.com/objforce/objforce/meta-srv/app/handlers"
-	"github.com/objforce/objforce/meta-srv/app/http/middlewares"
 	"github.com/objforce/objforce/meta-srv/app/providers"
 	"github.com/objforce/objforce/meta-srv/config"
 	xconfig "github.com/xxxmicro/base/config"
