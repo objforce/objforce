@@ -34,7 +34,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="/usr/local/Cellar/go/1.14.2_1/libexec" />
+  <component name="GOROOT" path="/usr/local/go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -56,6 +56,7 @@
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="go.sdk" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -160,6 +161,10 @@
       <screen x="0" y="23" width="1536" height="891" />
     </state>
     <state width="1494" height="291" key="GridCell.Tab.1.right/0.23.1536.891@0.23.1536.891" timestamp="1599597529750" />
+    <state x="2603" y="338" key="SettingsEditor" timestamp="1599659628007">
+      <screen x="1680" y="-12" width="2560" height="1417" />
+    </state>
+    <state x="2603" y="338" key="SettingsEditor/1680.-12.2560.1417/0.23.1680.967@1680.-12.2560.1417" timestamp="1599659628007" />
     <state x="496" y="223" width="598" height="548" key="find.popup" timestamp="1599596497448">
       <screen x="0" y="23" width="1536" height="891" />
     </state>
