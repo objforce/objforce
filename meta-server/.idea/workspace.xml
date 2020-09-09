@@ -19,7 +19,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a55b871-7446-45ae-84dd-f0e00be0c424" name="Default Changelist" comment="" />
+    <list default="true" id="2a55b871-7446-45ae-84dd-f0e00be0c424" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../index-server/app/domain/repositories/document.repository.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../index-server/app/domain/services/index.service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bot/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../data-server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../index-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../index-server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../index-server/app/domain/models/index.go" beforeDir="false" afterPath="$PROJECT_DIR$/../index-server/app/domain/models/index.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../index-server/app/domain/repositories/index.repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/../index-server/app/domain/repositories/index.repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../index-server/app/domain/repositories/index.repository_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/../index-server/app/domain/repositories/document.repository_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../index-server/app/domain/services/document.service.go" beforeDir="false" afterPath="$PROJECT_DIR$/../index-server/app/domain/services/document.service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../index-server/app/events/index.subscriber.go" beforeDir="false" afterPath="$PROJECT_DIR$/../index-server/app/events/sobject.subscriber.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../index-server/app/http/controllers/document.controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/../index-server/app/http/controllers/document.controller.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../index-server/bootstrap/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/../index-server/bootstrap/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../index-server/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../index-server/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../index-server/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/../index-server/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../index-server/routes/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/../index-server/routes/api.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,7 +49,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="/usr/local/Cellar/go/1.14.2_1/libexec" />
+  <component name="GOROOT" path="/usr/local/go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -55,6 +72,7 @@
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="go.sdk" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -167,6 +185,10 @@
       <screen x="0" y="23" width="1536" height="891" />
     </state>
     <state width="1494" height="252" key="GridCell.Tab.1.right/0.23.1536.891@0.23.1536.891" timestamp="1599339900468" />
+    <state x="2283" y="447" key="SettingsEditor" timestamp="1599665049501">
+      <screen x="1680" y="-12" width="2560" height="1417" />
+    </state>
+    <state x="2283" y="447" key="SettingsEditor/1680.-12.2560.1417/0.23.1680.967@1680.-12.2560.1417" timestamp="1599665049501" />
     <state x="2455" y="625" width="997" height="780" key="find.popup" timestamp="1599464439159">
       <screen x="1680" y="-12" width="2560" height="1417" />
     </state>

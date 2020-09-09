@@ -34,9 +34,10 @@ func App() *fx.App {
 		fx.Provide(providers.NewElasticClientProvider),
 
 		// Repositories (./app/repositories)
-		fx.Provide(repositories.NewIndexRepository),
+		fx.Provide(repositories.NewDocumentRepository),
 
 		// Services (./app/services)
+		fx.Provide(services.NewDocumentService),
 		fx.Provide(services.NewIndexService),
 
 		// Middlewares (./app/middlewares)
@@ -47,7 +48,7 @@ func App() *fx.App {
 		fx.Provide(controllers.NewDocumentController),
 
 		// Events (./app/events)
-		fx.Invoke(events.NewIndexSubscriber),
+		fx.Invoke(events.NewSObjectSubscriber),
 
 		/*
 		|--------------------------------------------------------------------------

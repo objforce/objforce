@@ -37,7 +37,7 @@ func TestCreateIndex(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	indexRepo := NewIndexRepository(client)
+	indexRepo := NewDocumentRepository(client)
 
 
 	doc := &models.Document{

@@ -1,11 +1,7 @@
 package models
 
 type Index struct {
-	ObjId string `json:"objId"`
-}
-
-func (m *Index) Unique() interface{} {
-	return map[string]interface{}{
-		"objId": m.ObjId,
-	}
+	OrgId string `json:"orgName"`
+	Name  string `json:"name"`
+	Mapping map[string]interface{} `json:"mapping"`
 }

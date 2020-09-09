@@ -9,6 +9,7 @@ require (
 	github.com/gin-contrib/cors v1.3.1
 	github.com/gin-contrib/gzip v0.0.2
 	github.com/gin-gonic/gin v1.6.3
+	github.com/ginkgoch/godash v1.2.0 // indirect
 	github.com/go-martini/martini v0.0.0-20170121215854-22fa46961aab // indirect
 	github.com/jinzhu/gorm v1.9.16 // indirect
 	github.com/jinzhu/now v1.1.1 // indirect

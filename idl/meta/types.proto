@@ -1,0 +1,134 @@
+syntax = "proto3";
+
+package meta;
+option go_package = "";
+
+
+message CustomObject {
+	string fullName = 1;
+	string id = 2;
+	repeated ActionOverride actionOverrides = 3;
+	bool allowInChatterGroups = 4;
+	repeated BusinessProcess BusinessProcesses = 5;
+	string compactLayoutAssignment = 6;
+	repeated CompactLayout compactLayouts = 7;
+	string customHelp = 8;
+	string customHelpPage = 9;
+	CustomSettingsType customSettingsType = 10;
+	CustomSettingsVisibility CustomSettingsVisibility = 11;
+	string DataStewardGroup = 12;
+	string DataStewardUser = 13;
+	DeploymentStatus DeploymentStatus = 14;
+	bool Deprecated = 15;
+	string Description = 16;
+	bool enableActivities = 17;
+	bool enableBulkApi = 18;
+	bool enableDivisions = 19;
+	bool enableEnhancedLookup = 20;
+	bool enableFeeds = 21;
+	bool enableHistory = 22;
+	bool enableReports = 23;
+	bool enableSearch = 24;
+	bool enableSharing = 25;
+	bool enableStreamingApi = 26;
+	PlatformEventType eventType = 27;
+	string externalDataSource = 28;
+	string externalName = 29;
+	string externalRepository = 30;
+	SharingModel externalSharingModel = 31;
+	repeated CustomField fields = 32;
+	FieldSet fieldSets = 33;
+	Gender gender = 34;
+	bool household = 35;
+	HistoryRetentionPolicy historyRetentionPolicy = 36;
+	repeated Index indexes = 37;
+	string Label = 38;
+	repeated ListView listViews = 39;
+	repeated NamedFilter namedFilter = 40;
+	CustomField nameField = 41;
+	string pluralLabel = 42;
+	ProfileSearchLayouts profileSearchLayouts = 43;
+	PlatformEventPublishBehavior publishBehavior = 44;
+	repeated RecordType recordTypes = 45;
+	bool recordTypeTrackFeedHistory = 46;
+	bool recordTypeTrackHistory = 47;
+	SearchLayouts searchLayouts = 48;
+	SharingModel sharingModel = 49;
+	SharingReason SharingReasons = 50;
+	repeated SharingRecalculation SharingRecalculations = 51;
+	StartsWith StartsWith = 52;
+	repeated ValidationRule ValidationRules = 53;
+	SetupObjectVisibility Visibility = 54;
+	repeated WebLink WebLinks = 55;
+}
+
+message ActionOverride {
+	string ActionName = 1;
+	string comment = 2;
+	string content = 3;
+	FormFactor FormFactor = 4;
+	bool	SkipRecordTypeSelect = 5;
+	ActionOverrideType Type = 6;
+}
+
+message BusinessProcess {
+	string fullName = 1;
+	string description = 2;
+	bool isActive = 3;
+	string namespacePrefix = 4;
+	repeated PicklistValue values = 5;
+}
+
+message CompactLayout {
+	string fullName = 1;
+	string Fields = 2;
+	string label = 3;
+}
+
+enum CustomSettingsType{
+	List = 0;
+	Hierarchy = 1;
+}
+
+enum CustomSettingsVisibility {
+	Public = 0;
+	Protected =1;
+}
+
+enum DeploymentStatus {
+		InDevelopment = 0;
+		Deployed = 1;
+}
+
+enum PlatformEventType {
+		HighVolume = 0;
+		StandardVolume = 1;
+}
+
+enum SharingModel {
+	Private = 0;
+	Read = 1;
+	ReadWrite = 2;
+	ReadWriteTransfer = 3;
+	FullAccess = 4;
+	ControlledByParent = 5;
+	ControlledByCampaign = 6;
+	ControlledByLeadOrContact = 7;
+}
+
+message CustomField {
+
+}
+
+message FieldSet {
+	repeated FieldSetItem AvailableFields = 1;
+	string Description = 2;
+	repeated FieldSetItem DisplayedFields = 3;
+	string label = 4;
+}
+
+message FieldSetItem {
+	string Field = 1;
+	bool isFieldManaged = 2;
+	bool isRequired = 3;
+}

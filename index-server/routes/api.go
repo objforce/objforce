@@ -22,7 +22,7 @@ func APIRoutes(c RouterContext) {
 
 		api.GET("/ping", c.APIController.Ping)
 
-		documents := api.Group("/documents")
+		documents := api.Group("/documents/upsert")
 		{
 			documents.POST(
 				"", 
@@ -30,7 +30,26 @@ func APIRoutes(c RouterContext) {
 					Limit:  100,
 					Within: time.Minute,
 				}),
-				c.DocumentController.Create)
+				c.DocumentController.Upsert,
+			)
+
+			documents.POST(
+				"/bulk",
+				throttle.Policy(&throttle.Quota{
+					Limit:  100,
+					Within: time.Minute,
+				}),
+				c.DocumentController.Bulk,
+			)
+
+			documents.DELETE(
+				"",
+				throttle.Policy(&throttle.Quota{
+					Limit:  100,
+					Within: time.Minute,
+				}),
+				c.DocumentController.Delete,
+			)
 		}
 	}
 }
