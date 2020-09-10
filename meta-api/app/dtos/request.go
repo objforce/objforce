@@ -12,9 +12,9 @@ type CreateMetadataResponse struct {
 type SaveResult struct {
 	Errors []*Error `json:"errors,omitempty"`
 
-	FullName string `xml:"fullName,omitempty"`
+	FullName string `json:"fullName,omitempty"`
 
-	Success bool `xml:"success,omitempty"`
+	Success bool `json:"success,omitempty"`
 }
 
 type Error struct {
@@ -28,7 +28,7 @@ type Error struct {
 }
 
 type ExtendedErrorDetails struct {
-	ExtendedErrorCode *ExtendedErrorCode `xml:"extendedErrorCode,omitempty"`
+	ExtendedErrorCode *ExtendedErrorCode `json:"extendedErrorCode,omitempty"`
 }
 
 type ExtendedErrorCode string
