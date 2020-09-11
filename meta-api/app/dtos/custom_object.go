@@ -3,17 +3,19 @@ package dtos
 
 type CustomObject struct {
 	*Metadata
-	Id string `json:"id"`
-	ActionOverrides []*ActionOverride	`json:"actionOverrides,omitempty"`
-	AllowInChatterGroups bool `json:"allowInChatterGroups,omitempty"`
-	BusinessProcesses []*BusinessProcess
-	CompactLayoutAssignment string
-	CompactLayouts []*CompactLayout
-	CustomHelp string `json:"customHelp"`
-	CustomHelpPage string `json:"customHelpPage"`
-	CustomSettingsType CustomSettingsType `json:"customSettingsType"`
+	ObjId                    string            `json:"objId"`
+	ObjName					string				`json:"objName"`
+	OrgId					string				`json:"orgId"`
+	ActionOverrides          []*ActionOverride `json:"actionOverrides,omitempty"`
+	AllowInChatterGroups     bool              `json:"allowInChatterGroups,omitempty"`
+	BusinessProcesses        []*BusinessProcess
+	CompactLayoutAssignment  string
+	CompactLayouts           []*CompactLayout
+	CustomHelp               string `json:"customHelp"`
+	CustomHelpPage           string `json:"customHelpPage"`
+	CustomSettingsType       CustomSettingsType `json:"customSettingsType"`
 	CustomSettingsVisibility CustomSettingsVisibility `json:"customSettingsVisibility"`
-	DataStewardGroup string `json:"dataStewardGroup"`
+	DataStewardGroup         string `json:"dataStewardGroup"`
 	DataStewardUser string `json:"dataStewardUser"`
 	DeploymentStatus DeploymentStatus `json:"deploymentStatus"`
 	Deprecated bool `json:"deprecated"`
