@@ -40,7 +40,7 @@ func App() *fx.App {
 		fx.Provide(services.NewIndexService),
 
 		// Events (./app/events)
-		fx.Invoke(events.NewSObjectSubscriber),
+		fx.Invoke(events.RegisterSObjectSubscriber),
 
 		// Handlers (./app/handlers)
 		fx.Provide(handlers.NewIndexHandler),
