@@ -31,7 +31,9 @@ func App() *fx.App {
 		fx.Provide(providers.NewMicroClientProvider),
 
 		// Repositories (./app/repositories)
+		fx.Provide(repositories.NewCustomObjectRepository),
 		fx.Provide(repositories.NewCustomFieldRepository),
+		fx.Provide(repositories.NewClobRepository),
 
 		// Services (./app/services)
 		fx.Provide(services.NewCustomFieldService),
@@ -39,6 +41,7 @@ func App() *fx.App {
 		// Handlers (./app/handlers)
 		fx.Provide(handlers.NewCustomObjectHandler),
 		fx.Provide(handlers.NewCustomFieldHandler),
+		fx.Provide(providers.RegisterHandlers),
 
 		fx.Invoke(providers.StartMicroService),
 	)

@@ -2,8 +2,8 @@ package services
 
 import (
 	"context"
-	"github.com/objforce/objforce/index-server/app/domain/models"
-	"github.com/objforce/objforce/index-server/app/domain/repositories"
+	"github.com/objforce/objforce/index-srv/app/domain/models"
+	"github.com/objforce/objforce/index-srv/app/domain/repositories"
 )
 
 type IndexService interface {

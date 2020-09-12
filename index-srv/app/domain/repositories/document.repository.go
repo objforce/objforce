@@ -3,7 +3,7 @@ package repositories
 import (
 	"context"
 	"encoding/json"
-	"github.com/objforce/objforce/index-server/app/domain/models"
+	"github.com/objforce/objforce/index-srv/app/domain/models"
 	"github.com/olivere/elastic/v6"
 )
 
@@ -12,8 +12,9 @@ type documentRepository struct {
 }
 
 type DocumentRepository interface {
-	FindOne(c context.Context, index, typ, id string) (*models.Document, error)
+	Retrieve(c context.Context, index, typ, id string) (*models.Document, error)
 	Delete(c context.Context, index, typ, id string) error
+	Update(c context.Context, doc *models.Document) error
 	Upsert(c context.Context, doc *models.Document) error
 	Bulk(c context.Context, docs []*models.Document) error
 }
@@ -24,7 +25,7 @@ func NewDocumentRepository(client *elastic.Client) DocumentRepository {
 	}
 }
 
-func (r *documentRepository) FindOne(c context.Context, index, typ, id string) (*models.Document, error) {
+func (r *documentRepository) Retrieve(c context.Context, index, typ, id string) (*models.Document, error) {
 	res, err := r.client.Get().Index(index).Type(typ).Id(id).Do(c)
 	if err != nil {
 		return nil, err
@@ -66,11 +67,22 @@ func (r *documentRepository) Bulk(c context.Context, docs []*models.Document) er
 }
 
 func (r *documentRepository) Upsert(c context.Context, doc *models.Document) error {
-	_, err := r.client.Index().
+	_, err := r.client.Update().
 		Index(doc.Index).
 		Type(doc.Type).
 		Id(doc.Id).
-		BodyJson(doc.Fields).
+		Upsert(doc).
 		Do(c)
+	return err
+}
+
+func (r *documentRepository) Update(c context.Context, doc *models.Document) error {
+	_, err := r.client.Update().
+		Index(doc.Index).
+		Type(doc.Type).
+		Id(doc.Id).
+		Doc(doc).
+		Do(c)
+
 	return err
 }

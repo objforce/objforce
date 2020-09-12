@@ -1,4 +1,4 @@
-module github.com/objforce/objforce/index-server
+module github.com/objforce/objforce/index-srv
 
 go 1.14
 
@@ -9,17 +9,25 @@ require (
 	github.com/gin-contrib/cors v1.3.1
 	github.com/gin-contrib/gzip v0.0.2
 	github.com/gin-gonic/gin v1.6.3
-	github.com/ginkgoch/godash v1.2.0 // indirect
+	github.com/ginkgoch/godash v1.2.0
 	github.com/go-martini/martini v0.0.0-20170121215854-22fa46961aab // indirect
+	github.com/golang/protobuf v1.4.0
 	github.com/jinzhu/gorm v1.9.16 // indirect
 	github.com/jinzhu/now v1.1.1 // indirect
 	github.com/micro/cli/v2 v2.1.2
 	github.com/micro/go-micro/v2 v2.9.1
+	github.com/micro/go-plugins/logger/zap/v2 v2.9.1
 	github.com/micro/go-plugins/registry/consul/v2 v2.9.1
+	github.com/micro/go-plugins/wrapper/monitoring/prometheus/v2 v2.9.1
+	github.com/micro/go-plugins/wrapper/ratelimiter/uber/v2 v2.9.1
+	github.com/micro/go-plugins/wrapper/trace/opentracing/v2 v2.9.1
+	github.com/micro/go-plugins/wrapper/validator/v2 v2.9.1
+	github.com/mwitkow/go-proto-validators v0.3.2
+	github.com/objforce/objforce/meta-srv v0.0.0-20200911204911-c7416e930fde
 	github.com/olivere/elastic v6.2.35+incompatible // indirect
 	github.com/olivere/elastic/v6 v6.2.1
 	github.com/opentracing/opentracing-go v1.1.0
-	github.com/prometheus/client_golang v1.1.0
+	github.com/prometheus/client_golang v1.5.1
 	github.com/xxxmicro/base v0.1.28
 	go.uber.org/dig v1.10.0
 	go.uber.org/fx v1.13.0

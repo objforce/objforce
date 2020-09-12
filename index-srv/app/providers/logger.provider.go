@@ -1,19 +1,29 @@
 package providers
 
 import (
-	"github.com/objforce/objforce/index-server/config"
-	"go.uber.org/zap"
-	"go.uber.org/zap/zapcore"
+	// "os/exec"
+	"github.com/objforce/objforce/meta-srv/config"
+
+	"github.com/micro/go-micro/v2/logger"
+	// "go.uber.org/zap"
+	// "go.uber.org/zap/zapcore"
+	_zap "github.com/micro/go-plugins/logger/zap/v2"
 )
 
-func NewLoggerProvider(config *config.AppConfig) *zap.SugaredLogger {
-	var log *zap.Logger
-	if config.Env != "production" {
-		logConfig := zap.NewDevelopmentConfig()
-		logConfig.EncoderConfig.EncodeLevel = zapcore.CapitalColorLevelEncoder
-		log, _ = logConfig.Build()
-	} else {
-		log, _ = zap.NewProduction()
+func InitLogger(config *config.AppConfig) error {
+	l, err := _zap.NewLogger()
+	if err != nil {
+		return err
 	}
-	return log.Sugar()
+
+	logger.DefaultLogger = l
+
+	logOptions := make([]logger.Option, 0)
+	if config.Env == "dev" {
+		logOptions = append(logOptions, logger.WithLevel(logger.DebugLevel))
+	}
+
+	logger.Init(logOptions...)
+
+	return nil
 }
