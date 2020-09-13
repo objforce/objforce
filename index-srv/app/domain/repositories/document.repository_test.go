@@ -4,8 +4,8 @@ import (
 	"context"
 	"github.com/micro/go-micro/v2/config"
 	"github.com/micro/go-micro/v2/config/source/memory"
-	"github.com/objforce/objforce/index-server/app/domain/models"
-	"github.com/objforce/objforce/index-server/app/providers"
+	"github.com/objforce/objforce/index-srv/app/domain/models"
+	"github.com/objforce/objforce/index-srv/app/providers"
 	"testing"
 	"time"
 )

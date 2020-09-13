@@ -462,6 +462,7 @@ github.com/nrdcg/dnspod-go v0.4.0/go.mod h1:vZSoFSFeQVm2gWLMkyX61LZ8HI3BaqtHZWgP
 github.com/nrdcg/goinwx v0.6.1/go.mod h1:XPiut7enlbEdntAqalBIqcYcTEVhpv/dKWgDCX2SwKQ=
 github.com/nrdcg/namesilo v0.2.1/go.mod h1:lwMvfQTyYq+BbjJd30ylEG4GPSS6PII0Tia4rRpRiyw=
 github.com/objforce/objforce v0.0.0-20200911204911-c7416e930fde h1:gGCMW1Sck3XgByS3lY1GeYR/n5EqPG+lNfitzTHYbaM=
+github.com/objforce/objforce v0.0.0-20200912164549-de500e67ae3a h1:qWydh/GeOO33/oszPeM9w+NCZf36NcD1vqfFXXOlx0g=
 github.com/objforce/objforce/index-srv v0.0.0-20200911204911-c7416e930fde h1:RnmxFkK1YuulfBYeXsU1793MD9ZT/iks9dd0QXu4Xk0=
 github.com/objforce/objforce/meta-srv v0.0.0-20200911204911-c7416e930fde h1:SIaZXAn4YKHcAavtniU0sF4/6v88R/due6redScPfSQ=
 github.com/objforce/objforce/meta-srv v0.0.0-20200911204911-c7416e930fde/go.mod h1:9NGNywEWDgEPHZPfCEbSnVBFF3JXGDLb+KJoASXDQAE=

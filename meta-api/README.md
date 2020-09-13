@@ -3,6 +3,8 @@
 ### salesforce 多租户设计
 参考: https://developer.salesforce.com/wiki/multi_tenant_architecture
 
+更新的参考: https://blog.csdn.net/yczz/article/details/38712057
+
 data sparce table 采用 MySQL? hbase ?
 mt_indexes, mt_unique_indexes 采用 MySQL?
 

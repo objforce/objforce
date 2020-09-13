@@ -25,7 +25,7 @@ func NewAppConfig() *AppConfig {
 		*/
 
 		Port: EnvInt("APP_PORT", 3345),
-		Prefix: "/index-server",
+		Prefix: "/index",
 		ShowBanner: EnvBool("APP_SHOW_BANNER", true),
 		/*
 		|--------------------------------------------------------------------------
