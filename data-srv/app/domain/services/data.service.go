@@ -26,7 +26,7 @@ func NewDataService(dataRepository repositories.DataRepository) DataService {
 }
 
 func (s *dataService) Create(c context.Context, dto *dtos.SObject) (*dtos.SObject, error) {
-	entity := &models.MTData{}
+	entity := &models.MTBasicData{}
 	mapper.Map(dto, entity)
 
 	err := s.dataRepository.Create(c, entity)
@@ -40,7 +40,7 @@ func (s *dataService) Create(c context.Context, dto *dtos.SObject) (*dtos.SObjec
 }
 
 func (s *dataService) Update(c context.Context, dto *dtos.SObject) (*dtos.SObject, error) {
-	entity := &models.MTData{ObjId: dto.ObjId}
+	entity := &models.MTBasicData{ObjId: dto.ObjId}
 
 	mapper.Map(dto, entity)
 
@@ -60,7 +60,7 @@ func (s *dataService) Update(c context.Context, dto *dtos.SObject) (*dtos.SObjec
 }
 
 func (s *dataService) FindOne(c context.Context, id string) (*dtos.SObject, error) {
-	entity := &models.MTData{Id: id}
+	entity := &models.MTBasicData{GUID: id}
 	s.dataRepository.FindOne(c, entity)
 
 	dto := &dtos.SObject{}
@@ -69,5 +69,5 @@ func (s *dataService) FindOne(c context.Context, id string) (*dtos.SObject, erro
 }
 
 func (s *dataService) Delete(c context.Context, id string) error {
-	return s.dataRepository.Delete(c, &models.MTData{Id: id})
+	return s.dataRepository.Delete(c, &models.MTBasicData{GUID: id})
 }

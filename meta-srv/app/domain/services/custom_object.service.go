@@ -14,7 +14,7 @@ import (
 type CustomObjectService interface {
 	Create(c context.Context, dto *dtos.CustomObject) (*dtos.CustomObject, error)
 	Update(c context.Context, dto *dtos.CustomObject) (*dtos.CustomObject, error)
-	FindOne(c context.Context, id string) (*dtos.CustomObject, error)
+	Retrieve(c context.Context, id string) (*dtos.CustomObject, error)
 	Delete(c context.Context, id string) error
 }
 
@@ -35,7 +35,7 @@ func NewCustomObjectService(client client.Client, customObjectRepository reposit
 }
 
 func (s *customObjectService) Create(c context.Context, dto *dtos.CustomObject) (*dtos.CustomObject, error) {
-	entity := &models.CustomField{}
+	entity := &models.MTObject{}
 	mapper.Map(dto, entity)
 
 	err := s.customObjectRepository.Create(c, entity)
@@ -49,16 +49,15 @@ func (s *customObjectService) Create(c context.Context, dto *dtos.CustomObject) 
 }
 
 func (s *customObjectService) Update(c context.Context, dto *dtos.CustomObject) (*dtos.CustomObject, error) {
-	entity := &models.CustomField{ObjId: dto.Id}
+	entity := &models.MTObject{ObjId: dto.ObjId}
 
 	mapper.Map(dto, entity)
 
-	err := s.customObjectRepository.Update(c, entity, entity)
-	if err != nil {
+	if err := s.customObjectRepository.Update(c, entity); err != nil {
 		return nil, err
 	}
 
-	err = s.customObjectRepository.FindOne(c, entity)
+	entity, err := s.customObjectRepository.Retrieve(c, dto.ObjId)
 	if err != nil {
 		return nil, err
 	}
@@ -68,17 +67,19 @@ func (s *customObjectService) Update(c context.Context, dto *dtos.CustomObject) 
 	return dto, nil
 }
 
-func (s *customObjectService) FindOne(c context.Context, id string) (*dtos.CustomObject, error) {
-	entity := &models.CustomObject{ObjId: id}
-	s.customObjectRepository.FindOne(c, entity)
+func (s *customObjectService) Retrieve(c context.Context, ObjId string) (*dtos.CustomObject, error) {
+	entity, err := s.customObjectRepository.Retrieve(c, ObjId)
+	if err != nil {
+		return nil, err
+	}
 
 	dto := &dtos.CustomObject{}
 	mapper.Map(entity, dto)
 	return dto, nil
 }
 
-func (s *customObjectService) Delete(c context.Context, id string) error {
-	return s.customObjectRepository.Delete(c, &models.CustomObject{ObjId: id})
+func (s *customObjectService) Delete(c context.Context, objId string) error {
+	return s.customObjectRepository.Delete(c, objId)
 }
 
 type CustomObjectServiceEventWrapper struct {
@@ -120,11 +121,11 @@ func (s *CustomObjectServiceEventWrapper) Update(c context.Context, dto *dtos.Cu
 	return dto, err
 }
 
-func (s *CustomObjectServiceEventWrapper) FindOne(c context.Context, id string) (*dtos.CustomObject, error) {
-	return s.ref.FindOne(c, id)
+func (s *CustomObjectServiceEventWrapper) Retrieve(c context.Context, id string) (*dtos.CustomObject, error) {
+	return s.ref.Retrieve(c, id)
 }
 func (s *CustomObjectServiceEventWrapper) Delete(c context.Context, id string) error {
-	dto, err := s.ref.FindOne(c, id)
+	dto, err := s.ref.Retrieve(c, id)
 	if err != nil {
 		return err
 	}

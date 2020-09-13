@@ -1,7 +1,13 @@
 package models
 
-type CustomField struct {
+import (
+	_gorm "github.com/jinzhu/gorm"
+	uuid "github.com/satori/go.uuid"
+)
+
+type MTField struct {
 	FieldId string `json:"fieldId,omitempty" gorm:"primary_key"`
+	TableName string `json:"tableName,omitempty"`
 	ObjId string `json:"objId,omitempty"`
 	OrgId string `json:"orgID,omitempty"`
 	FieldName string `json:"fieldName,omitempty"`
@@ -126,10 +132,10 @@ type CustomField struct {
 	SummaryOperation SummaryOperation `json:"summaryOperation"`
 
 	/**
-		Indicates whether the field is enabled for feed tracking (true) or not (false).
-		To set this field to true, the enableFeeds field on the associated CustomObject must also be true.
-		For more information, see “Customize Chatter Feed Tracking” in the Salesforce Help.
-	 */
+	Indicates whether the field is enabled for feed tracking (true) or not (false).
+	To set this field to true, the enableFeeds field on the associated MTObject must also be true.
+	For more information, see “Customize Chatter Feed Tracking” in the Salesforce Help.
+	*/
 	TrackFeedHistory bool `json:"trackFeedHistory"`
 
 	/**
@@ -159,6 +165,10 @@ type CustomField struct {
 	 */
 	IsUnique bool `json:"unique"`
 
+	IsIndexed bool `json:"indexed"`
+
+	FieldNum int `json:"fieldNum"`
+
 	/**
 
 	 */
@@ -181,7 +191,12 @@ type CustomField struct {
 	WriteRequiresMasterRead bool `json:"writeRequiresMasterRead"`
 }
 
-func (m *CustomField) Unique() interface{} {
+func (c *MTField) BeforeCreate(scope *_gorm.Scope) error {
+	scope.SetColumn("fieldId", uuid.NewV4().String())
+	return nil
+}
+
+func (m *MTField) Unique() interface{} {
 	return map[string]interface{}{
 		"fieldId": m.FieldId,
 	}

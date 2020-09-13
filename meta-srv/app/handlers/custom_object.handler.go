@@ -60,7 +60,7 @@ func (h *CustomObjectHandler) Update(c context.Context, req *meta.CustomObject, 
 }
 
 func (h *CustomObjectHandler) FindOne(c context.Context, req *meta.FindCustomObjectRequest, rsp *meta.CustomObject) error {
-	dto, err := h.customObjectService.FindOne(c, req.ObjId)
+	dto, err := h.customObjectService.Retrieve(c, req.ObjId)
 	if err != nil {
 		return err
 	}

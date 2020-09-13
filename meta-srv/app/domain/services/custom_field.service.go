@@ -26,7 +26,7 @@ func NewCustomFieldService(customFieldRepository repositories.CustomFieldReposit
 }
 
 func (s *customFieldService) Create(c context.Context, dto *dtos.CustomField) (*dtos.CustomField, error) {
-	entity := &models.CustomField{}
+	entity := &models.MTField{}
 	mapper.Map(dto, entity)
 
 	err := s.customFieldRepository.Create(c, entity)
@@ -40,7 +40,7 @@ func (s *customFieldService) Create(c context.Context, dto *dtos.CustomField) (*
 }
 
 func (s *customFieldService) Update(c context.Context, dto *dtos.CustomField) (*dtos.CustomField, error) {
-	entity := &models.CustomField{FieldId: dto.FieldId}
+	entity := &models.MTField{FieldId: dto.FieldId}
 
 	mapper.Map(dto, entity)
 
@@ -60,7 +60,7 @@ func (s *customFieldService) Update(c context.Context, dto *dtos.CustomField) (*
 }
 
 func (s *customFieldService) FindOne(c context.Context, id string) (*dtos.CustomField, error) {
-	entity := &models.CustomField{FieldId: id}
+	entity := &models.MTField{FieldId: id}
 	s.customFieldRepository.FindOne(c, entity)
 
 	dto := &dtos.CustomField{}
@@ -69,5 +69,5 @@ func (s *customFieldService) FindOne(c context.Context, id string) (*dtos.Custom
 }
 
 func (s *customFieldService) Delete(c context.Context, id string) error {
-	return s.customFieldRepository.Delete(c, &models.CustomField{FieldId: id})
+	return s.customFieldRepository.Delete(c, &models.MTField{FieldId: id})
 }

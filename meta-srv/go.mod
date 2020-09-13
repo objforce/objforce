@@ -25,6 +25,7 @@ require (
 	github.com/mwitkow/go-proto-validators v0.3.2
 	github.com/opentracing/opentracing-go v1.1.0
 	github.com/prometheus/client_golang v1.5.1
+	github.com/satori/go.uuid v1.2.0
 	github.com/thinkerou/favicon v0.1.0
 	github.com/wantedly/gorm-zap v0.0.0-20171015071652-372d3517a876 // indirect
 	github.com/xxxmicro/base v0.1.28
