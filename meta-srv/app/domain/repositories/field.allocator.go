@@ -49,12 +49,12 @@ func (a *fieldAllocator) Allocate(db *gorm.DB, objId string) (*FieldLocation, er
 		return fieldLocation, nil
 	}
 
-	extendTableMetas, err := a.extendTableMetaRepository.All()
+	_, err = a.extendTableMetaRepository.All()
 	if err != nil {
 		return nil, err
 	}
 
 
 
-	return err
+	return nil, err
 }
