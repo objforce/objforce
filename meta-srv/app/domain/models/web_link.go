@@ -1,7 +1,6 @@
 package models
 
 type WebLink struct {
-	*Metadata
 	Availability WebLinkAvailability `json:"availability"`
 	Description string `json:"description"`
 	DisplayType WebLinkDisplayType `json:"displayType"`

@@ -13,6 +13,7 @@ import (
 
 type CustomObjectService interface {
 	Create(c context.Context, dto *dtos.CustomObject) (*dtos.CustomObject, error)
+	Upsert(c context.Context, dto *dtos.CustomObject) (*dtos.CustomObject, error)
 	Update(c context.Context, dto *dtos.CustomObject) (*dtos.CustomObject, error)
 	Retrieve(c context.Context, id string) (*dtos.CustomObject, error)
 	Delete(c context.Context, id string) error
@@ -40,6 +41,20 @@ func (s *customObjectService) Create(c context.Context, dto *dtos.CustomObject) 
 
 	err := s.customObjectRepository.Create(c, entity)
 	if err != nil {
+		return nil, err
+	}
+
+	mapper.Map(entity, dto)
+
+	return dto, nil
+}
+
+func (s *customObjectService) Upsert(c context.Context, dto *dtos.CustomObject) (*dtos.CustomObject, error) {
+	entity := &models.MTObject{ObjId: dto.ObjId}
+
+	mapper.Map(dto, entity)
+
+	if err := s.customObjectRepository.Upsert(c, entity); err != nil {
 		return nil, err
 	}
 
@@ -104,6 +119,22 @@ func (s *CustomObjectServiceEventWrapper) Create(c context.Context, dto *dtos.Cu
 	}
 
 	return dto, nil
+}
+
+func (s *CustomObjectServiceEventWrapper) Upsert(c context.Context, dto *dtos.CustomObject) (*dtos.CustomObject, error) {
+	dto, err := s.ref.Upsert(c, dto)
+	if err != nil {
+		return nil, err
+	}
+
+	pb := &meta.CustomObject{}
+	mapper.Map(dto, pb)
+	err = client.Publish(c, client.NewMessage(config.CustomObjectUpsertedTopic, pb))
+	if err != nil {
+		return dto, err
+	}
+
+	return dto, err
 }
 
 func (s *CustomObjectServiceEventWrapper) Update(c context.Context, dto *dtos.CustomObject) (*dtos.CustomObject, error) {

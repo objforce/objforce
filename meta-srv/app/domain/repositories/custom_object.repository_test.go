@@ -12,13 +12,12 @@ import (
 func TestCustomObjectRepository_Create(t *testing.T) {
 	source := memory.NewSource(
 		memory.WithJSON([]byte(`
-	{
-		"db": {
-			"driver": "mysql",
-			"connection_string": "root:root@tcp(localhost:3306)/objforce_meta?charset=utf8mb4&parseTime=True&loc=Local"
-		}
-	}
-`)))
+		{
+			"db": {
+				"driver": "mysql",
+				"connection_string": "root:root@tcp(localhost:3306)/objforce_meta?charset=utf8mb4&parseTime=True&loc=Local"
+			}
+		}`)))
 
 	config, err := config.NewConfig()
 	if err != nil {
@@ -60,7 +59,7 @@ func TestCustomObjectRepository_Create(t *testing.T) {
 		},
 	}
 
-	err = customObjectRepository.Create(context.Background(), customObject)
+	err = customObjectRepository.Upsert(context.Background(), customObject)
 	if err != nil {
 		t.Fatal(err)
 	}

@@ -1,7 +1,6 @@
 package models
 
 type ListView struct {
-	*Metadata
 	BooleanFilter string `json:"booleanFilter"`
 	Columns []string `json:"columns"`
 	Division string `json:"division"`

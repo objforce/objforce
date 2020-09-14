@@ -6,7 +6,6 @@ Multiple business processes allow you to track separate sales, support, and lead
  */
 
 type BusinessProcess struct {
-	*Metadata
 	Description string `json:"description"`
 	IsActive bool `json:"isActive"`
 	NamespacePrefix string `json:"namespacePrefix"`

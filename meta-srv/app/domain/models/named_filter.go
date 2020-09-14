@@ -6,7 +6,6 @@ This type extends the Metadata metadata type and inherits its fullName field. Yo
  */
 
 type NamedFilter struct {
-	*Metadata
 	Active bool `json:"active"`
 	BooleanFilter string `json:"booleanFilter"`
 	Description string `json:"description"`

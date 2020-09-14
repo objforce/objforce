@@ -8,25 +8,24 @@ import (
 )
 
 type CustomObjectRepository interface {
-	Create(c context.Context, customObject *models.MTObject) error
-	Update(c context.Context, customObject *models.MTObject) error
+	Create(c context.Context, object *models.MTObject) error
+	Upsert(c context.Context, object *models.MTObject) error
+	Update(c context.Context, object *models.MTObject) error
 	Retrieve(c context.Context, objId string) (*models.MTObject, error)
 	Delete(c context.Context, objId string) error
 }
 
 type customObjectRepository struct {
 	db *_gorm.DB
-	fieldAllocator FieldAllocator
 }
 
-func NewCustomObjectRepository(db *_gorm.DB, fieldAllocator FieldAllocator) CustomObjectRepository {
+func NewCustomObjectRepository(db *_gorm.DB) CustomObjectRepository {
 	return &customObjectRepository{
 		db,
-		fieldAllocator,
 	}
 }
 
-func (r *customObjectRepository) Create(c context.Context, customObject *models.MTObject) error {
+func (r *customObjectRepository) Create(c context.Context, object *models.MTObject) error {
 	db := opentracing.SetSpanToGorm(c, r.db)
 	/*return db.Transaction(func(tx *_gorm.DB) error {
 
@@ -35,24 +34,31 @@ func (r *customObjectRepository) Create(c context.Context, customObject *models.
 	// Create 方法内部默认就用了事务
 
 	fieldNum := 0
-	for _, customField := range customObject.Fields {
+	for _, customField := range object.Fields {
 		customField.FieldNum = fieldNum
 		fieldNum++
 	}
 
-	if err := db.Create(customObject).Error; err != nil {
+	if err := db.Create(object).Error; err != nil {
 		return err
 	}
 
 	return nil
 }
 
+func (r *customObjectRepository) Upsert(c context.Context, object *models.MTObject) error {
+	db := opentracing.SetSpanToGorm(c, r.db)
+
+	return db.Save(object).Error
+}
+
 func (r *customObjectRepository) Update(c context.Context, object *models.MTObject) error {
 	db := opentracing.SetSpanToGorm(c, r.db)
 
-	r.fieldAllocator.Allocate(r.db, object.ObjId)
+	// TODO 要记录变更历史 change
+	rr := db.Save(object)
 
-	return db.Save(object).Error
+	return rr.Error
 }
 
 func (r *customObjectRepository) Retrieve(c context.Context, objId string) (*models.MTObject, error) {

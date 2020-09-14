@@ -1,8 +1,6 @@
 package models
 
 type RecordType struct {
-	*Metadata
-
 	Active                  bool                       `json:"active,omitempty"`
 	BusinessProcess         string                     `json:"businessProcess,omitempty"`
 	CompactLayoutAssignment string                     `json:"compactLayoutAssignment,omitempty"`

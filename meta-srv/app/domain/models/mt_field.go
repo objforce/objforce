@@ -7,7 +7,6 @@ import (
 
 type MTField struct {
 	FieldId string `json:"fieldId,omitempty" gorm:"primary_key"`
-	TableName string `json:"tableName,omitempty"`
 	ObjId string `json:"objId,omitempty"`
 	OrgId string `json:"orgID,omitempty"`
 	FieldName string `json:"fieldName,omitempty"`

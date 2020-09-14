@@ -36,6 +36,7 @@ func App() *fx.App {
 		fx.Provide(repositories.NewClobRepository),
 
 		// Services (./app/services)
+		fx.Provide(services.NewCustomObjectService),
 		fx.Provide(services.NewCustomFieldService),
 
 		// Handlers (./app/handlers)
