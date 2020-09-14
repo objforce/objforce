@@ -2,12 +2,12 @@ package models
 
 import "time"
 
-type MTBasicData struct {
+type MTData struct {
 	GUID      string                 `json:"guid,omitempty" gorm:"primary_key"`
 	OrgId     string                 `json:"orgId,omitempty"`
 	ObjId     string                 `json:"objId,omitempty"`
 	Name      string                 `json:"name"`
-	Fields    map[string]interface{} `json:"fields"`
+	Fields    map[string]string 	 `json:"fields"`
 	CreatedAt time.Time              `json:"createdAt"`
 	CreatedBy string                 `json:"createdBy"`
 	UpdatedAt time.Time              `json:"updatedAt"`
@@ -15,7 +15,7 @@ type MTBasicData struct {
 	IsDeleted bool					 `json:"isDeleted"`
 }
 
-func (m *MTBasicData) Unique() interface{} {
+func (m *MTData) Unique() interface{} {
 	return map[string]interface{}{
 		"guid": m.GUID,
 	}

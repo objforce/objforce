@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package meta;
+option go_package = "";
+
+import "types.proto";
+
+service CustomObjectService {
+  rpc Create(CustomObject) returns (CustomObject) {}
+  rpc Update(CustomObject) returns (CustomObject) {}
+  rpc FindOne(FindCustomObjectRequest) returns (CustomObject) {}
+  rpc Delete(DeleteCustomObjectRequest) returns (CustomObject) {}
+}
+
+service CustomFieldService {
+  rpc Create(CustomField) returns (CustomField) {}
+  rpc Update(CustomField) returns (CustomField) {}
+  rpc FindOne(FindCustomFieldRequest) returns (CustomField) {}
+  rpc Delete(DeleteCustomFieldRequest) returns (CustomField) {}
+}
+
+message FindCustomObjectRequest {
+  string objId = 1;
+}
+
+message DeleteCustomObjectRequest {
+  string objId = 1;
+}
+
+message FindCustomFieldRequest {
+  string fieldId = 1;
+}
+
+message DeleteCustomFieldRequest {
+  string fieldId = 1;
+}
+

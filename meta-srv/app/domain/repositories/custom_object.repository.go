@@ -65,7 +65,7 @@ func (r *customObjectRepository) Retrieve(c context.Context, objId string) (*mod
 	db := opentracing.SetSpanToGorm(c, r.db)
 
 	object := &models.MTObject{}
-	err :=  db.Where("objId = ?", objId).Take(object).Error
+	err :=  db.Where("obj_id = ?", objId).Take(object).Error
 	if err != nil {
 		return nil, err
 	}

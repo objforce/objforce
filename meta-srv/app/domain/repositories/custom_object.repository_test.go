@@ -64,6 +64,11 @@ func TestCustomObjectRepository_Create(t *testing.T) {
 		t.Fatal(err)
 	}
 
+	customObject, err = customObjectRepository.Retrieve(context.Background(), customObject.ObjId)
+	if err != nil {
+		t.Fatal(err)
+	}
+
 	customObject.Fields = []*models.MTField{
 		{
 			OrgId: orgId,

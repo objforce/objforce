@@ -1,16 +1,15 @@
 package bootstrap
 
-import(
+import (
+	"github.com/objforce/objforce/data-srv/app/domain/repositories"
+	"github.com/objforce/objforce/data-srv/app/domain/services"
 	"github.com/objforce/objforce/data-srv/app/handlers"
-	"go.uber.org/fx"
+	"github.com/objforce/objforce/data-srv/app/providers"
+	"github.com/objforce/objforce/data-srv/config"
 	xconfig "github.com/xxxmicro/base/config"
 	xsource "github.com/xxxmicro/base/config/source"
-	"github.com/xxxmicro/base/database/gorm"
 	"github.com/xxxmicro/base/opentracing/jaeger"
-	"github.com/objforce/objforce/data-srv/config"
-	"github.com/objforce/objforce/data-srv/app/providers"
-	"github.com/objforce/objforce/data-srv/app/domain/services"
-	"github.com/objforce/objforce/data-srv/app/domain/repositories"
+	"go.uber.org/fx"
 )
 
 
@@ -25,7 +24,7 @@ func App() *fx.App {
 		fx.Provide(xsource.NewSourceProvider),
 		fx.Provide(xconfig.NewConfigProvider),
 		fx.Provide(jaeger.NewTracerProvider),
-		fx.Provide(gorm.NewDbProvider),
+		fx.Provide(providers.NewHBaseClientProvider),
 		fx.Provide(providers.NewBrokerProvider),
 		fx.Provide(providers.NewMicroClientProvider),
 
