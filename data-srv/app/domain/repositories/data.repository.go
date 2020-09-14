@@ -45,7 +45,7 @@ func (r* dataRepository) Get(c context.Context, orgId string, objId string, guid
 		GUID: objId,
 		OrgId: orgId,
 		ObjId: objId,
-		Fields: make(map[string]interface{}),
+		Fields: make(map[string]string),
 	}
 
 	for _, cell := range rsp.Cells {
