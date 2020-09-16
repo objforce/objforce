@@ -16,6 +16,7 @@ const tableName = "mt_datas"
 type DataRepository interface {
 	Get(c context.Context, orgId string, objId string, guid string) (*models.MTData, error)
 	Put(c context.Context, m *models.MTData) error
+	Delete(c context.Context, orgId string, objId string, guid string) error
 }
 
 type dataRepository struct {
@@ -92,7 +93,12 @@ func (r *dataRepository) Put(c context.Context, m *models.MTData) error {
 
 	values["ext"] = ext
 
-	_, err := hrpc.NewPutStr(c, tableName, rowkey, values)
+	req, err := hrpc.NewPutStr(c, tableName, rowkey, values)
+	if err != nil {
+		return err
+	}
+
+	_, err = r.client.Put(req)
 	if err != nil {
 		return err
 	}
@@ -100,6 +106,21 @@ func (r *dataRepository) Put(c context.Context, m *models.MTData) error {
 	return nil
 }
 
+func (r *dataRepository) Delete(c context.Context, orgId string, objId string, guid string) error {
+	rowkey := marshalRowKey(orgId, objId, guid)
+
+	req, err := hrpc.NewDelStr(c, tableName, rowkey, nil)
+	if err != nil {
+		return err
+	}
+
+	_, err = r.client.Delete(req)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
 
 func marshalRowKey(orgId string, objId string, guid string) string {
 	return fmt.Sprintf("%s_%s_%s", orgId, objId, guid)
