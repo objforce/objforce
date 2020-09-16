@@ -22,7 +22,7 @@ require (
 	github.com/micro/go-plugins/wrapper/ratelimiter/uber/v2 v2.9.1
 	github.com/micro/go-plugins/wrapper/trace/opentracing/v2 v2.9.1
 	github.com/micro/go-plugins/wrapper/validator/v2 v2.9.1
-	github.com/objforce/objforce/meta-server v0.0.0-20200907170338-d23f59c214ac // indirect
+	github.com/objforce/objforce/meta-srv v0.0.0-20200907170338-d23f59c214ac // indirect
 	github.com/opentracing/opentracing-go v1.1.0
 	github.com/prometheus/client_golang v1.5.1
 	github.com/satori/go.uuid v1.2.0

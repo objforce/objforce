@@ -14,9 +14,3 @@ type MTData struct {
 	UpdatedBy string                 `json:"updatedBy"`
 	IsDeleted bool					 `json:"isDeleted"`
 }
-
-func (m *MTData) Unique() interface{} {
-	return map[string]interface{}{
-		"guid": m.GUID,
-	}
-}

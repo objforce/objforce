@@ -2,6 +2,7 @@ package repositories
 
 import(
 	"context"
+	"encoding/binary"
 	"fmt"
 	"github.com/objforce/objforce/data-srv/app/domain/models"
 	uuid "github.com/satori/go.uuid"
@@ -57,11 +58,13 @@ func (r* dataRepository) Get(c context.Context, orgId string, objId string, guid
 			case "name":
 				data.Name = string(cell.Value)
 			case "created_at":
-				data.CreatedAt = time.Unix(0, 0)
+				ms := BytesToInt64(cell.Value)
+				data.CreatedAt = time.Unix(0, ms * int64(time.Millisecond))
 			case "created_by":
 				data.CreatedBy = string(cell.Value)
 			case "updated_at":
-				data.UpdatedAt = time.Unix(0, 0)
+				ms := BytesToInt64(cell.Value)
+				data.UpdatedAt = time.Unix(0, ms * int64(time.Millisecond))
 			case "updated_by":
 				data.UpdatedBy = string(cell.Value)
 			case "isDeleted":
@@ -75,16 +78,35 @@ func (r* dataRepository) Get(c context.Context, orgId string, objId string, guid
 	return data, nil
 }
 
+/**
+ * 获取多条记录
+ */
+func (r *dataRepository) MultiGet(c context.Context, ids []string, fields []string) ([]*models.MTData, error) {
+	req, err := hrpc.NewGetStr()
+	if err != nil {
+		return nil, err
+	}
+
+	r.client.
+}
+
+/**
+ * 创建
+ * 局部更新，只修改部分列
+ */
 func (r *dataRepository) Put(c context.Context, m *models.MTData) error {
 	m.GUID = uuid.NewV4().String()
 	rowkey := marshalRowKey(m.OrgId, m.ObjId, m.GUID)
+	values := make(map[string]map[string][]byte)
 
-	values := map[string]map[string][]byte{
-		"basic": {
-			"created_by": []byte(m.CreatedBy),
-			// "created_at": {m.CreatedAt.UnixNano()},
-		},
+	basic := map[string][]byte{
+		"created_by": []byte(m.CreatedBy),
+		"created_at": Int64ToBytes(m.CreatedAt.UnixNano()/1e6),
+		"updated_by": []byte(m.UpdatedBy),
+		"updated_at": Int64ToBytes(m.UpdatedAt.UnixNano()/1e6),
 	}
+
+	values["basic"] = basic
 
 	ext := map[string][]byte{}
 	for fieldName, fieldValue := range m.Fields {
@@ -124,4 +146,14 @@ func (r *dataRepository) Delete(c context.Context, orgId string, objId string, g
 
 func marshalRowKey(orgId string, objId string, guid string) string {
 	return fmt.Sprintf("%s_%s_%s", orgId, objId, guid)
+}
+
+func Int64ToBytes(i int64) []byte {
+	var buf = make([]byte, 8)
+	binary.BigEndian.PutUint64(buf, uint64(i))
+	return buf
+}
+
+func BytesToInt64(buf []byte) int64 {
+	return int64(binary.BigEndian.Uint64(buf))
 }
