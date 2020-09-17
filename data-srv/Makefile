@@ -23,10 +23,6 @@ test:
 docker:
 	docker build -t data-srv:latest .
 
-.PHONY: submodule
-submodule:
-	git submodule init && git submodule update --remote
-
 .PHONY: publish-image
 publish-image: docker
 	docker tag data-srv:latest objforce/data-srv:latest

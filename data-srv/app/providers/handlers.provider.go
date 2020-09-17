@@ -2,7 +2,7 @@ package providers
 
 import (
 	"github.com/micro/go-micro/v2"
-	data "github.com/objforce/objforce/data-srv/proto/data/gen-go"
+	data "github.com/objforce/objforce/idl/data/gen-go"
 	"github.com/objforce/objforce/data-srv/app/handlers"
 )
 

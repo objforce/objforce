@@ -6,7 +6,7 @@ import (
 	"github.com/objforce/objforce/data-srv/app/domain/repositories"
 	"github.com/objforce/objforce/data-srv/app/dtos"
 	"github.com/objforce/objforce/data-srv/config"
-	meta "github.com/objforce/objforce/data-srv/proto/meta/gen-go"
+	meta "github.com/objforce/objforce/idl/meta/gen-go"
 	"github.com/xxxmicro/base/mapper"
 	mapset "github.com/deckarep/golang-set"
 )
