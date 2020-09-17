@@ -17,7 +17,7 @@ import (
 	"github.com/objforce/objforce/data-srv/app/handlers"
 	"github.com/objforce/objforce/data-srv/app/providers"
 	"github.com/objforce/objforce/data-srv/config"
-	data "github.com/objforce/objforce/data-srv/proto/data/gen-go"
+	data "github.com/objforce/objforce/idl/data/gen-go"
 	xxxmicro_opentracing "github.com/xxxmicro/base/opentracing"
 	"testing"
 	"time"

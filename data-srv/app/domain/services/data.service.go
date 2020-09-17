@@ -14,7 +14,7 @@ import (
 type DataService interface {
 	Create(c context.Context, items []*dtos.SObject) ([]*dtos.SaveResult, error)
 	Update(c context.Context, items []*dtos.SObject) ([]*dtos.SaveResult, error)
-	Upsert(c context.Context, objType string, items []*dtos.SObject) ([]*dtos.UpsertResult, error)
+	Upsert(c context.Context, items []*dtos.SObject) ([]*dtos.UpsertResult, error)
 	Retrieve(c context.Context, objType string, ids []string, fields []string) ([]*dtos.SObject, error)
 	Delete(c context.Context, objType string, ids []string) ([]*dtos.DeleteResult, error)
 }
@@ -126,28 +126,29 @@ func (s *dataService) Retrieve(c context.Context, objType string, ids []string, 
 	return dtoList, nil
 }
 
-func (s *dataService) Upsert(c context.Context, objType string, dtoList []*dtos.SObject) ([]*dtos.UpsertResult, error) {
+func (s *dataService) Upsert(c context.Context, dtoList []*dtos.SObject) ([]*dtos.UpsertResult, error) {
 	orgId := c.Value(config.OrgIdKey{}).(string)
-	metaObj, err := s.customObjectService.FindCustomObjectByOrgAndType(c, &meta.OrgAndObjTypeRequest{OrgId: orgId, ObjType: objType})
-	if err != nil {
-		return nil, err
-	}
-	objId := metaObj.ObjId
 
 	modelList := make([]*models.MTData, len(dtoList))
 	mapper.Map(dtoList, modelList)
-	for _, model := range modelList {
+	for i, dto := range dtoList {
+		// 通过Org和type得到 对象元数据, 进而得到 objId
+		metaObj, err := s.customObjectService.FindCustomObjectByOrgAndType(c, &meta.OrgAndObjTypeRequest{OrgId: orgId, ObjType: dto.Type})
+		if err != nil {
+			return nil, err
+		}
+		objId := metaObj.ObjId
+
+		model := modelList[i]
 		model.ObjId = objId
 		model.OrgId = orgId
-	}
 
-	// 过滤无效列
-	fieldSet := mapset.NewSet()
-	for _, field := range metaObj.Fields {
-		fieldSet.Add(field.FieldName)
-	}
+		// 过滤无效列
+		fieldSet := mapset.NewSet()
+		for _, field := range metaObj.Fields {
+			fieldSet.Add(field.FieldName)
+		}
 
-	for _, model := range modelList {
 		for fieldName, _ := range model.Fields {
 			if !fieldSet.Contains(fieldName) {
 				delete(model.Fields, fieldName)

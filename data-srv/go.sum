@@ -461,8 +461,12 @@ github.com/objforce/objforce v0.0.0-20200909200024-5c4b7e7623a8 h1:Ngy46C5HoBBVk
 github.com/objforce/objforce v0.0.0-20200914161632-3e5a59b24832 h1:DaEBZ7C3PcRMJirz3qL5z/5n6gDvrnfPTt0oSI4aVmY=
 github.com/objforce/objforce v0.0.0-20200916172341-b338fdf89ca0 h1:lOuYq+WwbnnKmEP016US8vaqpRQqCataXvVsLKCatWo=
 github.com/objforce/objforce v0.0.0-20200917162220-431ae7fede97 h1:Riq2M5i2WO6mQb7CDYkYIKxU/YZKG5E+liyrofIaX2M=
+github.com/objforce/objforce v0.0.1 h1:oufSLAEEVRViaruPoKBf7+t7Dmw+pLZUI6/lzscDXVs=
+github.com/objforce/objforce v0.0.1/go.mod h1:sgSk+yJa/dA8DY+Xg83zWDgi9wCmPP2DtdgPIQchXLg=
 github.com/objforce/objforce/idl v0.0.0-20200917162220-431ae7fede97 h1:bO/dm01s7pcS8N3x8qeSqIEkyE+Mtpv5q8XnK56NaFs=
 github.com/objforce/objforce/idl v0.0.0-20200917162220-431ae7fede97/go.mod h1:R9+Ka2af85t3rWmi5IOKjTXfqcexp7J8lTJQwQaslfI=
+github.com/objforce/objforce/idl v0.0.0-20200917173455-e92f2927482d h1:1B5jLgJa5m8fF9/eF/WQV+XFk9R1SN/RbOrkIEdFvWg=
+github.com/objforce/objforce/idl v0.0.0-20200917173455-e92f2927482d/go.mod h1:R9+Ka2af85t3rWmi5IOKjTXfqcexp7J8lTJQwQaslfI=
 github.com/objforce/objforce/meta-server v0.0.0-20200907170338-d23f59c214ac h1:Bwxye+tkmLwH/6y/670LdbxFRn66b/z9PODUP6z7Rn4=
 github.com/objforce/objforce/meta-server v0.0.0-20200907170338-d23f59c214ac/go.mod h1:iMMZRhfZL5xiLVyF+RWKP3uHCGTe48l1ZvpqW9EJC6U=
 github.com/olekukonko/tablewriter v0.0.1/go.mod h1:vsDQFd/mU46D+Z4whnwzcISnGGzXWMclvtLoiIKAKIo=

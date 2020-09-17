@@ -71,6 +71,16 @@ func (this *UpsertSObjectRequest) Validate() error {
 	return nil
 }
 func (this *UpsertSObjectResponse) Validate() error {
+	for _, item := range this.Results {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Results", err)
+			}
+		}
+	}
+	return nil
+}
+func (this *UpsertSObjectResult) Validate() error {
 	for _, item := range this.Errors {
 		if item != nil {
 			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {

@@ -42,6 +42,10 @@ message UpsertSObjectRequest {
 }
 
 message UpsertSObjectResponse {
+  repeated UpsertSObjectResult results = 1;
+}
+
+message UpsertSObjectResult {
   bool created = 1;
   repeated Error errors = 2;
   string id = 3;
