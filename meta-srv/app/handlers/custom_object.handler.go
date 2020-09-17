@@ -6,7 +6,7 @@ import (
 	"github.com/micro/go-micro/v2/logger"
 	"github.com/objforce/objforce/meta-srv/app/domain/services"
 	"github.com/objforce/objforce/meta-srv/app/dtos"
-	meta "github.com/objforce/objforce/meta-srv/proto/meta/gen-go"
+	meta "github.com/objforce/objforce/idl/meta/gen-go"
 	"github.com/xxxmicro/base/mapper"
 )
 

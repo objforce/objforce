@@ -3,7 +3,7 @@ package providers
 import (
 	"github.com/micro/go-micro/v2"
 	"github.com/objforce/objforce/meta-srv/app/handlers"
-	"github.com/objforce/objforce/meta-srv/proto/meta/gen-go"
+	"github.com/objforce/objforce/idl/meta/gen-go"
 )
 
 func RegisterHandlers(service micro.Service,

@@ -2,72 +2,98 @@ package services
 
 import(
 	"context"
-	"github.com/objforce/objforce/data-server/app/domain/models"
-	"github.com/objforce/objforce/data-server/app/domain/repositories"
 	"github.com/objforce/objforce/data-server/app/dtos"
+	data "github.com/objforce/objforce/idl/data/gen-go"
 	"github.com/xxxmicro/base/mapper"
 )
 
 type DataService interface {
-	Create(c context.Context, dto *dtos.SObject) (*dtos.SObject, error)
-	Update(c context.Context, dto *dtos.SObject) (*dtos.SObject, error)
-	FindOne(c context.Context, id string) (*dtos.SObject, error)
-	Delete(c context.Context, id string) error
+	Create(c context.Context, dto []*dtos.SObject) (*dtos.CreateSObjectResponse, error)
+	Update(c context.Context, dto *dtos.UpdateSObjectRequest) (*dtos.UpdateSObjectResponse, error)
+	Upsert(c context.Context, dto *dtos.UpsertSObjectRequest) (*dtos.UpsertSObjectResponse, error)
+	Retrieve(c context.Context, dtoReq *dtos.RetrieveSObjectRequest) (*dtos.RetrieveSObjectResponse, error)
+	Delete(c context.Context, objType string, ids []string) (*dtos.DeleteSObjectResponse, error)
 }
 
 type dataService struct {
-	dataRepository repositories.DataRepository
+	objectService data.SObjectService
 }
 
-func NewDataService(customFieldRepository repositories.DataRepository) DataService {
+func NewDataService(objectService data.SObjectService) DataService {
 	return &dataService{
-		dataRepository,
+		objectService,
 	}
 }
 
-func (s *dataService) Create(c context.Context, dto *dtos.SObject) (*dtos.SObject, error) {
-	entity := &models.SObject{}
-	mapper.Map(dto, entity)
+func (s *dataService) Create(c context.Context, dto []*dtos.SObject) (*dtos.CreateSObjectResponse, error) {
+	pb := &data.CreateSObjectRequest{}
+	mapper.Map(dto, pb)
 
-	err := s.dataRepository.Create(c, entity)
+	pbRsp, err := s.objectService.Create(c, pb)
 	if err != nil {
 		return nil, err
 	}
 
-	mapper.Map(entity, dto)
+	dtoRsp := &dtos.CreateSObjectResponse{}
+	mapper.Map(pbRsp, dtoRsp)
 
-	return dto, nil
+	return dtoRsp, nil
 }
 
-func (s *dataService) Update(c context.Context, dto *dtos.SObject) (*dtos.SObject, error) {
-	entity := &models.MTData{ObjId: dto.ObjId}
+func (s *dataService) Update(c context.Context, dtoReq *dtos.UpdateSObjectRequest) (*dtos.UpdateSObjectResponse, error) {
+	pbReq := &data.UpdateSObjectRequest{}
+	mapper.Map(dtoReq, pbReq)
 
-	mapper.Map(dto, entity)
-
-	err := s.dataRepository.Update(c, entity, entity)
+	pbRsp, err := s.objectService.Update(c, pbReq)
 	if err != nil {
 		return nil, err
 	}
 
-	err = s.dataRepository.FindOne(c, entity)
+	dtoRsp := &dtos.UpdateSObjectResponse{}
+	mapper.Map(pbRsp, dtoRsp)
+	return dtoRsp, nil
+}
+
+func (s *dataService) Upsert(c context.Context, dto *dtos.UpsertSObjectRequest) (*dtos.UpsertSObjectResponse, error) {
+	pbReq := &data.Upsert{}
+	mapper.Map(dtoReq, pbReq)
+
+	pbRsp, err := s.objectService.Upsert(c, pbReq)
 	if err != nil {
 		return nil, err
 	}
 
-	mapper.Map(entity, dto)
-
-	return dto, nil
+	dtoRsp := &dtos.UpsertSObjectResponse{}
+	mapper.Map(pbRsp, dtoRsp)
+	return dtoRsp, nil
 }
 
-func (s *dataService) FindOne(c context.Context, id string) (*dtos.SObject, error) {
-	entity := &models.SObject{ObjId: id}
-	s.dataRepository.FindOne(c, entity)
 
-	dto := &dtos.SObject{}
-	mapper.Map(entity, dto)
-	return dto, nil
+func (s *dataService) Retrieve(c context.Context, dtoReq *dtos.RetrieveSObjectRequest) (*dtos.RetrieveSObjectResponse, error) {
+	pbReq := &data.RetrieveSObjectRequest{}
+	mapper.Map(dtoReq, pbReq)
+
+	pbRsp, err := s.objectService.Retrieve(c, pbReq)
+	if err != nil {
+		return nil, err
+	}
+
+	if pbRsp.Results == nil {
+		return nil, nil
+	}
+
+	dtoRsp := &dtos.RetrieveSObjectResponse{}
+	mapper.Map(pbRsp, dtoRsp)
+	return dtoRsp, nil
 }
 
-func (s *dataService) Delete(c context.Context, id string) error {
-	return s.dataRepository.Delete(c, &models.SObject{ObjId: id})
+func (s *dataService) Delete(c context.Context, objType string, ids []string) (*dtos.DeleteSObjectResponse, error) {
+	pbRsp, err := s.objectService.Delete(c, &data.DeleteSObjectRequest{ObjType: objType, Ids: ids})
+	if err != nil {
+		return nil, err
+	}
+
+	dtoRsp := &dtos.DeleteSObjectResponse{}
+	mapper.Map(dtoRsp, pbRsp)
+	return dtoRsp, nil
 }

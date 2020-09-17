@@ -60,6 +60,26 @@ func (this *UpdateSObjectResponse) Validate() error {
 	}
 	return nil
 }
+func (this *UpsertSObjectRequest) Validate() error {
+	for _, item := range this.Objects {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Objects", err)
+			}
+		}
+	}
+	return nil
+}
+func (this *UpsertSObjectResponse) Validate() error {
+	for _, item := range this.Errors {
+		if item != nil {
+			if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(item); err != nil {
+				return github_com_mwitkow_go_proto_validators.FieldError("Errors", err)
+			}
+		}
+	}
+	return nil
+}
 func (this *RetrieveSObjectRequest) Validate() error {
 	return nil
 }
@@ -90,5 +110,8 @@ func (this *DeleteResult) Validate() error {
 	return nil
 }
 func (this *SaveResult) Validate() error {
+	return nil
+}
+func (this *Error) Validate() error {
 	return nil
 }

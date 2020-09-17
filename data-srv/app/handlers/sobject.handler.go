@@ -70,6 +70,24 @@ func (h *SObjectHandler) Update(c context.Context, req *data.UpdateSObjectReques
 	return nil
 }
 
+func (h *SObjectHandler) Upsert(c context.Context, req *data.UpsertSObjectRequest, rsp *data.UpsertSObjectResponse) error {
+	// TODO validator判断 req.Objects 为空
+
+	dtoList := make([]*dtos.SObject, len(req.Objects))
+	mapper.Map(req.Objects, dtoList)
+	dtoResults, err := h.dataService.Upsert(c, dtoList)
+	if err != nil {
+		return err
+	}
+
+	pbResults := make([]*data.SaveResult, len(dtoResults))
+	mapper.Map(dtoResults, pbResults)
+
+	rsp.Results = pbResults
+
+	return nil
+}
+
 func (h *SObjectHandler) Retrieve(c context.Context, req *data.RetrieveSObjectRequest, rsp *data.RetrieveSObjectResponse) error {
 	dtoResults, err := h.dataService.Retrieve(c, req.Type, req.Ids, req.Fields)
 	if err != nil {

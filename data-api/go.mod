@@ -16,6 +16,9 @@ require (
 	github.com/micro/cli/v2 v2.1.2
 	github.com/micro/go-micro/v2 v2.9.1
 	github.com/micro/go-plugins/registry/consul/v2 v2.9.1
+	github.com/micro/go-plugins/wrapper/breaker/hystrix/v2 v2.9.1 // indirect
+	github.com/micro/go-plugins/wrapper/trace/opentracing/v2 v2.9.1 // indirect
+	github.com/objforce/objforce/idl v0.0.0-20200917162220-431ae7fede97 // indirect
 	github.com/prometheus/client_golang v1.1.0
 	github.com/thinkerou/favicon v0.1.0
 	github.com/wantedly/gorm-zap v0.0.0-20171015071652-372d3517a876 // indirect

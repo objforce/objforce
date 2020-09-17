@@ -11,7 +11,6 @@ import(
 	"github.com/objforce/objforce/data-server/app/http/middlewares"
 	"github.com/objforce/objforce/data-server/app/providers"
 	"github.com/objforce/objforce/data-server/app/domain/services"
-	"github.com/objforce/objforce/data-server/app/domain/repositories"
 	"github.com/objforce/objforce/data-server/routes"
 )
 
@@ -30,9 +29,8 @@ func App() *fx.App {
 		fx.Provide(gorm.NewDbProvider),
 		fx.Provide(providers.NewGinProvider),
 
-		// Repositories (./app/repositories)
-		fx.Provide(repositories.NewDataRepository),
-		fx.Provide(repositories.NewClobRepository),
+		fx.Provide(providers.NewMicroClientProvider),
+		fx.Provide(providers.NewSObjectClient),
 
 		// Services (./app/services)
 		fx.Provide(services.NewDataService),

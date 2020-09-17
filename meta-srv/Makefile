@@ -23,10 +23,6 @@ test:
 docker:
 	docker build -t meta-srv:latest .
 
-.PHONY: submodule
-submodule:
-	git submodule init && git submodule update --remote
-
 .PHONY: publish-image
 publish-image: docker
 	docker tag meta-srv:latest objforce/meta-srv:latest

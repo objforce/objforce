@@ -45,6 +45,7 @@ func NewSObjectServiceEndpoints() []*api.Endpoint {
 type SObjectService interface {
 	Create(ctx context.Context, in *CreateSObjectRequest, opts ...client.CallOption) (*CreateSObjectResponse, error)
 	Update(ctx context.Context, in *UpdateSObjectRequest, opts ...client.CallOption) (*UpdateSObjectResponse, error)
+	Upsert(ctx context.Context, in *UpsertSObjectRequest, opts ...client.CallOption) (*UpsertSObjectResponse, error)
 	Retrieve(ctx context.Context, in *RetrieveSObjectRequest, opts ...client.CallOption) (*RetrieveSObjectResponse, error)
 	Delete(ctx context.Context, in *DeleteSObjectRequest, opts ...client.CallOption) (*DeleteSObjectResponse, error)
 }
@@ -81,6 +82,16 @@ func (c *sObjectService) Update(ctx context.Context, in *UpdateSObjectRequest, o
 	return out, nil
 }
 
+func (c *sObjectService) Upsert(ctx context.Context, in *UpsertSObjectRequest, opts ...client.CallOption) (*UpsertSObjectResponse, error) {
+	req := c.c.NewRequest(c.name, "SObjectService.Upsert", in)
+	out := new(UpsertSObjectResponse)
+	err := c.c.Call(ctx, req, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *sObjectService) Retrieve(ctx context.Context, in *RetrieveSObjectRequest, opts ...client.CallOption) (*RetrieveSObjectResponse, error) {
 	req := c.c.NewRequest(c.name, "SObjectService.Retrieve", in)
 	out := new(RetrieveSObjectResponse)
@@ -106,6 +117,7 @@ func (c *sObjectService) Delete(ctx context.Context, in *DeleteSObjectRequest, o
 type SObjectServiceHandler interface {
 	Create(context.Context, *CreateSObjectRequest, *CreateSObjectResponse) error
 	Update(context.Context, *UpdateSObjectRequest, *UpdateSObjectResponse) error
+	Upsert(context.Context, *UpsertSObjectRequest, *UpsertSObjectResponse) error
 	Retrieve(context.Context, *RetrieveSObjectRequest, *RetrieveSObjectResponse) error
 	Delete(context.Context, *DeleteSObjectRequest, *DeleteSObjectResponse) error
 }
@@ -114,6 +126,7 @@ func RegisterSObjectServiceHandler(s server.Server, hdlr SObjectServiceHandler, 
 	type sObjectService interface {
 		Create(ctx context.Context, in *CreateSObjectRequest, out *CreateSObjectResponse) error
 		Update(ctx context.Context, in *UpdateSObjectRequest, out *UpdateSObjectResponse) error
+		Upsert(ctx context.Context, in *UpsertSObjectRequest, out *UpsertSObjectResponse) error
 		Retrieve(ctx context.Context, in *RetrieveSObjectRequest, out *RetrieveSObjectResponse) error
 		Delete(ctx context.Context, in *DeleteSObjectRequest, out *DeleteSObjectResponse) error
 	}
@@ -134,6 +147,10 @@ func (h *sObjectServiceHandler) Create(ctx context.Context, in *CreateSObjectReq
 
 func (h *sObjectServiceHandler) Update(ctx context.Context, in *UpdateSObjectRequest, out *UpdateSObjectResponse) error {
 	return h.SObjectServiceHandler.Update(ctx, in, out)
+}
+
+func (h *sObjectServiceHandler) Upsert(ctx context.Context, in *UpsertSObjectRequest, out *UpsertSObjectResponse) error {
+	return h.SObjectServiceHandler.Upsert(ctx, in, out)
 }
 
 func (h *sObjectServiceHandler) Retrieve(ctx context.Context, in *RetrieveSObjectRequest, out *RetrieveSObjectResponse) error {
