@@ -29,6 +29,7 @@ func GlobalMiddlewares(server *gin.Engine, config *config.AppConfig, logMiddlewa
 		helmet.NoCache(),
 		static.Serve("/", static.LocalFile("./public", false)),
 		middlewares.Middleware(tracer),
+		TenantHandler(),
 		promMonitor.PromMiddleware(),
 	)
 }

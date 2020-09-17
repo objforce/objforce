@@ -23,6 +23,8 @@ func (c *SObjectController) Create(ctx *gin.Context) {
 		return
 	}
 
+
+
 	dtoRsp, err := c.dataService.Create(ctx.Request.Context(), objects)
 	if err != nil {
 		ctx.AbortWithError(http.StatusInternalServerError, err)
