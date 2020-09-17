@@ -144,7 +144,7 @@ func (s *dataService) Upsert(c context.Context, objType string, dtoList []*dtos.
 	// 过滤无效列
 	fieldSet := mapset.NewSet()
 	for _, field := range metaObj.Fields {
-		fieldSet.Add(field.GetLabel())
+		fieldSet.Add(field.FieldName)
 	}
 
 	for _, model := range modelList {
