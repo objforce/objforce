@@ -45,6 +45,7 @@ func TestCustomObjectRepository_Create(t *testing.T) {
 
 	customObject := &models.MTObject{
 		ObjName: "customers",
+		OrgId: orgId,
 		Fields: []*models.MTField{
 			{
 				OrgId: orgId,
@@ -65,6 +66,11 @@ func TestCustomObjectRepository_Create(t *testing.T) {
 	}
 
 	customObject, err = customObjectRepository.Retrieve(context.Background(), customObject.ObjId)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	customObject, err = customObjectRepository.FindCustomObjectByOrgAndType(context.Background(), customObject.OrgId, customObject.ObjName)
 	if err != nil {
 		t.Fatal(err)
 	}

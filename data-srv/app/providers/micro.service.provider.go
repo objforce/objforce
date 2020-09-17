@@ -8,9 +8,9 @@ import (
 	"github.com/micro/go-micro/v2/logger"
 	_ "github.com/micro/go-plugins/registry/consul/v2"
 	"github.com/micro/go-plugins/wrapper/monitoring/prometheus/v2"
+	"github.com/micro/go-plugins/wrapper/ratelimiter/uber/v2"
 	xopentracing "github.com/micro/go-plugins/wrapper/trace/opentracing/v2"
 	"github.com/micro/go-plugins/wrapper/validator/v2"
-	"github.com/micro/go-plugins/wrapper/ratelimiter/uber/v2"
 
 	// "github.com/micro/go-plugins/wrapper/validator/v2"
 	"github.com/opentracing/opentracing-go"
@@ -34,7 +34,7 @@ func NewMicroService() (micro.Service, *cli.Context) {
 		micro.RegisterInterval(time.Second*30),
 		micro.WrapHandler(validator.NewHandlerWrapper()),
 		micro.WrapHandler(xopentracing.NewHandlerWrapper(xxxmicro_opentracing.GlobalTracerWrapper())),
-		micro.WrapHandler(prometheus.NewHandlerWrapper(prometheus.ServiceName("uim-srv"), prometheus.ServiceVersion("v1"))),
+		micro.WrapHandler(prometheus.NewHandlerWrapper(prometheus.ServiceName("data-srv"), prometheus.ServiceVersion("v1"))),
 		micro.WrapHandler(ratelimit.NewHandlerWrapper(QPS)),
 		micro.WrapSubscriber(xopentracing.NewSubscriberWrapper(xxxmicro_opentracing.GlobalTracerWrapper())),
 		// micro.Server(server),

@@ -28,6 +28,9 @@ func App() *fx.App {
 		fx.Provide(providers.NewBrokerProvider),
 		fx.Provide(providers.NewMicroClientProvider),
 
+		// apis
+		fx.Provide(providers.NewMetaClient),
+
 		// Repositories (./app/repositories)
 		fx.Provide(repositories.NewDataRepository),
 		fx.Provide(repositories.NewClobRepository),

@@ -59,7 +59,7 @@ func (h *CustomObjectHandler) Update(c context.Context, req *meta.CustomObject, 
 	return nil
 }
 
-func (h *CustomObjectHandler) FindOne(c context.Context, req *meta.FindCustomObjectRequest, rsp *meta.CustomObject) error {
+func (h *CustomObjectHandler) Retrieve(c context.Context, req *meta.FindCustomObjectRequest, rsp *meta.CustomObject) error {
 	dto, err := h.customObjectService.Retrieve(c, req.ObjId)
 	if err != nil {
 		return err
@@ -67,6 +67,16 @@ func (h *CustomObjectHandler) FindOne(c context.Context, req *meta.FindCustomObj
 
 	mapper.Map(dto, rsp)
 
+	return nil
+}
+
+func (h *CustomObjectHandler) FindCustomObjectByOrgAndType(c context.Context, req *meta.OrgAndObjTypeRequest, rsp *meta.CustomObject) error {
+	dto, err := h.customObjectService.FindCustomObjectByOrgAndType(c, req.OrgId, req.ObjType)
+	if err != nil {
+		return err
+	}
+
+	mapper.Map(dto, rsp)
 	return nil
 }
 

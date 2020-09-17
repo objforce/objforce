@@ -13,6 +13,7 @@ type CustomObjectRepository interface {
 	Update(c context.Context, object *models.MTObject) error
 	Retrieve(c context.Context, objId string) (*models.MTObject, error)
 	Delete(c context.Context, objId string) error
+	FindCustomObjectByOrgAndType(c context.Context, orgId, objType string) (*models.MTObject, error)
 }
 
 type customObjectRepository struct {
@@ -64,14 +65,34 @@ func (r *customObjectRepository) Update(c context.Context, object *models.MTObje
 func (r *customObjectRepository) Retrieve(c context.Context, objId string) (*models.MTObject, error) {
 	db := opentracing.SetSpanToGorm(c, r.db)
 
-	object := &models.MTObject{}
-	err :=  db.Where("obj_id = ?", objId).Take(object).Error
+	object := &models.MTObject{ObjId: objId}
+	err :=  db.Model(object).Take(object).Error
 	if err != nil {
 		return nil, err
 	}
+
+	if err := db.Model(object).Association("Fields").Find(&object.Fields).Error; err != nil {
+		return nil, err
+	}
+
 	return object, err
 }
 
 func (r *customObjectRepository) Delete(c context.Context, objId string) error {
 	return r.db.Delete(models.MTObject{ObjId: objId}).Error
+}
+
+func (r *customObjectRepository) FindCustomObjectByOrgAndType(c context.Context, orgId, objType string) (*models.MTObject, error) {
+	db := opentracing.SetSpanToGorm(c, r.db)
+
+	m := &models.MTObject{}
+	err := db.Where("org_id = ? AND obj_name = ?", orgId, objType).Take(m).Error
+	if err != nil {
+		return nil, err
+	}
+	if err := db.Model(m).Association("Fields").Find(&m.Fields).Error; err != nil {
+		return nil, err
+	}
+
+	return m, nil
 }

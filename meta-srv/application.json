@@ -1,0 +1,1 @@
+{"appId":"meta-srv","cluster":"default","namespaceName":"application","releaseKey":"20200917235356-59fda0f92f0cc2ee","configurations":{"db.connection_string":"root:root@tcp(localhost:3306)/objforce_meta?charset=utf8mb4\u0026parseTime=True\u0026loc=Local","db.driver":"mysql","rocketmq.addrs":"[http://localhost:9876]","rocketmq.retry":"1"}}

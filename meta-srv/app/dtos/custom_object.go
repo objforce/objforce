@@ -2,8 +2,8 @@ package dtos
 
 
 type CustomObject struct {
-	*Metadata
 	ObjId                    string            `json:"objId"`
+	ObjName 				 string			   `json:"name"`
 	ActionOverrides          []*ActionOverride `json:"actionOverrides,omitempty"`
 	AllowInChatterGroups     bool              `json:"allowInChatterGroups,omitempty"`
 	BusinessProcesses        []*BusinessProcess

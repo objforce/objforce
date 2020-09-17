@@ -38,7 +38,7 @@ type MTObject struct {
 	ExternalName               string                  `json:"externalName"`
 	ExternalRepository         string                  `json:"externalRepository"`
 	ExternalSharingModel       string                  `json:"externalSharingModel"`
-	Fields                     []*MTField              `json:"fields" gorm:"ForeignKey:ObjId"`
+	Fields                     []*MTField              `json:"fields" gorm:"FOREIGNKEY:ObjId;ASSOCIATION_FOREIGNKEY:ObjId"`
 	FieldSets                  *FieldSet               `json:"fieldSets"`
 	Gender                     string                  `json:"gender"`
 	Household                  bool                    `json:"household"`

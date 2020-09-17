@@ -19,7 +19,7 @@ services:
       - 9411:9411
   consul:
     image: consul:latest
-    command: agent -dev -client 0.0.0.0
+    command: agent -dev -client 0.0.0.0 -node-id=9867dd2a-fe0f-4b46-82b5-4fdcabef1f3d
     ports:
       - 8500:8500
     networks:
@@ -51,6 +51,7 @@ services:
       - 9095:9095
       - 16000:16000
       - 16010:16010
+      - 16020:16020
       - 16201:16201
       - 16301:16301
     volumes:
@@ -84,9 +85,7 @@ services:
       - TZ=Asia/Shanghai
       - MICRO_REGISTRY=consul
       - MICRO_REGISTRY_ADDRESS=consul:8500
-    command: /app/bin/data-srv --server_name com.xapis.srv.data -apollo_namespace application -apollo_address http://apollo-dev.dev.lucfish.com:8080 -apollo_app_id data-srv -apollo_cluster=dev
-    volumes:
-      - $PWD/config:/app/config
+    command: --server_name com.xapis.srv.data --apollo_namespace application --apollo_address http://apollo-dev.dev.lucfish.com:8080 --apollo_app_id data-srv --apollo_cluster=dev
     networks:
       biz:
         aliases:

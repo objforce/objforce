@@ -42,7 +42,7 @@ func App() *fx.App {
 		// Handlers (./app/handlers)
 		fx.Provide(handlers.NewCustomObjectHandler),
 		fx.Provide(handlers.NewCustomFieldHandler),
-		fx.Provide(providers.RegisterHandlers),
+		fx.Invoke(providers.RegisterHandlers),
 
 		fx.Invoke(providers.StartMicroService),
 	)

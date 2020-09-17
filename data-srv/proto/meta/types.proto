@@ -5,8 +5,8 @@ option go_package = "";
 
 
 message CustomObject {
-	string fullName = 1;
-	string id = 2;
+	string objId = 1;
+	string objName = 2;
 	repeated ActionOverride actionOverrides = 3;
 	bool allowInChatterGroups = 4;
 	repeated BusinessProcess BusinessProcesses = 5;

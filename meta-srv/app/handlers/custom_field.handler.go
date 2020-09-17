@@ -54,7 +54,7 @@ func (h *CustomFieldHandler) Update(c context.Context, req *meta.CustomField, rs
 	return nil
 }
 
-func (h *CustomFieldHandler) FindOne(c context.Context, req *meta.FindCustomFieldRequest, rsp *meta.CustomField) error {
+func (h *CustomFieldHandler) Retrieve(c context.Context, req *meta.FindCustomFieldRequest, rsp *meta.CustomField) error {
 	dto, err := h.customFieldService.FindOne(c, req.FieldId)
 	if err != nil {
 		return err

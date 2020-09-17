@@ -17,6 +17,7 @@ type CustomObjectService interface {
 	Update(c context.Context, dto *dtos.CustomObject) (*dtos.CustomObject, error)
 	Retrieve(c context.Context, id string) (*dtos.CustomObject, error)
 	Delete(c context.Context, id string) error
+	FindCustomObjectByOrgAndType(c context.Context, orgId, objType string) (*dtos.CustomObject, error)
 }
 
 type customObjectService struct {
@@ -83,13 +84,24 @@ func (s *customObjectService) Update(c context.Context, dto *dtos.CustomObject) 
 }
 
 func (s *customObjectService) Retrieve(c context.Context, ObjId string) (*dtos.CustomObject, error) {
-	entity, err := s.customObjectRepository.Retrieve(c, ObjId)
+	model, err := s.customObjectRepository.Retrieve(c, ObjId)
 	if err != nil {
 		return nil, err
 	}
 
 	dto := &dtos.CustomObject{}
-	mapper.Map(entity, dto)
+	mapper.Map(model, dto)
+	return dto, nil
+}
+
+func (s* customObjectService) FindCustomObjectByOrgAndType(c context.Context, orgId string, objType string) (*dtos.CustomObject, error){
+	model, err := s.customObjectRepository.FindCustomObjectByOrgAndType(c, orgId, objType)
+	if err != nil {
+		return nil, err
+	}
+
+	dto := &dtos.CustomObject{}
+	mapper.Map(model, dto)
 	return dto, nil
 }
 

@@ -1,9 +1,27 @@
 package dtos
 
 type SObject struct {
-	ObjId string `json:"objId,omitempty"`
 	Id string `json:"GUID,omitempty"`
-	OrgId string `json:"orgId,omitempty"`
-	Name string `json:"name"`
-	Fields map[string]interface{}	`json:"fields"`
+	Type string `json:"type,omitempty"`
+	FieldsToNull []string `json:"fieldsToNull,omitempty"`
+	Fields map[string]string	`json:"fields"`
+}
+
+type SaveResult struct {
+	Error error `json:"error,omitempty"`
+	Id string `json:"id,omitempty"`
+	Success bool `json:"success,omitempty"`
+}
+
+type UpsertResult struct {
+	Created bool `json:"created,omitempty"`
+	Error error `json:"error,omitempty"`
+	Id string `json:"id,omitempty"`
+	Success bool `json:"success,omitempty"`
+}
+
+type DeleteResult struct {
+	Error error `json:"error"`
+	Id string `json:"id"`
+	Success bool `json:"success"`
 }

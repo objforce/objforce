@@ -14,3 +14,22 @@ type MTData struct {
 	UpdatedBy string                 `json:"updatedBy"`
 	IsDeleted bool					 `json:"isDeleted"`
 }
+
+type SaveResult struct {
+	Error error `json:"error,omitempty"`
+	Id string `json:"id,omitempty"`
+	Success bool `json:"success,omitempty"`
+}
+
+type DeleteResult struct {
+	Error error `json:"error"`
+	Id string `json:"id"`
+	Success bool `json:"success"`
+}
+
+type UpsertResult struct {
+	Created bool `json:"created,omitempty"`
+	Error error `json:"error,omitempty"`
+	Id string `json:"id,omitempty"`
+	Success bool `json:"success,omitempty"`
+}
