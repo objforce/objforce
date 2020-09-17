@@ -128,6 +128,8 @@ func (h *SObjectHandler) Delete(c context.Context, req *data.DeleteSObjectReques
 		}
 	}
 
+	rsp.Results = pbResults
+
 	return nil
 }
 
