@@ -39,7 +39,3 @@ require (
 	modernc.org/mathutil v1.1.1 // indirect
 	modernc.org/strutil v1.1.0 // indirect
 )
-
-replace (
-	github.com/objforce/objforce/idl => ../idl
-)
