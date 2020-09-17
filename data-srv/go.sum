@@ -436,6 +436,8 @@ github.com/nrdcg/goinwx v0.6.1/go.mod h1:XPiut7enlbEdntAqalBIqcYcTEVhpv/dKWgDCX2
 github.com/nrdcg/namesilo v0.2.1/go.mod h1:lwMvfQTyYq+BbjJd30ylEG4GPSS6PII0Tia4rRpRiyw=
 github.com/objforce/objforce/idl v0.0.0-20200917173455-e92f2927482d h1:1B5jLgJa5m8fF9/eF/WQV+XFk9R1SN/RbOrkIEdFvWg=
 github.com/objforce/objforce/idl v0.0.0-20200917173455-e92f2927482d/go.mod h1:R9+Ka2af85t3rWmi5IOKjTXfqcexp7J8lTJQwQaslfI=
+github.com/objforce/objforce/idl v0.0.0-20200917181653-b1b09d42c0c8 h1:dp+5bH3l7iRDI4qc0tk5+inLqozCph8lfHmLFm12G5g=
+github.com/objforce/objforce/idl v0.0.0-20200917181653-b1b09d42c0c8/go.mod h1:R9+Ka2af85t3rWmi5IOKjTXfqcexp7J8lTJQwQaslfI=
 github.com/olekukonko/tablewriter v0.0.1/go.mod h1:vsDQFd/mU46D+Z4whnwzcISnGGzXWMclvtLoiIKAKIo=
 github.com/onsi/ginkgo v1.6.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/ginkgo v1.7.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=

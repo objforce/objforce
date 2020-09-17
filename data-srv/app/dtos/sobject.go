@@ -10,7 +10,7 @@ type SObject struct {
 type SaveResult struct {
 	Error error `json:"error,omitempty"`
 	Id string `json:"id,omitempty"`
-	Success bool `json:"success,omitempty"`
+	Success bool `json:"sucfjjcess,omitempty"`
 }
 
 type UpsertResult struct {

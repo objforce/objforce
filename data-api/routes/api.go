@@ -5,9 +5,9 @@ import(
 	"github.com/gin-gonic/gin"
 	"github.com/cnjack/throttle"
 	"go.uber.org/dig"
-	"github.com/objforce/objforce/data-server/config"
-	"github.com/objforce/objforce/data-server/app/http/controllers"
-	"github.com/objforce/objforce/data-server/app/http/middlewares"
+	"github.com/objforce/objforce/data-api/config"
+	"github.com/objforce/objforce/data-api/app/http/controllers"
+	"github.com/objforce/objforce/data-api/app/http/middlewares"
 )
 
 func APIRoutes(c RouterContext) {

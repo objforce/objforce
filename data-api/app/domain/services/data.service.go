@@ -2,7 +2,7 @@ package services
 
 import(
 	"context"
-	"github.com/objforce/objforce/data-server/app/dtos"
+	"github.com/objforce/objforce/data-api/app/dtos"
 	data "github.com/objforce/objforce/idl/data/gen-go"
 	"github.com/xxxmicro/base/mapper"
 )
@@ -12,7 +12,7 @@ type DataService interface {
 	Update(c context.Context, dto *dtos.UpdateSObjectRequest) (*dtos.UpdateSObjectResponse, error)
 	Upsert(c context.Context, dto *dtos.UpsertSObjectRequest) (*dtos.UpsertSObjectResponse, error)
 	Retrieve(c context.Context, dtoReq *dtos.RetrieveSObjectRequest) (*dtos.RetrieveSObjectResponse, error)
-	Delete(c context.Context, objType string, ids []string) (*dtos.DeleteSObjectResponse, error)
+	Delete(c context.Context, dtoReq *dtos.DeleteSObjectRequest) (*dtos.DeleteSObjectResponse, error)
 }
 
 type dataService struct {
@@ -25,9 +25,10 @@ func NewDataService(objectService data.SObjectService) DataService {
 	}
 }
 
-func (s *dataService) Create(c context.Context, dto []*dtos.SObject) (*dtos.CreateSObjectResponse, error) {
+func (s *dataService) Create(c context.Context, dtoItems []*dtos.SObject) (*dtos.CreateSObjectResponse, error) {
+	pbObjects := make([]*data.SObject, len(dtoItems))
+	mapper.Map(dtoItems, pbObjects)
 	pb := &data.CreateSObjectRequest{}
-	mapper.Map(dto, pb)
 
 	pbRsp, err := s.objectService.Create(c, pb)
 	if err != nil {
@@ -54,8 +55,8 @@ func (s *dataService) Update(c context.Context, dtoReq *dtos.UpdateSObjectReques
 	return dtoRsp, nil
 }
 
-func (s *dataService) Upsert(c context.Context, dto *dtos.UpsertSObjectRequest) (*dtos.UpsertSObjectResponse, error) {
-	pbReq := &data.Upsert{}
+func (s *dataService) Upsert(c context.Context, dtoReq *dtos.UpsertSObjectRequest) (*dtos.UpsertSObjectResponse, error) {
+	pbReq := &data.UpsertSObjectRequest{}
 	mapper.Map(dtoReq, pbReq)
 
 	pbRsp, err := s.objectService.Upsert(c, pbReq)
@@ -87,8 +88,8 @@ func (s *dataService) Retrieve(c context.Context, dtoReq *dtos.RetrieveSObjectRe
 	return dtoRsp, nil
 }
 
-func (s *dataService) Delete(c context.Context, objType string, ids []string) (*dtos.DeleteSObjectResponse, error) {
-	pbRsp, err := s.objectService.Delete(c, &data.DeleteSObjectRequest{ObjType: objType, Ids: ids})
+func (s *dataService) Delete(c context.Context, dtoReq *dtos.DeleteSObjectRequest) (*dtos.DeleteSObjectResponse, error) {
+	pbRsp, err := s.objectService.Delete(c, &data.DeleteSObjectRequest{ObjType: dtoReq.ObjType, Ids: dtoReq.Ids})
 	if err != nil {
 		return nil, err
 	}

@@ -1,4 +1,4 @@
-module github.com/objforce/objforce/data-server
+module github.com/objforce/objforce/data-api
 
 go 1.14
 
@@ -17,7 +17,7 @@ require (
 	github.com/micro/go-plugins/registry/consul/v2 v2.9.1
 	github.com/micro/go-plugins/wrapper/breaker/hystrix/v2 v2.9.1
 	github.com/micro/go-plugins/wrapper/trace/opentracing/v2 v2.9.1
-	github.com/objforce/objforce/idl v0.0.0-20200917162220-431ae7fede97
+	github.com/objforce/objforce/idl v0.0.0-20200917181653-b1b09d42c0c8
 	github.com/objforce/objforce/meta-server v0.0.0-20200907170338-d23f59c214ac
 	github.com/opentracing/opentracing-go v1.1.0
 	github.com/prometheus/client_golang v1.1.0

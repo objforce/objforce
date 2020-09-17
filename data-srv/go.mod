@@ -15,7 +15,7 @@ require (
 	github.com/micro/go-plugins/wrapper/ratelimiter/uber/v2 v2.9.1
 	github.com/micro/go-plugins/wrapper/trace/opentracing/v2 v2.9.1
 	github.com/micro/go-plugins/wrapper/validator/v2 v2.9.1
-	github.com/objforce/objforce/idl v0.0.0-20200917173455-e92f2927482d
+	github.com/objforce/objforce/idl v0.0.0-20200917181653-b1b09d42c0c8
 	github.com/opentracing/opentracing-go v1.1.0
 	github.com/prometheus/client_golang v1.5.1
 	github.com/satori/go.uuid v1.2.0

@@ -25,7 +25,7 @@ func NewAppConfig() *AppConfig {
 		*/
 
 		Port: EnvInt("APP_PORT", 3345),
-		Prefix: "/meta-server",
+		Prefix: "/data/v1",
 		ShowBanner: EnvBool("APP_SHOW_BANNER", true),
 		/*
 		|--------------------------------------------------------------------------

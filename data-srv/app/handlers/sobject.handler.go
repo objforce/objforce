@@ -80,7 +80,7 @@ func (h *SObjectHandler) Upsert(c context.Context, req *data.UpsertSObjectReques
 		return err
 	}
 
-	pbResults := make([]*data.SaveResult, len(dtoResults))
+	pbResults := make([]*data.UpsertSObjectResult, len(dtoResults))
 	mapper.Map(dtoResults, pbResults)
 
 	rsp.Results = pbResults
