@@ -65,7 +65,7 @@ message RetrieveSObjectResponse {
 
 message DeleteSObjectRequest {
   repeated string ids = 1;
-  string objType = 2;
+  string type = 2;
 }
 
 message DeleteSObjectResponse {

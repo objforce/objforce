@@ -5,7 +5,6 @@ import (
 	"github.com/objforce/objforce/data-srv/app/domain/models"
 	"github.com/objforce/objforce/data-srv/app/domain/repositories"
 	"github.com/objforce/objforce/data-srv/app/dtos"
-	"github.com/objforce/objforce/data-srv/config"
 	meta "github.com/objforce/objforce/idl/meta/gen-go"
 	"github.com/xxxmicro/base/mapper"
 	mapset "github.com/deckarep/golang-set"
@@ -15,8 +14,8 @@ type DataService interface {
 	Create(c context.Context, items []*dtos.SObject) ([]*dtos.SaveResult, error)
 	Update(c context.Context, items []*dtos.SObject) ([]*dtos.SaveResult, error)
 	Upsert(c context.Context, items []*dtos.SObject) ([]*dtos.UpsertResult, error)
-	Retrieve(c context.Context, objType string, ids []string, fields []string) ([]*dtos.SObject, error)
-	Delete(c context.Context, objType string, ids []string) ([]*dtos.DeleteResult, error)
+	Retrieve(c context.Context, orgId, objType string, ids []string, fields []string) ([]*dtos.SObject, error)
+	Delete(c context.Context, orgId, objType string, ids []string) ([]*dtos.DeleteResult, error)
 }
 
 type dataService struct {
@@ -32,12 +31,10 @@ func NewDataService(dataRepository repositories.DataRepository, customObjectServ
 }
 
 func (s *dataService) Create(c context.Context, dtoList []*dtos.SObject) ([]*dtos.SaveResult, error) {
-	orgId := c.Value(config.OrgIdKey{}).(string)
-
 	dtoResults := make([]*dtos.SaveResult, len(dtoList))
 
 	for i, dto := range dtoList {
-		metaObj, err := s.customObjectService.FindCustomObjectByOrgAndType(c, &meta.OrgAndObjTypeRequest{OrgId: orgId, ObjType: dto.Type})
+		metaObj, err := s.customObjectService.FindCustomObjectByOrgAndType(c, &meta.OrgAndObjTypeRequest{OrgId: dto.OrgId, ObjType: dto.Type})
 		if err != nil {
 			dtoResults[i] = &dtos.SaveResult{
 				Error: err,
@@ -48,7 +45,6 @@ func (s *dataService) Create(c context.Context, dtoList []*dtos.SObject) ([]*dto
 
 		model := &models.MTData{}
 		mapper.Map(dto, model)
-		model.OrgId = orgId
 		model.ObjId = metaObj.ObjId
 		success := true
 		err = s.dataRepository.Create(c, model)
@@ -67,12 +63,10 @@ func (s *dataService) Create(c context.Context, dtoList []*dtos.SObject) ([]*dto
 }
 
 func (s *dataService) Update(c context.Context, dtoList []*dtos.SObject) ([]*dtos.SaveResult, error) {
-	orgId := c.Value(config.OrgIdKey{}).(string)
-
 	dtoResults := make([]*dtos.SaveResult, len(dtoList))
 
 	for i, dto := range dtoList {
-		metaObj, err := s.customObjectService.FindCustomObjectByOrgAndType(c, &meta.OrgAndObjTypeRequest{OrgId: orgId, ObjType: dto.Type})
+		metaObj, err := s.customObjectService.FindCustomObjectByOrgAndType(c, &meta.OrgAndObjTypeRequest{OrgId: dto.OrgId, ObjType: dto.Type})
 		if err != nil {
 			dtoResults[i] = &dtos.SaveResult{
 				Error: err,
@@ -83,7 +77,6 @@ func (s *dataService) Update(c context.Context, dtoList []*dtos.SObject) ([]*dto
 
 		model := &models.MTData{}
 		mapper.Map(dto, model)
-		model.OrgId = orgId
 		model.ObjId = metaObj.ObjId
 
 		success := true
@@ -102,8 +95,7 @@ func (s *dataService) Update(c context.Context, dtoList []*dtos.SObject) ([]*dto
 	return dtoResults, nil
 }
 
-func (s *dataService) Retrieve(c context.Context, objType string, ids []string, fields []string) ([]*dtos.SObject, error) {
-	orgId := c.Value(config.OrgIdKey{}).(string)
+func (s *dataService) Retrieve(c context.Context, orgId, objType string, ids []string, fields []string) ([]*dtos.SObject, error) {
 	metaObj, err := s.customObjectService.FindCustomObjectByOrgAndType(c, &meta.OrgAndObjTypeRequest{OrgId: orgId, ObjType: objType})
 	if err != nil {
 		return nil, err
@@ -127,13 +119,11 @@ func (s *dataService) Retrieve(c context.Context, objType string, ids []string, 
 }
 
 func (s *dataService) Upsert(c context.Context, dtoList []*dtos.SObject) ([]*dtos.UpsertResult, error) {
-	orgId := c.Value(config.OrgIdKey{}).(string)
-
 	modelList := make([]*models.MTData, len(dtoList))
 	mapper.Map(dtoList, modelList)
 	for i, dto := range dtoList {
 		// 通过Org和type得到 对象元数据, 进而得到 objId
-		metaObj, err := s.customObjectService.FindCustomObjectByOrgAndType(c, &meta.OrgAndObjTypeRequest{OrgId: orgId, ObjType: dto.Type})
+		metaObj, err := s.customObjectService.FindCustomObjectByOrgAndType(c, &meta.OrgAndObjTypeRequest{OrgId: dto.OrgId, ObjType: dto.Type})
 		if err != nil {
 			return nil, err
 		}
@@ -141,7 +131,6 @@ func (s *dataService) Upsert(c context.Context, dtoList []*dtos.SObject) ([]*dto
 
 		model := modelList[i]
 		model.ObjId = objId
-		model.OrgId = orgId
 
 		// 过滤无效列
 		fieldSet := mapset.NewSet()
@@ -164,8 +153,7 @@ func (s *dataService) Upsert(c context.Context, dtoList []*dtos.SObject) ([]*dto
 	return dtoResults, nil
 }
 
-func (s *dataService) Delete(c context.Context, objType string, ids []string) ([]*dtos.DeleteResult, error) {
-	orgId := c.Value(config.OrgIdKey{}).(string)
+func (s *dataService) Delete(c context.Context, orgId, objType string, ids []string) ([]*dtos.DeleteResult, error) {
 	metaObj, err := s.customObjectService.FindCustomObjectByOrgAndType(c, &meta.OrgAndObjTypeRequest{OrgId: orgId, ObjType: objType})
 	if err != nil {
 		return nil, err

@@ -2,6 +2,7 @@ package dtos
 
 type SObject struct {
 	Id string `json:"GUID,omitempty"`
+	OrgId string `json:"orgId,omitempty"`
 	Type string `json:"type,omitempty"`
 	FieldsToNull []string `json:"fieldsToNull,omitempty"`
 	Fields map[string]string	`json:"fields"`

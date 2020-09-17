@@ -89,7 +89,7 @@ func (h *SObjectHandler) Upsert(c context.Context, req *data.UpsertSObjectReques
 }
 
 func (h *SObjectHandler) Retrieve(c context.Context, req *data.RetrieveSObjectRequest, rsp *data.RetrieveSObjectResponse) error {
-	dtoResults, err := h.dataService.Retrieve(c, req.Type, req.Ids, req.Fields)
+	dtoResults, err := h.dataService.Retrieve(c, req.OrgId, req.Type, req.Ids, req.Fields)
 	if err != nil {
 		return nil
 	}
@@ -109,7 +109,7 @@ func (h *SObjectHandler) Retrieve(c context.Context, req *data.RetrieveSObjectRe
 }
 
 func (h *SObjectHandler) Delete(c context.Context, req *data.DeleteSObjectRequest, rsp *data.DeleteSObjectResponse) error {
-	dtoResults, err := h.dataService.Delete(c, req.ObjType, req.Ids)
+	dtoResults, err := h.dataService.Delete(c, req.OrgId, req.Type, req.Ids)
 	if err != nil {
 		return err
 	}
