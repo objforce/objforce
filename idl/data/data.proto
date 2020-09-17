@@ -54,9 +54,10 @@ message UpsertSObjectResult {
 }
 
 message RetrieveSObjectRequest {
-  repeated string ids = 1;
-  repeated string fields = 2;
-  string type = 3;
+  string orgId = 1;
+  repeated string ids = 2;
+  repeated string fields = 3;
+  string type = 4;
 }
 
 message RetrieveSObjectResponse {
@@ -64,8 +65,9 @@ message RetrieveSObjectResponse {
 }
 
 message DeleteSObjectRequest {
-  repeated string ids = 1;
-  string type = 2;
+  string orgId = 1;
+  repeated string ids = 2;
+  string type = 3;
 }
 
 message DeleteSObjectResponse {

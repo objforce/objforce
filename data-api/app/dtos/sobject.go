@@ -18,7 +18,7 @@ type RetrieveSObjectResponse struct {
 }
 
 type DeleteSObjectRequest struct {
-	ObjType string `json:"objType"`
+	Type string `json:"type"`
 	Ids []string `json:"ids"`
 }
 

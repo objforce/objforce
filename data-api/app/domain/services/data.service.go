@@ -8,7 +8,7 @@ import(
 )
 
 type DataService interface {
-	Create(c context.Context, dto []*dtos.SObject) (*dtos.CreateSObjectResponse, error)
+	Create(c context.Context, dtoObjects []*dtos.SObject) (*dtos.CreateSObjectResponse, error)
 	Update(c context.Context, dto *dtos.UpdateSObjectRequest) (*dtos.UpdateSObjectResponse, error)
 	Upsert(c context.Context, dto *dtos.UpsertSObjectRequest) (*dtos.UpsertSObjectResponse, error)
 	Retrieve(c context.Context, dtoReq *dtos.RetrieveSObjectRequest) (*dtos.RetrieveSObjectResponse, error)
@@ -25,10 +25,16 @@ func NewDataService(objectService data.SObjectService) DataService {
 	}
 }
 
-func (s *dataService) Create(c context.Context, dtoItems []*dtos.SObject) (*dtos.CreateSObjectResponse, error) {
-	pbObjects := make([]*data.SObject, len(dtoItems))
-	mapper.Map(dtoItems, pbObjects)
-	pb := &data.CreateSObjectRequest{}
+func (s *dataService) Create(c context.Context, dtoObjects []*dtos.SObject) (*dtos.CreateSObjectResponse, error) {
+	orgId := c.Value("orgId").(string)
+
+	pbObjects := make([]*data.SObject, len(dtoObjects))
+	mapper.Map(dtoObjects, pbObjects)
+	for _, pbObject := range pbObjects {
+		pbObject.OrgId = orgId
+	}
+
+	pb := &data.CreateSObjectRequest{Objects: pbObjects}
 
 	pbRsp, err := s.objectService.Create(c, pb)
 	if err != nil {
@@ -42,8 +48,13 @@ func (s *dataService) Create(c context.Context, dtoItems []*dtos.SObject) (*dtos
 }
 
 func (s *dataService) Update(c context.Context, dtoReq *dtos.UpdateSObjectRequest) (*dtos.UpdateSObjectResponse, error) {
+	orgId := c.Value("orgId").(string)
+
 	pbReq := &data.UpdateSObjectRequest{}
 	mapper.Map(dtoReq, pbReq)
+	for _, pbObject := range pbReq.Objects {
+		pbObject.OrgId = orgId
+	}
 
 	pbRsp, err := s.objectService.Update(c, pbReq)
 	if err != nil {
@@ -56,8 +67,13 @@ func (s *dataService) Update(c context.Context, dtoReq *dtos.UpdateSObjectReques
 }
 
 func (s *dataService) Upsert(c context.Context, dtoReq *dtos.UpsertSObjectRequest) (*dtos.UpsertSObjectResponse, error) {
+	orgId := c.Value("orgId").(string)
+
 	pbReq := &data.UpsertSObjectRequest{}
 	mapper.Map(dtoReq, pbReq)
+	for _, pbObject := range pbReq.Objects {
+		pbObject.OrgId = orgId
+	}
 
 	pbRsp, err := s.objectService.Upsert(c, pbReq)
 	if err != nil {
@@ -71,8 +87,11 @@ func (s *dataService) Upsert(c context.Context, dtoReq *dtos.UpsertSObjectReques
 
 
 func (s *dataService) Retrieve(c context.Context, dtoReq *dtos.RetrieveSObjectRequest) (*dtos.RetrieveSObjectResponse, error) {
+	orgId := c.Value("orgId").(string)
+
 	pbReq := &data.RetrieveSObjectRequest{}
 	mapper.Map(dtoReq, pbReq)
+	pbReq.OrgId = orgId
 
 	pbRsp, err := s.objectService.Retrieve(c, pbReq)
 	if err != nil {
@@ -89,7 +108,9 @@ func (s *dataService) Retrieve(c context.Context, dtoReq *dtos.RetrieveSObjectRe
 }
 
 func (s *dataService) Delete(c context.Context, dtoReq *dtos.DeleteSObjectRequest) (*dtos.DeleteSObjectResponse, error) {
-	pbRsp, err := s.objectService.Delete(c, &data.DeleteSObjectRequest{ObjType: dtoReq.ObjType, Ids: dtoReq.Ids})
+	orgId := c.Value("orgId").(string)
+
+	pbRsp, err := s.objectService.Delete(c, &data.DeleteSObjectRequest{OrgId: orgId, Type: dtoReq.Type, Ids: dtoReq.Ids})
 	if err != nil {
 		return nil, err
 	}
