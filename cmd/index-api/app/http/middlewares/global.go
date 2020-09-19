@@ -4,7 +4,7 @@ import (
 	"github.com/gin-contrib/cors"
 	"github.com/gin-contrib/gzip"
 	"github.com/gin-gonic/gin"
-	"github.com/objforce/objforce/index-server/config"
+	"github.com/objforce/objforce/cmd/index-api/config"
 	"github.com/opentracing/opentracing-go"
 	"github.com/xxxmicro/base/http/gin/middlewares"
 )

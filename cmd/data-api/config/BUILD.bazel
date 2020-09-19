@@ -1,0 +1,11 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "config",
+    srcs = [
+        "app.go",
+        "env.go",
+    ],
+    importpath = "github.com/objforce/objforce/cmd/data-api/config",
+    visibility = ["//visibility:public"],
+)

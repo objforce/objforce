@@ -1,0 +1,15 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "meta-srv_lib",
+    srcs = ["main.go"],
+    importpath = "github.com/objforce/objforce/cmd/meta-srv",
+    visibility = ["//visibility:private"],
+    deps = ["//cmd/meta-srv/bootstrap"],
+)
+
+go_binary(
+    name = "meta-srv",
+    embed = [":meta-srv_lib"],
+    visibility = ["//visibility:public"],
+)

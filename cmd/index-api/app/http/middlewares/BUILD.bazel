@@ -1,0 +1,22 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "middlewares",
+    srcs = [
+        "global.go",
+        "log.middleware.go",
+        "monitor.middleware.go",
+    ],
+    importpath = "github.com/objforce/objforce/cmd/index-api/app/http/middlewares",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//cmd/index-api/config",
+        "@com_github_gin_contrib_cors//:go_default_library",
+        "@com_github_gin_contrib_gzip//:go_default_library",
+        "@com_github_gin_gonic_gin//:go_default_library",
+        "@com_github_opentracing_opentracing_go//:go_default_library",
+        "@com_github_prometheus_client_golang//prometheus:go_default_library",
+        "@com_github_xxxmicro_base//http/gin/middlewares:go_default_library",
+        "@org_uber_go_zap//:go_default_library",
+    ],
+)

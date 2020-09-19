@@ -1,0 +1,16 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "routes",
+    srcs = ["api.go"],
+    importpath = "github.com/objforce/objforce/cmd/meta-api/routes",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//cmd/meta-api/app/http/controllers",
+        "//cmd/meta-api/app/http/middlewares",
+        "//cmd/meta-api/config",
+        "@com_github_cnjack_throttle//:go_default_library",
+        "@com_github_gin_gonic_gin//:go_default_library",
+        "@org_uber_go_dig//:go_default_library",
+    ],
+)

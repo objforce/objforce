@@ -1,0 +1,18 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "handlers",
+    srcs = [
+        "custom_field.handler.go",
+        "custom_object.handler.go",
+    ],
+    importpath = "github.com/objforce/objforce/cmd/meta-srv/app/handlers",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//cmd/meta-srv/app/domain/services",
+        "//cmd/meta-srv/app/dtos",
+        "//idl/meta/gen-go",
+        "@com_github_micro_go_micro_v2//logger:go_default_library",
+        "@com_github_xxxmicro_base//mapper:go_default_library",
+    ],
+)

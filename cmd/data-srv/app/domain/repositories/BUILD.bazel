@@ -1,0 +1,20 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "repositories",
+    srcs = [
+        "clob.repository.go",
+        "data.repository.go",
+    ],
+    importpath = "github.com/objforce/objforce/cmd/data-srv/app/domain/repositories",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//cmd/data-srv/app/domain/models",
+        "@com_github_jinzhu_gorm//:go_default_library",
+        "@com_github_satori_go_uuid//:go_default_library",
+        "@com_github_tsuna_gohbase//:go_default_library",
+        "@com_github_tsuna_gohbase//hrpc:go_default_library",
+        "@com_github_xxxmicro_base//domain/repository:go_default_library",
+        "@com_github_xxxmicro_base//domain/repository/gorm:go_default_library",
+    ],
+)

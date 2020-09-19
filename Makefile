@@ -40,6 +40,7 @@ test:
 .PHONY: docker
 docker:
 	docker build -t data-api:latest . -f cmd/data-api/Dockerfile
+	docker build -t data-srv:latest . -f cmd/data-srv/Dockerfile
 
 .PHONY: publish-image
 publish-image: docker

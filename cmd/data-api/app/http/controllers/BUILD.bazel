@@ -1,0 +1,17 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "controllers",
+    srcs = [
+        "api.controller.go",
+        "sobject.controller.go",
+    ],
+    importpath = "github.com/objforce/objforce/cmd/data-api/app/http/controllers",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//cmd/data-api/app/domain/services",
+        "//cmd/data-api/app/dtos",
+        "@com_github_gin_gonic_gin//:go_default_library",
+        "@org_uber_go_zap//:go_default_library",
+    ],
+)

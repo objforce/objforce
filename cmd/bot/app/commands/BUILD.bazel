@@ -1,0 +1,13 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "commands",
+    srcs = ["migrate.command.go"],
+    importpath = "github.com/objforce/objforce/cmd/bot/app/commands",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//cmd/meta-srv/app/domain/models",
+        "@com_github_jinzhu_gorm//:go_default_library",
+        "@com_github_micro_go_micro_v2//agent/proto:go_default_library",
+    ],
+)

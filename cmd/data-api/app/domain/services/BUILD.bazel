@@ -1,0 +1,13 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "services",
+    srcs = ["data.service.go"],
+    importpath = "github.com/objforce/objforce/cmd/data-api/app/domain/services",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//cmd/data-api/app/dtos",
+        "//idl/data/gen-go",
+        "@com_github_xxxmicro_base//mapper:go_default_library",
+    ],
+)

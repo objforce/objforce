@@ -1,0 +1,21 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "bootstrap",
+    srcs = ["app.go"],
+    importpath = "github.com/objforce/objforce/cmd/index-srv/bootstrap",
+    visibility = ["//visibility:public"],
+    deps = [
+        "@com_github_objforce_objforce_index_srv//app/domain/repositories:go_default_library",
+        "@com_github_objforce_objforce_index_srv//app/domain/services:go_default_library",
+        "@com_github_objforce_objforce_index_srv//app/events:go_default_library",
+        "@com_github_objforce_objforce_index_srv//app/handlers:go_default_library",
+        "@com_github_objforce_objforce_index_srv//app/providers:go_default_library",
+        "@com_github_objforce_objforce_index_srv//config:go_default_library",
+        "@com_github_xxxmicro_base//config:go_default_library",
+        "@com_github_xxxmicro_base//config/source:go_default_library",
+        "@com_github_xxxmicro_base//database/gorm:go_default_library",
+        "@com_github_xxxmicro_base//opentracing/jaeger:go_default_library",
+        "@org_uber_go_fx//:go_default_library",
+    ],
+)

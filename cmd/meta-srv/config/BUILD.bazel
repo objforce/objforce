@@ -1,0 +1,13 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "config",
+    srcs = [
+        "app.go",
+        "consts.go",
+        "env.go",
+        "rocketmq.go",
+    ],
+    importpath = "github.com/objforce/objforce/cmd/meta-srv/config",
+    visibility = ["//visibility:public"],
+)

@@ -1,0 +1,27 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "providers",
+    srcs = [
+        "elastic.provider.go",
+        "gin.provider.go",
+        "logger.provider.go",
+        "micro.web.service.provider.go",
+    ],
+    importpath = "github.com/objforce/objforce/cmd/index-api/app/providers",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//cmd/index-api/config",
+        "@com_github_gin_gonic_gin//:go_default_library",
+        "@com_github_micro_cli_v2//:go_default_library",
+        "@com_github_micro_go_micro_v2//config:go_default_library",
+        "@com_github_micro_go_micro_v2//logger:go_default_library",
+        "@com_github_micro_go_micro_v2//web:go_default_library",
+        "@com_github_micro_go_plugins_registry_consul_v2//:go_default_library",
+        "@com_github_olivere_elastic_v6//:go_default_library",
+        "@com_github_prometheus_client_golang//prometheus/promhttp:go_default_library",
+        "@org_uber_go_fx//:go_default_library",
+        "@org_uber_go_zap//:go_default_library",
+        "@org_uber_go_zap//zapcore:go_default_library",
+    ],
+)

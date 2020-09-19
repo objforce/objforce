@@ -12,7 +12,7 @@ RUN make build-data-api
 
 FROM alpine:3.10
 WORKDIR /app
-COPY --from=builder /opt/data-api /app/bin/data-api
+COPY --from=builder /opt/build/data-api /app/bin/data-api
 COPY --from=builder /opt/alipay.crt /etc/ssl/certs/
 COPY --from=builder /usr/local/go/lib/time/zoneinfo.zip /opt/zoneinfo.zip
 ## 解决alipay获取时区错误

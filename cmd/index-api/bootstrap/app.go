@@ -7,13 +7,13 @@ import(
 	xsource "github.com/xxxmicro/base/config/source"
 	gorm "github.com/xxxmicro/base/database/gorm"
 	"github.com/xxxmicro/base/opentracing/jaeger"
-	"github.com/objforce/objforce/index-server/config"
-	"github.com/objforce/objforce/index-server/app/http/controllers"
-	"github.com/objforce/objforce/index-server/app/http/middlewares"
-	"github.com/objforce/objforce/index-server/app/providers"
-	"github.com/objforce/objforce/index-server/app/domain/services"
-	"github.com/objforce/objforce/index-server/app/domain/repositories"
-	"github.com/objforce/objforce/index-server/routes"
+	"github.com/objforce/objforce/cmd/index-api/config"
+	"github.com/objforce/objforce/cmd/index-api/app/http/controllers"
+	"github.com/objforce/objforce/cmd/index-api/app/http/middlewares"
+	"github.com/objforce/objforce/cmd/index-api/app/providers"
+	"github.com/objforce/objforce/cmd/index-api/app/domain/services"
+	"github.com/objforce/objforce/cmd/index-api/app/domain/repositories"
+	"github.com/objforce/objforce/cmd/index-api/routes"
 )
 
 

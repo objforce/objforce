@@ -1,0 +1,33 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "handlers",
+    srcs = ["sobject.handler.go"],
+    importpath = "github.com/objforce/objforce/cmd/data-srv/app/handlers",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//cmd/data-srv/app/domain/services",
+        "//cmd/data-srv/app/dtos",
+        "//idl/data/gen-go",
+        "@com_github_xxxmicro_base//mapper:go_default_library",
+    ],
+)
+
+go_test(
+    name = "handlers_test",
+    srcs = ["sobject.handler_test.go"],
+    embed = [":handlers"],
+    deps = [
+        "//idl/data/gen-go",
+        "@com_github_micro_go_micro_v2//:go_default_library",
+        "@com_github_micro_go_micro_v2//config:go_default_library",
+        "@com_github_micro_go_micro_v2//config/source/memory:go_default_library",
+        "@com_github_micro_go_micro_v2//registry:go_default_library",
+        "@com_github_micro_go_plugins_registry_consul_v2//:go_default_library",
+        "@com_github_micro_go_plugins_wrapper_monitoring_prometheus_v2//:go_default_library",
+        "@com_github_micro_go_plugins_wrapper_ratelimiter_uber_v2//:go_default_library",
+        "@com_github_micro_go_plugins_wrapper_trace_opentracing_v2//:go_default_library",
+        "@com_github_micro_go_plugins_wrapper_validator_v2//:go_default_library",
+        "@com_github_xxxmicro_base//opentracing:go_default_library",
+    ],
+)
