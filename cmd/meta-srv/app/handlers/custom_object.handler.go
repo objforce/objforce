@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 	"github.com/micro/go-micro/v2/logger"
-	"github.com/objforce/objforce/meta-srv/app/domain/services"
-	"github.com/objforce/objforce/meta-srv/app/dtos"
+	"github.com/objforce/objforce/cmd/meta-srv/app/domain/services"
+	"github.com/objforce/objforce/cmd/meta-srv/app/dtos"
 	meta "github.com/objforce/objforce/idl/meta/gen-go"
 	"github.com/xxxmicro/base/mapper"
 )
@@ -59,7 +59,7 @@ func (h *CustomObjectHandler) Update(c context.Context, req *meta.CustomObject, 
 	return nil
 }
 
-func (h *CustomObjectHandler) Retrieve(c context.Context, req *meta.FindCustomObjectRequest, rsp *meta.CustomObject) error {
+func (h *CustomObjectHandler) Retrieve(c context.Context, req *meta.RetrieveCustomObjectRequest, rsp *meta.CustomObject) error {
 	dto, err := h.customObjectService.Retrieve(c, req.ObjId)
 	if err != nil {
 		return err

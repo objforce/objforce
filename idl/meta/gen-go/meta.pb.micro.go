@@ -44,7 +44,7 @@ func NewCustomObjectServiceEndpoints() []*api.Endpoint {
 type CustomObjectService interface {
 	Create(ctx context.Context, in *CustomObject, opts ...client.CallOption) (*CustomObject, error)
 	Update(ctx context.Context, in *CustomObject, opts ...client.CallOption) (*CustomObject, error)
-	Retrieve(ctx context.Context, in *FindCustomObjectRequest, opts ...client.CallOption) (*CustomObject, error)
+	Retrieve(ctx context.Context, in *RetrieveCustomObjectRequest, opts ...client.CallOption) (*CustomObject, error)
 	Delete(ctx context.Context, in *DeleteCustomObjectRequest, opts ...client.CallOption) (*CustomObject, error)
 	FindCustomObjectByOrgAndType(ctx context.Context, in *OrgAndObjTypeRequest, opts ...client.CallOption) (*CustomObject, error)
 }
@@ -81,7 +81,7 @@ func (c *customObjectService) Update(ctx context.Context, in *CustomObject, opts
 	return out, nil
 }
 
-func (c *customObjectService) Retrieve(ctx context.Context, in *FindCustomObjectRequest, opts ...client.CallOption) (*CustomObject, error) {
+func (c *customObjectService) Retrieve(ctx context.Context, in *RetrieveCustomObjectRequest, opts ...client.CallOption) (*CustomObject, error) {
 	req := c.c.NewRequest(c.name, "CustomObjectService.Retrieve", in)
 	out := new(CustomObject)
 	err := c.c.Call(ctx, req, out, opts...)
@@ -116,7 +116,7 @@ func (c *customObjectService) FindCustomObjectByOrgAndType(ctx context.Context, 
 type CustomObjectServiceHandler interface {
 	Create(context.Context, *CustomObject, *CustomObject) error
 	Update(context.Context, *CustomObject, *CustomObject) error
-	Retrieve(context.Context, *FindCustomObjectRequest, *CustomObject) error
+	Retrieve(context.Context, *RetrieveCustomObjectRequest, *CustomObject) error
 	Delete(context.Context, *DeleteCustomObjectRequest, *CustomObject) error
 	FindCustomObjectByOrgAndType(context.Context, *OrgAndObjTypeRequest, *CustomObject) error
 }
@@ -125,7 +125,7 @@ func RegisterCustomObjectServiceHandler(s server.Server, hdlr CustomObjectServic
 	type customObjectService interface {
 		Create(ctx context.Context, in *CustomObject, out *CustomObject) error
 		Update(ctx context.Context, in *CustomObject, out *CustomObject) error
-		Retrieve(ctx context.Context, in *FindCustomObjectRequest, out *CustomObject) error
+		Retrieve(ctx context.Context, in *RetrieveCustomObjectRequest, out *CustomObject) error
 		Delete(ctx context.Context, in *DeleteCustomObjectRequest, out *CustomObject) error
 		FindCustomObjectByOrgAndType(ctx context.Context, in *OrgAndObjTypeRequest, out *CustomObject) error
 	}
@@ -148,7 +148,7 @@ func (h *customObjectServiceHandler) Update(ctx context.Context, in *CustomObjec
 	return h.CustomObjectServiceHandler.Update(ctx, in, out)
 }
 
-func (h *customObjectServiceHandler) Retrieve(ctx context.Context, in *FindCustomObjectRequest, out *CustomObject) error {
+func (h *customObjectServiceHandler) Retrieve(ctx context.Context, in *RetrieveCustomObjectRequest, out *CustomObject) error {
 	return h.CustomObjectServiceHandler.Retrieve(ctx, in, out)
 }
 
@@ -171,7 +171,7 @@ func NewCustomFieldServiceEndpoints() []*api.Endpoint {
 type CustomFieldService interface {
 	Create(ctx context.Context, in *CustomField, opts ...client.CallOption) (*CustomField, error)
 	Update(ctx context.Context, in *CustomField, opts ...client.CallOption) (*CustomField, error)
-	Retrieve(ctx context.Context, in *FindCustomFieldRequest, opts ...client.CallOption) (*CustomField, error)
+	Retrieve(ctx context.Context, in *RetrieveCustomFieldRequest, opts ...client.CallOption) (*CustomField, error)
 	Delete(ctx context.Context, in *DeleteCustomFieldRequest, opts ...client.CallOption) (*CustomField, error)
 }
 
@@ -207,7 +207,7 @@ func (c *customFieldService) Update(ctx context.Context, in *CustomField, opts .
 	return out, nil
 }
 
-func (c *customFieldService) Retrieve(ctx context.Context, in *FindCustomFieldRequest, opts ...client.CallOption) (*CustomField, error) {
+func (c *customFieldService) Retrieve(ctx context.Context, in *RetrieveCustomFieldRequest, opts ...client.CallOption) (*CustomField, error) {
 	req := c.c.NewRequest(c.name, "CustomFieldService.Retrieve", in)
 	out := new(CustomField)
 	err := c.c.Call(ctx, req, out, opts...)
@@ -232,7 +232,7 @@ func (c *customFieldService) Delete(ctx context.Context, in *DeleteCustomFieldRe
 type CustomFieldServiceHandler interface {
 	Create(context.Context, *CustomField, *CustomField) error
 	Update(context.Context, *CustomField, *CustomField) error
-	Retrieve(context.Context, *FindCustomFieldRequest, *CustomField) error
+	Retrieve(context.Context, *RetrieveCustomFieldRequest, *CustomField) error
 	Delete(context.Context, *DeleteCustomFieldRequest, *CustomField) error
 }
 
@@ -240,7 +240,7 @@ func RegisterCustomFieldServiceHandler(s server.Server, hdlr CustomFieldServiceH
 	type customFieldService interface {
 		Create(ctx context.Context, in *CustomField, out *CustomField) error
 		Update(ctx context.Context, in *CustomField, out *CustomField) error
-		Retrieve(ctx context.Context, in *FindCustomFieldRequest, out *CustomField) error
+		Retrieve(ctx context.Context, in *RetrieveCustomFieldRequest, out *CustomField) error
 		Delete(ctx context.Context, in *DeleteCustomFieldRequest, out *CustomField) error
 	}
 	type CustomFieldService struct {
@@ -262,7 +262,7 @@ func (h *customFieldServiceHandler) Update(ctx context.Context, in *CustomField,
 	return h.CustomFieldServiceHandler.Update(ctx, in, out)
 }
 
-func (h *customFieldServiceHandler) Retrieve(ctx context.Context, in *FindCustomFieldRequest, out *CustomField) error {
+func (h *customFieldServiceHandler) Retrieve(ctx context.Context, in *RetrieveCustomFieldRequest, out *CustomField) error {
 	return h.CustomFieldServiceHandler.Retrieve(ctx, in, out)
 }
 

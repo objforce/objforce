@@ -5,7 +5,7 @@ import (
 	"github.com/micro/go-micro/v2"
 	"github.com/micro/go-micro/v2/logger"
 	"github.com/micro/go-micro/v2/server"
-	"github.com/objforce/objforce/index-srv/proto/data/gen-go"
+	"github.com/objforce/objforce/idl/data/gen-go"
 )
 
 type IndexSubscriber struct {

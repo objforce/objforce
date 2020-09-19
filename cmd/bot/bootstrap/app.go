@@ -1,8 +1,8 @@
 package bootstrap
 
 import(
-	"github.com/objforce/objforce/bot/app/commands"
-	"github.com/objforce/objforce/bot/app/providers"
+	"github.com/objforce/objforce/cmd/bot/app/commands"
+	"github.com/objforce/objforce/cmd/bot/app/providers"
 	"github.com/xxxmicro/base/database/gorm"
 	"go.uber.org/fx"
 	xconfig "github.com/xxxmicro/base/config"

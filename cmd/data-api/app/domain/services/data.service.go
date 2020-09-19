@@ -2,7 +2,7 @@ package services
 
 import(
 	"context"
-	"github.com/objforce/objforce/data-api/app/dtos"
+	"github.com/objforce/objforce/cmd/data-api/app/dtos"
 	data "github.com/objforce/objforce/idl/data/gen-go"
 	"github.com/xxxmicro/base/mapper"
 )

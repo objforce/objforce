@@ -1,11 +1,11 @@
 package bootstrap
 
 import (
-	"github.com/objforce/objforce/meta-srv/app/domain/repositories"
-	"github.com/objforce/objforce/meta-srv/app/domain/services"
-	"github.com/objforce/objforce/meta-srv/app/handlers"
-	"github.com/objforce/objforce/meta-srv/app/providers"
-	"github.com/objforce/objforce/meta-srv/config"
+	"github.com/objforce/objforce/cmd/meta-srv/app/domain/repositories"
+	"github.com/objforce/objforce/cmd/meta-srv/app/domain/services"
+	"github.com/objforce/objforce/cmd/meta-srv/app/handlers"
+	"github.com/objforce/objforce/cmd/meta-srv/app/providers"
+	"github.com/objforce/objforce/cmd/meta-srv/config"
 	xconfig "github.com/xxxmicro/base/config"
 	xsource "github.com/xxxmicro/base/config/source"
 	gorm "github.com/xxxmicro/base/database/gorm"

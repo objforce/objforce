@@ -53,7 +53,7 @@ func (s *customFieldService) Update(c context.Context, dto *dtos.CustomField) (*
 }
 
 func (s *customFieldService) FindOne(c context.Context, id string) (*dtos.CustomField, error) {
-	rsp, err := s.customFieldServiceClient.FindOne(c, &meta.FindCustomFieldRequest{FieldId: id})
+	rsp, err := s.customFieldServiceClient.Retrieve(c, &meta.RetrieveCustomFieldRequest{FieldId: id})
 	if err != nil {
 		return nil, err
 	}

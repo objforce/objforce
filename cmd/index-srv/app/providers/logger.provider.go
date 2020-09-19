@@ -2,7 +2,7 @@ package providers
 
 import (
 	// "os/exec"
-	"github.com/objforce/objforce/meta-srv/config"
+	"github.com/objforce/objforce/cmd/meta-srv/config"
 
 	"github.com/micro/go-micro/v2/logger"
 	// "go.uber.org/zap"

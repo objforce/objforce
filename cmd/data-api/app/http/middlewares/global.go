@@ -7,7 +7,7 @@ import (
 	"github.com/gin-contrib/gzip"
 	"github.com/gin-contrib/static"
 	"github.com/gin-gonic/gin"
-	"github.com/objforce/objforce/data-api/config"
+	"github.com/objforce/objforce/cmd/data-api/config"
 	"github.com/opentracing/opentracing-go"
 	"github.com/xxxmicro/base/http/gin/middlewares"
 )

@@ -4,7 +4,7 @@ import (
 	"github.com/micro/go-micro/v2/broker"
 	"github.com/micro/go-micro/v2/config"
 	"github.com/xxxmicro/go-plugins-broker-rocketmq/v2"
-	xconfig "github.com/objforce/objforce/meta-srv/config"
+	xconfig "github.com/objforce/objforce/cmd/meta-srv/config"
 )
 
 func NewBrokerProvider(config config.Config) (broker.Broker, error) {

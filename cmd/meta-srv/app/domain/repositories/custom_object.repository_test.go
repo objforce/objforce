@@ -4,7 +4,7 @@ import (
 	"context"
 	"github.com/micro/go-micro/v2/config"
 	"github.com/micro/go-micro/v2/config/source/memory"
-	"github.com/objforce/objforce/meta-srv/app/domain/models"
+	"github.com/objforce/objforce/cmd/meta-srv/app/domain/models"
 	"github.com/xxxmicro/base/database/gorm"
 	"testing"
 )

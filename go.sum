@@ -217,6 +217,7 @@ github.com/godbus/dbus v0.0.0-20190422162347-ade71ed3457e/go.mod h1:bBOAhwG1umN6
 github.com/gofrs/uuid v3.2.0+incompatible/go.mod h1:b2aQJv3Z4Fp6yNu3cdSllBxTCLRxnplIgP/c0N/04lM=
 github.com/gogo/protobuf v1.1.1/go.mod h1:r8qH/GZQm5c6nD/R0oafs1akxWv10x8SbQlK7atdtwQ=
 github.com/gogo/protobuf v1.2.0/go.mod h1:r8qH/GZQm5c6nD/R0oafs1akxWv10x8SbQlK7atdtwQ=
+github.com/gogo/protobuf v1.2.1 h1:/s5zKNz0uPFCZ5hddgPdo2TK2TVrUNMn0OOX8/aZMTE=
 github.com/gogo/protobuf v1.2.1/go.mod h1:hp+jE20tsWTFYpLwKvXlhS1hjn+gTNwPg2I6zVXpSg4=
 github.com/gogo/protobuf v1.3.0 h1:G8O7TerXerS4F6sx9OV7/nRfJdnXgHZu/S/7F2SN+UE=
 github.com/gogo/protobuf v1.3.0/go.mod h1:SlYgWuQ5SjCEi6WLHjHCa1yvBfUnHcTbrrZtXPKa29o=
@@ -443,6 +444,7 @@ github.com/modern-go/reflect2 v1.0.1 h1:9f412s+6RmYXLWZSEzVVgPGK7C2PphHj5RJrvfx9
 github.com/modern-go/reflect2 v1.0.1/go.mod h1:bx2lNnkwVCuqBIxFjflWJWanXIb3RllmbCylyMrvgv0=
 github.com/morikuni/aec v0.0.0-20170113033406-39771216ff4c/go.mod h1:BbKIizmSmc5MMPqRYbxO4ZU0S0+P200+tUnFx7PXmsc=
 github.com/mwitkow/go-conntrack v0.0.0-20161129095857-cc309e4a2223/go.mod h1:qRWi+5nqEBWmkhHvq77mSJWrCKwh8bxhgT7d/eI7P4U=
+github.com/mwitkow/go-proto-validators v0.3.2 h1:qRlmpTzm2pstMKKzTdvwPCF5QfBNURSlAgN/R+qbKos=
 github.com/mwitkow/go-proto-validators v0.3.2/go.mod h1:ej0Qp0qMgHN/KtDyUt+Q1/tA7a5VarXUOUxD+oeD30w=
 github.com/namedotcom/go v0.0.0-20180403034216-08470befbe04/go.mod h1:5sN+Lt1CaY4wsPvgQH/jsuJi4XO2ssZbdsIizr4CVC8=
 github.com/nats-io/jwt v0.3.2 h1:+RB5hMpXUUA2dfxuhBTEkMOrYmM+gKIZYS1KjSostMI=
@@ -472,6 +474,7 @@ github.com/objforce/objforce/meta-api v0.0.0-20200917215938-8d5d75fd3fec h1:oPis
 github.com/objforce/objforce/meta-api v0.0.0-20200917215938-8d5d75fd3fec/go.mod h1:zt7xMfvMWQq/6l7kuLIWqA2SABKZF2DO1VSQ+z8sGLY=
 github.com/objforce/objforce/meta-server v0.0.0-20200907170338-d23f59c214ac h1:Bwxye+tkmLwH/6y/670LdbxFRn66b/z9PODUP6z7Rn4=
 github.com/objforce/objforce/meta-server v0.0.0-20200907170338-d23f59c214ac/go.mod h1:iMMZRhfZL5xiLVyF+RWKP3uHCGTe48l1ZvpqW9EJC6U=
+github.com/objforce/objforce/meta-srv v0.0.0-20200911204911-c7416e930fde h1:SIaZXAn4YKHcAavtniU0sF4/6v88R/due6redScPfSQ=
 github.com/objforce/objforce/meta-srv v0.0.0-20200911204911-c7416e930fde/go.mod h1:9NGNywEWDgEPHZPfCEbSnVBFF3JXGDLb+KJoASXDQAE=
 github.com/objforce/objforce/meta-srv v0.0.0-20200913195437-10309c804e6f h1:9475df41MwCJCmMk9y+3l8IYQu7/BDwdfdTWK1oRZ0w=
 github.com/objforce/objforce/meta-srv v0.0.0-20200913195437-10309c804e6f/go.mod h1:HKPinUWLTX+CW86El7SOdtqaqmikoRl7cJh2flL7ZxE=

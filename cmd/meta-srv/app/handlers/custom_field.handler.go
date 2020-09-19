@@ -3,8 +3,8 @@ package handlers
 import (
 	"context"
 	"github.com/micro/go-micro/v2/logger"
-	"github.com/objforce/objforce/meta-srv/app/domain/services"
-	"github.com/objforce/objforce/meta-srv/app/dtos"
+	"github.com/objforce/objforce/cmd/meta-srv/app/domain/services"
+	"github.com/objforce/objforce/cmd/meta-srv/app/dtos"
 	meta "github.com/objforce/objforce/idl/meta/gen-go"
 	"github.com/xxxmicro/base/mapper"
 )
@@ -54,7 +54,7 @@ func (h *CustomFieldHandler) Update(c context.Context, req *meta.CustomField, rs
 	return nil
 }
 
-func (h *CustomFieldHandler) Retrieve(c context.Context, req *meta.FindCustomFieldRequest, rsp *meta.CustomField) error {
+func (h *CustomFieldHandler) Retrieve(c context.Context, req *meta.RetrieveCustomFieldRequest, rsp *meta.CustomField) error {
 	dto, err := h.customFieldService.FindOne(c, req.FieldId)
 	if err != nil {
 		return err

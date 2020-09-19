@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/objforce/objforce/meta-api/app/dtos"
+	"github.com/objforce/objforce/cmd/meta-api/app/dtos"
 	"net/http"
 )
 

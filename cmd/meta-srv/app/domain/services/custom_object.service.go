@@ -3,10 +3,10 @@ package services
 import (
 	"context"
 	"github.com/micro/go-micro/v2/client"
-	"github.com/objforce/objforce/meta-srv/app/domain/models"
-	"github.com/objforce/objforce/meta-srv/app/domain/repositories"
-	"github.com/objforce/objforce/meta-srv/app/dtos"
-	"github.com/objforce/objforce/meta-srv/config"
+	"github.com/objforce/objforce/cmd/meta-srv/app/domain/models"
+	"github.com/objforce/objforce/cmd/meta-srv/app/domain/repositories"
+	"github.com/objforce/objforce/cmd/meta-srv/app/dtos"
+	"github.com/objforce/objforce/cmd/meta-srv/config"
 	meta "github.com/objforce/objforce/idl/meta/gen-go"
 	"github.com/xxxmicro/base/mapper"
 )

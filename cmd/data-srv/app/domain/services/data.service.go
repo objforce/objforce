@@ -2,9 +2,9 @@ package services
 
 import (
 	"context"
-	"github.com/objforce/objforce/data-srv/app/domain/models"
-	"github.com/objforce/objforce/data-srv/app/domain/repositories"
-	"github.com/objforce/objforce/data-srv/app/dtos"
+	"github.com/objforce/objforce/cmd/data-srv/app/domain/models"
+	"github.com/objforce/objforce/cmd/data-srv/app/domain/repositories"
+	"github.com/objforce/objforce/cmd/data-srv/app/dtos"
 	meta "github.com/objforce/objforce/idl/meta/gen-go"
 	"github.com/xxxmicro/base/mapper"
 	mapset "github.com/deckarep/golang-set"

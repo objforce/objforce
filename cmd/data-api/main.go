@@ -2,7 +2,7 @@ package main
 
 import(
 	"context"
-	"github.com/objforce/objforce/data-api/bootstrap"
+	"github.com/objforce/objforce/cmd/data-api/bootstrap"
 	"log"
 )
 

@@ -4,7 +4,7 @@ import (
 	"context"
 	"github.com/objforce/objforce/index-srv/app/domain/services"
 	"github.com/objforce/objforce/index-srv/app/dtos"
-	index "github.com/objforce/objforce/index-srv/proto/index/gen-go"
+	index "github.com/objforce/objforce/idl/index/gen-go"
 	"github.com/xxxmicro/base/mapper"
 )
 

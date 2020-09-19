@@ -2,9 +2,9 @@ package services
 
 import(
 	"context"
-	"github.com/objforce/objforce/meta-srv/app/domain/models"
-	"github.com/objforce/objforce/meta-srv/app/domain/repositories"
-	"github.com/objforce/objforce/meta-srv/app/dtos"
+	"github.com/objforce/objforce/cmd/meta-srv/app/domain/models"
+	"github.com/objforce/objforce/cmd/meta-srv/app/domain/repositories"
+	"github.com/objforce/objforce/cmd/meta-srv/app/dtos"
 	"github.com/xxxmicro/base/mapper"
 )
 

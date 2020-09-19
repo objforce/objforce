@@ -15,6 +15,7 @@ require (
 	github.com/gin-gonic/gin v1.6.3
 	github.com/ginkgoch/godash v1.2.0
 	github.com/go-martini/martini v0.0.0-20170121215854-22fa46961aab // indirect
+	github.com/golang/protobuf v1.4.0
 	github.com/jinzhu/gorm v1.9.16
 	github.com/jinzhu/now v1.1.1 // indirect
 	github.com/micro/cli/v2 v2.1.2
@@ -26,7 +27,8 @@ require (
 	github.com/micro/go-plugins/wrapper/ratelimiter/uber/v2 v2.9.1
 	github.com/micro/go-plugins/wrapper/trace/opentracing/v2 v2.9.1
 	github.com/micro/go-plugins/wrapper/validator/v2 v2.9.1
-	github.com/objforce/objforce/meta-api v0.0.0-20200917215938-8d5d75fd3fec // indirect
+	github.com/mwitkow/go-proto-validators v0.3.2
+	github.com/objforce/objforce/index-srv v0.0.0-20200913195437-10309c804e6f
 	github.com/olivere/elastic/v6 v6.2.1
 	github.com/opentracing/opentracing-go v1.1.0
 	github.com/prometheus/client_golang v1.5.1

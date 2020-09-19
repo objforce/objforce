@@ -1,7 +1,7 @@
 package providers
 
 import (
-	"github.com/objforce/objforce/data-api/config"
+	"github.com/objforce/objforce/cmd/data-api/config"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 )

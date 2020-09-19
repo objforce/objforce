@@ -5,12 +5,12 @@ import(
 	xconfig "github.com/xxxmicro/base/config"
 	xsource "github.com/xxxmicro/base/config/source"
 	"github.com/xxxmicro/base/opentracing/jaeger"
-	"github.com/objforce/objforce/meta-api/config"
-	"github.com/objforce/objforce/meta-api/app/http/controllers"
-	"github.com/objforce/objforce/meta-api/app/http/middlewares"
-	"github.com/objforce/objforce/meta-api/app/providers"
-	"github.com/objforce/objforce/meta-api/app/domain/services"
-	"github.com/objforce/objforce/meta-api/routes"
+	"github.com/objforce/objforce/cmd/meta-api/config"
+	"github.com/objforce/objforce/cmd/meta-api/app/http/controllers"
+	"github.com/objforce/objforce/cmd/meta-api/app/http/middlewares"
+	"github.com/objforce/objforce/cmd/meta-api/app/providers"
+	"github.com/objforce/objforce/cmd/meta-api/app/domain/services"
+	"github.com/objforce/objforce/cmd/meta-api/routes"
 )
 
 

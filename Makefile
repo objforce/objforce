@@ -13,6 +13,25 @@ build: build-meta-api
 build-meta-api:
 	go build -o meta-api cmd/meta-api/main.go
 
+.PHONY: build-meta-srv
+build-meta-srv:
+	go build -o meta-srv cmd/meta-srv/main.go
+
+.PHONY: build-data-api
+build-data-api:
+	go build -o data-api cmd/data-api/main.go
+
+.PHONY: build-data-srv
+build-data-srv:
+	go build -o data-srv cmd/data-srv/main.go
+
+.PHONY: build-index-api
+build-index-api:
+	go build -o index-api cmd/index-api/main.go
+
+.PHONY: build-index-srv
+build-index-srv:
+	go build -o index-api cmd/index-srv/main.go
 
 .PHONY: test
 test:

@@ -14,7 +14,7 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-func (this *FindCustomObjectRequest) Validate() error {
+func (this *RetrieveCustomObjectRequest) Validate() error {
 	return nil
 }
 func (this *OrgAndObjTypeRequest) Validate() error {
@@ -23,7 +23,7 @@ func (this *OrgAndObjTypeRequest) Validate() error {
 func (this *DeleteCustomObjectRequest) Validate() error {
 	return nil
 }
-func (this *FindCustomFieldRequest) Validate() error {
+func (this *RetrieveCustomFieldRequest) Validate() error {
 	return nil
 }
 func (this *DeleteCustomFieldRequest) Validate() error {

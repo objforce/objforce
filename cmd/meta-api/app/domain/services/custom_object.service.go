@@ -10,7 +10,7 @@ import (
 type CustomObjectService interface {
 	Create(c context.Context, dto *dtos.CustomObject) (*dtos.CustomObject, error)
 	Update(c context.Context, dto *dtos.CustomObject) (*dtos.CustomObject, error)
-	FindOne(c context.Context, id string) (*dtos.CustomObject, error)
+	Retrieve(c context.Context, id string) (*dtos.CustomObject, error)
 	Delete(c context.Context, id string) error
 }
 
@@ -53,8 +53,8 @@ func (s *customObjectService) Update(c context.Context, dto *dtos.CustomObject) 
 	return dto, nil
 }
 
-func (s *customObjectService) FindOne(c context.Context, id string) (*dtos.CustomObject, error) {
-	pb, err := s.customObjectServiceClient.FindOne(c, &meta.FindCustomObjectRequest{ObjId: id})
+func (s *customObjectService) Retrieve(c context.Context, id string) (*dtos.CustomObject, error) {
+	pb, err := s.customObjectServiceClient.Retrieve(c, &meta.RetrieveCustomObjectRequest{ObjId: id})
 	if err != nil {
 		return nil, err
 	}

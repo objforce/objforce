@@ -8,7 +8,7 @@ import "types.proto";
 service CustomObjectService {
   rpc Create(CustomObject) returns (CustomObject) {}
   rpc Update(CustomObject) returns (CustomObject) {}
-  rpc Retrieve(FindCustomObjectRequest) returns (CustomObject) {}
+  rpc Retrieve(RetrieveCustomObjectRequest) returns (CustomObject) {}
   rpc Delete(DeleteCustomObjectRequest) returns (CustomObject) {}
   rpc FindCustomObjectByOrgAndType(OrgAndObjTypeRequest) returns(CustomObject) {}
 }
@@ -16,11 +16,11 @@ service CustomObjectService {
 service CustomFieldService {
   rpc Create(CustomField) returns (CustomField) {}
   rpc Update(CustomField) returns (CustomField) {}
-  rpc Retrieve(FindCustomFieldRequest) returns (CustomField) {}
+  rpc Retrieve(RetrieveCustomFieldRequest) returns (CustomField) {}
   rpc Delete(DeleteCustomFieldRequest) returns (CustomField) {}
 }
 
-message FindCustomObjectRequest {
+message RetrieveCustomObjectRequest {
   string objId = 1;
 }
 
@@ -33,7 +33,7 @@ message DeleteCustomObjectRequest {
   string objId = 1;
 }
 
-message FindCustomFieldRequest {
+message RetrieveCustomFieldRequest {
   string fieldId = 1;
 }
 

@@ -1,11 +1,11 @@
 package bootstrap
 
 import (
-	"github.com/objforce/objforce/data-srv/app/domain/repositories"
-	"github.com/objforce/objforce/data-srv/app/domain/services"
-	"github.com/objforce/objforce/data-srv/app/handlers"
-	"github.com/objforce/objforce/data-srv/app/providers"
-	"github.com/objforce/objforce/data-srv/config"
+	"github.com/objforce/objforce/cmd/data-srv/app/domain/repositories"
+	"github.com/objforce/objforce/cmd/data-srv/app/domain/services"
+	"github.com/objforce/objforce/cmd/data-srv/app/handlers"
+	"github.com/objforce/objforce/cmd/data-srv/app/providers"
+	"github.com/objforce/objforce/cmd/data-srv/config"
 	xconfig "github.com/xxxmicro/base/config"
 	xsource "github.com/xxxmicro/base/config/source"
 	"github.com/xxxmicro/base/opentracing/jaeger"

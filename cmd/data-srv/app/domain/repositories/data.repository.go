@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/binary"
 	"fmt"
-	"github.com/objforce/objforce/data-srv/app/domain/models"
+	"github.com/objforce/objforce/cmd/data-srv/app/domain/models"
 	uuid "github.com/satori/go.uuid"
 	"github.com/tsuna/gohbase"
 	"github.com/tsuna/gohbase/hrpc"
