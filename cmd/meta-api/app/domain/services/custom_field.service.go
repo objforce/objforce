@@ -2,8 +2,8 @@ package services
 
 import(
 	"context"
-	"github.com/objforce/objforce/meta-api/app/dtos"
-	meta "github.com/objforce/objforce/meta-api/proto/meta/gen-go"
+	"github.com/objforce/objforce/cmd/meta-api/app/dtos"
+	meta "github.com/objforce/objforce/idl/meta/gen-go"
 	"github.com/xxxmicro/base/mapper"
 )
 

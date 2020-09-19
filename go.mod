@@ -1,4 +1,4 @@
-module github.com/objforce/objforce/data-srv
+module github.com/objforce/objforce
 
 go 1.14
 
@@ -16,6 +16,7 @@ require (
 	github.com/micro/go-plugins/wrapper/trace/opentracing/v2 v2.9.1
 	github.com/micro/go-plugins/wrapper/validator/v2 v2.9.1
 	github.com/objforce/objforce/idl v0.0.0-20200917213345-a5b26a6e7e89
+	github.com/objforce/objforce/meta-api v0.0.0-20200917215938-8d5d75fd3fec // indirect
 	github.com/opentracing/opentracing-go v1.1.0
 	github.com/prometheus/client_golang v1.5.1
 	github.com/satori/go.uuid v1.2.0

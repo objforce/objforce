@@ -124,9 +124,52 @@ services:
         aliases:
           - rmqconsole
 
+  meta-api:
+    build:
+      context: .
+      dockerfile: ./cmd/meta-api/Dockerfile
+    depends_on:
+      - consul
+      - redis
+      - jaeger
+      - xapis.micro.api
+    environment:
+      - TZ=Asia/Shanghai
+      - MICRO_REGISTRY=consul
+      - MICRO_REGISTRY_ADDRESS=consul:8500
+      - JAEGER_ADDR=jaeger:6831
+    command: --server_name com.xapis.api.meta --apollo_namespace application --apollo_address http://apollo-dev.dev.lucfish.com:8080 --apollo_app_id meta-api --apollo_cluster=dev
+    networks:
+      biz:
+        aliases:
+          - meta-api
+
+  meta-srv:
+    build:
+      context: ./cmd/meta-srv
+      dockerfile: Dockerfile
+    depends_on:
+      - consul
+      - mysql
+      - redis
+      - hbase
+      - jaeger
+      - rmqnamesrv
+      - xapis.micro.api
+    environment:
+      - TZ=Asia/Shanghai
+      - MICRO_REGISTRY=consul
+      - MICRO_REGISTRY_ADDRESS=consul:8500
+      - JAEGER_ADDR=jaeger:6831
+    command: --server_name com.xapis.srv.meta --apollo_namespace application --apollo_address http://apollo-dev.dev.lucfish.com:8080 --apollo_app_id meta-srv --apollo_cluster=dev
+    networks:
+      biz:
+        aliases:
+          - meta-srv
+
   data-api:
     build:
-      context: ./data-api
+      context: ./cmd/data-api
       dockerfile: Dockerfile
     depends_on:
       - consul
@@ -145,7 +188,7 @@ services:
           - data-api
   data-srv:
     build:
-      context: ./data-srv
+      context: ./cmd/data-srv
       dockerfile: Dockerfile
     depends_on:
       - consul
@@ -165,6 +208,49 @@ services:
       biz:
         aliases:
           - data-srv
+
+  index-api:
+    build:
+      context: ./cmd/index-api
+      dockerfile: Dockerfile
+    depends_on:
+      - consul
+      - redis
+      - jaeger
+      - xapis.micro.api
+    environment:
+      - TZ=Asia/Shanghai
+      - MICRO_REGISTRY=consul
+      - MICRO_REGISTRY_ADDRESS=consul:8500
+      - JAEGER_ADDR=jaeger:6831
+    command: --server_name com.xapis.api.index --apollo_namespace application --apollo_address http://apollo-dev.dev.lucfish.com:8080 --apollo_app_id index-api --apollo_cluster=dev
+    networks:
+      biz:
+        aliases:
+          - index-api
+  index-srv:
+    build:
+      context: ./cmd/index-srv
+      dockerfile: Dockerfile
+    depends_on:
+      - consul
+      - mysql
+      - redis
+      - hbase
+      - jaeger
+      - rmqnamesrv
+      - xapis.micro.api
+    environment:
+      - TZ=Asia/Shanghai
+      - MICRO_REGISTRY=consul
+      - MICRO_REGISTRY_ADDRESS=consul:8500
+      - JAEGER_ADDR=jaeger:6831
+    command: --server_name com.xapis.srv.index --apollo_namespace application --apollo_address http://apollo-dev.dev.lucfish.com:8080 --apollo_app_id index-srv --apollo_cluster=dev
+    networks:
+      biz:
+        aliases:
+          - index-srv
+
   xapis.micro.api:
     image: ccr.ccs.tencentyun.com/lf_base/micro:2.9.1
     depends_on:

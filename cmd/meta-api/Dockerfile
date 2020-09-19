@@ -4,12 +4,11 @@ WORKDIR /opt
 
 RUN go env -w GOPROXY=https://goproxy.cn,direct && go env -w GO111MODULE=on
 ADD go.mod .
-ADD go.sum .
 RUN go mod download
 
 COPY . /opt
 
-RUN make build
+RUN make -C cmd/meta-api build
 
 FROM alpine:3.10
 WORKDIR /app
