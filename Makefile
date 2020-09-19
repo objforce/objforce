@@ -11,27 +11,27 @@ build: build-meta-api
 
 .PHONY: build-meta-api
 build-meta-api:
-	go build -o meta-api cmd/meta-api/main.go
+	go build -o build/meta-api cmd/meta-api/main.go
 
 .PHONY: build-meta-srv
 build-meta-srv:
-	go build -o meta-srv cmd/meta-srv/main.go
+	go build -o build/meta-srv cmd/meta-srv/main.go
 
 .PHONY: build-data-api
 build-data-api:
-	go build -o data-api cmd/data-api/main.go
+	go build -o build/data-api cmd/data-api/main.go
 
 .PHONY: build-data-srv
 build-data-srv:
-	go build -o data-srv cmd/data-srv/main.go
+	go build -o build/data-srv cmd/data-srv/main.go
 
 .PHONY: build-index-api
 build-index-api:
-	go build -o index-api cmd/index-api/main.go
+	go build -o build/index-api cmd/index-api/main.go
 
 .PHONY: build-index-srv
 build-index-srv:
-	go build -o index-api cmd/index-srv/main.go
+	go build -o build/index-api cmd/index-srv/main.go
 
 .PHONY: test
 test:
@@ -39,14 +39,7 @@ test:
 
 .PHONY: docker
 docker:
-	make -C cmd/bot docker
-	make -C cmd/meta-api docker
-	make -C cmd/meta-srv docker
-	make -C cmd/data-api docker
-	make -C cmd/data-srv docker
-	make -C cmd/index-api docker
-	make -C cmd/index-srv docker
-
+	docker build -t data-api:latest . -f cmd/data-api/Dockerfile
 
 .PHONY: publish-image
 publish-image: docker

@@ -8,7 +8,7 @@ RUN go mod download
 
 COPY . /opt
 
-RUN make build
+RUN make build-data-api
 
 FROM alpine:3.10
 WORKDIR /app

@@ -21,8 +21,12 @@
   <component name="ChangeListManager">
     <list default="true" id="d8139158-f01c-4dd2-a577-6370ac330db6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TODO.md" beforeDir="false" afterPath="$PROJECT_DIR$/TODO.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/data-api/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/data-api/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-api" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-srv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/meta-api" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/meta-srv" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
