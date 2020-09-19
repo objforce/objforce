@@ -20,16 +20,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8139158-f01c-4dd2-a577-6370ac330db6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/data-api/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/data-api/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/data-srv/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/data-srv/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/index-api/app/http/middlewares/global.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/index-api/app/http/middlewares/global.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/index-api/app/providers/logger.provider.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/index-api/app/providers/logger.provider.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/index-api/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/index-api/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/index-api/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/index-api/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/index-api/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/index-api/app/domain/repositories/document.repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/index-api/app/domain/repositories/document.repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/index-api/app/domain/repositories/document.repository_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/index-api/app/domain/repositories/document.repository_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/index-api/app/domain/repositories/index.repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/index-api/app/domain/repositories/index.repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/index-api/app/domain/services/index.service.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/index-api/app/domain/services/index.service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/index-api/app/http/controllers/document.controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/index-api/app/http/controllers/document.controller.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/index-api/bootstrap/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/index-api/bootstrap/app.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/index-api/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/index-api/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/index-api/routes/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/index-api/routes/api.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/index-api/config/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/index-api/config/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/index-api/docker-compose.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/index-srv/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,10 +106,10 @@
       <screen x="1680" y="-12" width="2560" height="1417" />
     </state>
     <state x="2432" y="294" key="SettingsEditor/1680.-12.2560.1417/0.23.1680.972@1680.-12.2560.1417" timestamp="1599223415303" />
-    <state x="581" y="293" width="568" height="518" key="find.popup" timestamp="1600553421582">
+    <state x="581" y="293" width="568" height="518" key="find.popup" timestamp="1600554031319">
       <screen x="0" y="23" width="1536" height="891" />
     </state>
-    <state x="581" y="293" width="568" height="518" key="find.popup/0.23.1536.891@0.23.1536.891" timestamp="1600553421582" />
+    <state x="581" y="293" width="568" height="518" key="find.popup/0.23.1536.891@0.23.1536.891" timestamp="1600554031319" />
     <state x="581" y="293" width="568" height="519" key="find.popup/0.23.1536.892@0.23.1536.892" timestamp="1600522361792" />
     <state x="2648" y="417" width="615" height="490" key="find.popup/1680.-12.2560.1417/0.23.1680.972@1680.-12.2560.1417" timestamp="1599222883977" />
   </component>

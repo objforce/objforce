@@ -1,7 +1,7 @@
 package bootstrap
 
 import(
-	"github.com/objforce/objforce/index-server/app/events"
+	"github.com/objforce/objforce/cmd/index-api/app/events"
 	"go.uber.org/fx"
 	xconfig "github.com/xxxmicro/base/config"
 	xsource "github.com/xxxmicro/base/config/source"

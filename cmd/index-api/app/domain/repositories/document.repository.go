@@ -3,7 +3,7 @@ package repositories
 import (
 	"context"
 	"encoding/json"
-	"github.com/objforce/objforce/index-server/app/domain/models"
+	"github.com/objforce/objforce/cmd/index-api/app/domain/models"
 	"github.com/olivere/elastic/v6"
 )
 

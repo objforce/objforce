@@ -2,8 +2,8 @@ package controllers
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/objforce/objforce/index-server/app/domain/models"
-	"github.com/objforce/objforce/index-server/app/domain/services"
+	"github.com/objforce/objforce/cmd/index-api/app/domain/models"
+	"github.com/objforce/objforce/cmd/index-api/app/domain/services"
 	"github.com/ginkgoch/godash"
 	"go.uber.org/zap"
 	"net/http"

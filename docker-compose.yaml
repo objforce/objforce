@@ -60,6 +60,29 @@ services:
       biz:
         aliases:
           - hbase
+  elastic:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.7.2
+    volumes:
+      - ~/opt/elastic:/usr/share/elasticsearch/data/
+    ports:
+      - 9200:9200
+      - 9300:9300
+    environment:
+      - TZ=Asia/Shanghai
+      - cluster.name=docker-cluster
+      - transport.host=0.0.0.0
+      - xpack.security.enabled=false
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "discovery.zen.ping.unicast.hosts=elasticsearch"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+      biz:
+        aliases:
+          - elastic
   redis:
     image: redis:latest
     ports:
