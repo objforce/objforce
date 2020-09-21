@@ -2,8 +2,8 @@ package handlers
 
 import (
 	"context"
-	"github.com/objforce/objforce/index-srv/app/domain/services"
-	"github.com/objforce/objforce/index-srv/app/dtos"
+	"github.com/objforce/objforce/cmd/index-srv/app/domain/services"
+	"github.com/objforce/objforce/cmd/index-srv/app/dtos"
 	index "github.com/objforce/objforce/idl/index/gen-go"
 	"github.com/xxxmicro/base/mapper"
 )

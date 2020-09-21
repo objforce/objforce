@@ -29,6 +29,7 @@ func App() *fx.App {
 		fx.Provide(providers.NewMicroClientProvider),
 		fx.Provide(providers.NewCustomObjectService),
 		fx.Provide(providers.NewCustomFieldService),
+		fx.Provide(providers.NewLoggerProvider),
 
 		// Services (./app/services)
 		fx.Provide(services.NewCustomObjectService),

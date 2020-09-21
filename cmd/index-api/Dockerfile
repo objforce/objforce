@@ -1,21 +1,8 @@
-FROM autokit/micro-builder:latest as builder
-
-WORKDIR /opt
-
-RUN go env -w GOPROXY=https://goproxy.cn,direct && go env -w GO111MODULE=on
-ADD go.mod .
-ADD go.sum .
-RUN go mod download
-
-COPY . /opt
-
-RUN make build
-
 FROM alpine:3.10
 WORKDIR /app
-COPY --from=builder /opt/build/index-api /app/bin/index-api
-COPY --from=builder /opt/alipay.crt /etc/ssl/certs/
-COPY --from=builder /usr/local/go/lib/time/zoneinfo.zip /opt/zoneinfo.zip
+COPY /build/linux/index-api /app/bin/index-api
+COPY /usr/local/go/lib/time/zoneinfo.zip /opt/zoneinfo.zip
+
 ## 解决alipay获取时区错误
 ENV ZONEINFO /opt/zoneinfo.zip
 VOLUME [ "/app/config", "/app/logs" ]

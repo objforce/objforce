@@ -8,12 +8,15 @@ import (
 	"github.com/gin-contrib/static"
 	"github.com/gin-gonic/gin"
 	"github.com/objforce/objforce/cmd/meta-api/config"
-	"github.com/thinkerou/favicon"
+	"github.com/opentracing/opentracing-go"
+	"github.com/xxxmicro/base/http/gin/middlewares"
 )
 
-func GlobalMiddlewares(server *gin.Engine, config *config.AppConfig, logMiddleware *LogMiddleware) {
+func GlobalMiddlewares(server *gin.Engine, config *config.AppConfig, logMiddleware *LogMiddleware, tracer opentracing.Tracer) {
+	promMonitor := NewPrometheusMonitor("data_api", "com.xapis.api.data")
+
 	server.Use(
-		logMiddleware.Handler(),
+		// logMiddleware.Handler(),
 		cors.Default(),
 		limit.MaxAllowed(config.Connection),
 		gzip.Gzip(gzip.DefaultCompression),
@@ -24,7 +27,9 @@ func GlobalMiddlewares(server *gin.Engine, config *config.AppConfig, logMiddlewa
 		helmet.IENoOpen(),
 		helmet.XSSFilter(),
 		helmet.NoCache(),
-		favicon.New("./public/favicon.ico"),
 		static.Serve("/", static.LocalFile("./public", false)),
+		middlewares.Middleware(tracer),
+		TenantHandler(),
+		promMonitor.PromMiddleware(),
 	)
 }
