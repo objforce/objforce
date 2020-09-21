@@ -8,7 +8,10 @@ go_library(
     ],
     importpath = "github.com/objforce/objforce/cmd/index-api/app/domain/repositories",
     visibility = ["//visibility:public"],
-    deps = ["@com_github_olivere_elastic_v6//:go_default_library"],
+    deps = [
+        "//cmd/index-api/app/domain/models",
+        "@com_github_olivere_elastic_v6//:go_default_library",
+    ],
 )
 
 go_test(
@@ -16,6 +19,8 @@ go_test(
     srcs = ["document.repository_test.go"],
     embed = [":repositories"],
     deps = [
+        "//cmd/index-api/app/domain/models",
+        "//cmd/index-api/app/providers",
         "@com_github_micro_go_micro_v2//config:go_default_library",
         "@com_github_micro_go_micro_v2//config/source/memory:go_default_library",
     ],

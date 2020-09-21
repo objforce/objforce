@@ -8,6 +8,7 @@ go_library(
     deps = [
         "//cmd/index-api/app/domain/repositories",
         "//cmd/index-api/app/domain/services",
+        "//cmd/index-api/app/events",
         "//cmd/index-api/app/http/controllers",
         "//cmd/index-api/app/http/middlewares",
         "//cmd/index-api/app/providers",
