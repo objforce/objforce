@@ -61,7 +61,7 @@ services:
         aliases:
           - hbase
   elastic:
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.7.2
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.8.8
     volumes:
       - ~/opt/elastic:/usr/share/elasticsearch/data/
     ports:
@@ -73,8 +73,8 @@ services:
       - transport.host=0.0.0.0
       - xpack.security.enabled=false
       - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms768m -Xmx768m"
-      - "discovery.zen.ping.unicast.hosts=elasticsearch"
+      - "ES_JAVA_OPTS=-Xms256m -Xmx256m"
+      - "discovery.zen.ping.unicast.hosts=elastic"
     ulimits:
       memlock:
         soft: -1
