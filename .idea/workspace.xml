@@ -20,25 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8139158-f01c-4dd2-a577-6370ac330db6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/objforce.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/index-srv/app/domain/repositories/document.repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/index-srv/app/domain/repositories/document.repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/index-srv/app/domain/repositories/document.repository_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/index-srv/app/domain/repositories/document.repository_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/index-srv/app/domain/repositories/index.repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/index-srv/app/domain/repositories/index.repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/index-srv/app/domain/repositories/unique_index.repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/index-srv/app/domain/repositories/unique_index.repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/index-srv/app/domain/services/document.service.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/index-srv/app/domain/services/document.service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/index-srv/app/domain/services/index.service.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/index-srv/app/domain/services/index.service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/index-srv/app/handlers/index.handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/index-srv/app/handlers/index.handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/index-srv/bootstrap/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/index-srv/bootstrap/app.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/index-srv/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/index-srv/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/meta-api/app/http/middlewares/global.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/meta-api/app/http/middlewares/global.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="GOROOT" path="/usr/local/Cellar/go/1.14.2_1/libexec" />
+  <component name="GOROOT" path="/usr/local/go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -46,13 +37,11 @@
     <option name="indexEntireGoPath" value="false" />
   </component>
   <component name="ProjectId" id="1h2wzSg6Emr4dZ8cg4oFnQCmx5F" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="configurable.Global.GOPATH.is.expanded" value="true" />
@@ -61,17 +50,12 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="go.vendoring.notification.had.been.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/cmd/meta-api/app/http/middlewares" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/meta-server/app/domain" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/cmd/meta-api/app/http/middlewares" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -91,36 +75,13 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="554" y="405" key="#GOROOT" timestamp="1600517778688">
-      <screen x="0" y="23" width="1536" height="891" />
-    </state>
-    <state x="554" y="405" key="#GOROOT/0.23.1536.891@0.23.1536.891" timestamp="1600517778688" />
-    <state x="475" y="277" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600539982385">
-      <screen x="0" y="23" width="1536" height="891" />
-    </state>
-    <state x="475" y="277" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1536.891@0.23.1536.891" timestamp="1600539982385" />
-    <state x="506" y="222" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600517921004">
-      <screen x="0" y="23" width="1536" height="891" />
-    </state>
-    <state x="506" y="222" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1536.891@0.23.1536.891" timestamp="1600517921004" />
     <state x="2432" y="294" key="SettingsEditor" timestamp="1599223415304">
       <screen x="1680" y="-12" width="2560" height="1417" />
     </state>
     <state x="2432" y="294" key="SettingsEditor/1680.-12.2560.1417/0.23.1680.972@1680.-12.2560.1417" timestamp="1599223415303" />
-    <state x="581" y="291" width="568" height="514" key="find.popup" timestamp="1600721496253">
-      <screen x="0" y="23" width="1536" height="883" />
+    <state x="2648" y="417" width="615" height="490" key="find.popup" timestamp="1599222883977">
+      <screen x="1680" y="-12" width="2560" height="1417" />
     </state>
-    <state x="581" y="291" width="568" height="514" key="find.popup/0.23.1536.883@0.23.1536.883" timestamp="1600721496253" />
-    <state x="581" y="293" width="568" height="518" key="find.popup/0.23.1536.891@0.23.1536.891" timestamp="1600554036629" />
-    <state x="581" y="293" width="568" height="519" key="find.popup/0.23.1536.892@0.23.1536.892" timestamp="1600522361792" />
     <state x="2648" y="417" width="615" height="490" key="find.popup/1680.-12.2560.1417/0.23.1680.972@1680.-12.2560.1417" timestamp="1599222883977" />
-    <state x="433" y="214" width="670" height="676" key="search.everywhere.popup" timestamp="1600718443154">
-      <screen x="0" y="23" width="1536" height="883" />
-    </state>
-    <state x="433" y="214" width="670" height="676" key="search.everywhere.popup/0.23.1536.883@0.23.1536.883" timestamp="1600718443154" />
-    <state x="498" y="383" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1600720873337">
-      <screen x="0" y="23" width="1536" height="883" />
-    </state>
-    <state x="498" y="383" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.23.1536.883@0.23.1536.883" timestamp="1600720873337" />
   </component>
 </project>
