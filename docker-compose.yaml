@@ -73,7 +73,7 @@ services:
       - transport.host=0.0.0.0
       - xpack.security.enabled=false
       - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "ES_JAVA_OPTS=-Xms768m -Xmx768m"
       - "discovery.zen.ping.unicast.hosts=elasticsearch"
     ulimits:
       memlock:
@@ -246,7 +246,7 @@ services:
       - MICRO_REGISTRY=consul
       - MICRO_REGISTRY_ADDRESS=consul:8500
       - JAEGER_ADDR=jaeger:6831
-    command: --server_name com.xapis.api.index --apollo_namespace application --apollo_address http://apollo-dev.dev.lucfish.com:8080 --apollo_app_id index-api --apollo_cluster=dev
+    command: --server_name com.xapis.api.index --apollo_namespace application --apollo_address http://apollo-fat.dev.lucfish.com:8080 --apollo_app_id index-api --apollo_cluster=fat
     networks:
       biz:
         aliases:
@@ -259,7 +259,7 @@ services:
       - consul
       - mysql
       - redis
-      - hbase
+      - elastic
       - jaeger
       - rmqnamesrv
       - xapis.micro.api
@@ -268,7 +268,7 @@ services:
       - MICRO_REGISTRY=consul
       - MICRO_REGISTRY_ADDRESS=consul:8500
       - JAEGER_ADDR=jaeger:6831
-    command: --server_name com.xapis.srv.index --apollo_namespace application --apollo_address http://apollo-dev.dev.lucfish.com:8080 --apollo_app_id index-srv --apollo_cluster=dev
+    command: --server_name com.xapis.srv.index --apollo_namespace application --apollo_address http://apollo-fat.dev.lucfish.com:8080 --apollo_app_id index-srv --apollo_cluster=fat
     networks:
       biz:
         aliases:

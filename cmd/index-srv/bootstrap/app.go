@@ -27,6 +27,7 @@ func App() *fx.App {
 		fx.Provide(xconfig.NewConfigProvider),
 		fx.Provide(jaeger.NewTracerProvider),
 		fx.Provide(gorm.NewDbProvider),
+		fx.Provide(providers.NewBrokerProvider),
 		fx.Provide(providers.NewMicroClientProvider),
 		fx.Provide(providers.NewElasticClientProvider),
 		fx.Provide(providers.NewMetaService),

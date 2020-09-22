@@ -1,7 +1,6 @@
 package bootstrap
 
 import(
-	"github.com/objforce/objforce/cmd/index-api/app/events"
 	"go.uber.org/fx"
 	xconfig "github.com/xxxmicro/base/config"
 	xsource "github.com/xxxmicro/base/config/source"
@@ -12,7 +11,6 @@ import(
 	"github.com/objforce/objforce/cmd/index-api/app/http/middlewares"
 	"github.com/objforce/objforce/cmd/index-api/app/providers"
 	"github.com/objforce/objforce/cmd/index-api/app/domain/services"
-	"github.com/objforce/objforce/cmd/index-api/app/domain/repositories"
 	"github.com/objforce/objforce/cmd/index-api/routes"
 )
 
@@ -33,9 +31,6 @@ func App() *fx.App {
 		fx.Provide(providers.NewLoggerProvider),
 		fx.Provide(providers.NewElasticClientProvider),
 
-		// Repositories (./app/repositories)
-		fx.Provide(repositories.NewDocumentRepository),
-
 		// Services (./app/services)
 		fx.Provide(services.NewDocumentService),
 		fx.Provide(services.NewIndexService),
@@ -46,9 +41,6 @@ func App() *fx.App {
 		// Controllers (./app/controllers)
 		fx.Provide(controllers.NewAPIController),
 		fx.Provide(controllers.NewDocumentController),
-
-		// Events (./app/events)
-		fx.Invoke(events.NewSObjectSubscriber),
 
 		/*
 		|--------------------------------------------------------------------------
@@ -62,5 +54,6 @@ func App() *fx.App {
 		*/
 		fx.Invoke(middlewares.GlobalMiddlewares),
 		fx.Invoke(routes.APIRoutes),
+		fx.Invoke(providers.StartMicroService),
 	)
 }

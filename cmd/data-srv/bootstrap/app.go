@@ -43,7 +43,6 @@ func App() *fx.App {
 		fx.Invoke(providers.RegisterHandlers),
 
 		fx.Invoke(providers.InitLogger),
-
 		fx.Invoke(providers.StartMicroService),
 	)
 }

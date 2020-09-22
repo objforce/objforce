@@ -20,16 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8139158-f01c-4dd2-a577-6370ac330db6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/cmd/index-srv/app/providers/broker.provider.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/data-api/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/data-api/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/data-srv/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/data-srv/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/index-api/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/index-api/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/index-srv/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/index-srv/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/meta-api/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/meta-api/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/meta-api/app/providers/micro.client.provider.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/meta-api/app/providers/micro.client.provider.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/meta-api/bootstrap/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/meta-api/bootstrap/app.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/meta-srv/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/meta-srv/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/data-srv/bootstrap/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/data-srv/bootstrap/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/index-api/app/domain/repositories/BUILD.bazel" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/index-api/app/domain/repositories/document.repository.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/index-api/app/domain/repositories/document.repository_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/index-api/app/domain/repositories/index.repository.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/index-api/app/domain/services/document.service.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/index-api/app/domain/services/document.service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/index-api/app/domain/services/index.service.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/index-api/app/domain/services/index.service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/index-api/app/events/BUILD.bazel" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/index-api/app/events/sobject.subscriber.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/index-api/bootstrap/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/index-api/bootstrap/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/index-srv/bootstrap/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/index-srv/bootstrap/app.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,10 +61,13 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/cmd/index-srv/app/providers" />
     <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/cmd/index-srv/app/providers" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/meta-server/app/domain" />
     </key>
@@ -87,9 +93,11 @@
       <screen x="1680" y="-12" width="2560" height="1417" />
     </state>
     <state x="2432" y="294" key="SettingsEditor/1680.-12.2560.1417/0.23.1680.972@1680.-12.2560.1417" timestamp="1599223415303" />
-    <state x="2648" y="417" width="615" height="490" key="find.popup" timestamp="1599222883977">
+    <state x="2648" y="417" width="615" height="490" key="find.popup" timestamp="1600794951370">
       <screen x="1680" y="-12" width="2560" height="1417" />
     </state>
+    <state x="2648" y="417" width="615" height="490" key="find.popup/1680.-12.2560.1417/0.23.1680.967@1680.-12.2560.1417" timestamp="1600792830866" />
+    <state x="2648" y="417" width="615" height="490" key="find.popup/1680.-12.2560.1417/0.23.1680.971@1680.-12.2560.1417" timestamp="1600794951370" />
     <state x="2648" y="417" width="615" height="490" key="find.popup/1680.-12.2560.1417/0.23.1680.972@1680.-12.2560.1417" timestamp="1599222883977" />
     <state x="2558" y="282" width="670" height="676" key="search.everywhere.popup" timestamp="1600791166216">
       <screen x="1680" y="-12" width="2560" height="1417" />
