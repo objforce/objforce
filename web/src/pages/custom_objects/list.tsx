@@ -82,7 +82,7 @@ const TableList: React.FC<{}> = () => {
     {
       title: 'ObjId',
       dataIndex: 'objId',
-      tip: '规则名称是唯一的 key',
+      tip: 'objId 是唯一的 key',
       formItemProps: {
         rules: [
           {
@@ -101,8 +101,8 @@ const TableList: React.FC<{}> = () => {
       valueType: 'textarea',
     },
     {
-      title: '服务调用次数',
-      dataIndex: 'callNo',
+      title: '对象总数',
+      dataIndex: 'totalCount',
       sorter: true,
       hideInForm: true,
       renderText: (val: string) => `${val} 万`,
@@ -112,12 +112,12 @@ const TableList: React.FC<{}> = () => {
       dataIndex: 'status',
       hideInForm: true,
       valueEnum: {
-        0: { text: '未发布', status: 'undeployed' },
-        1: { text: '已发布', status: 'deployed' },
+        0: { text: '未发布', status: 'Default' },
+        1: { text: '已发布', status: 'Processing' },
       },
     },
     {
-      title: '上次调度时间',
+      title: '最近更新时间',
       dataIndex: 'updatedAt',
       sorter: true,
       valueType: 'dateTime',
@@ -145,10 +145,10 @@ const TableList: React.FC<{}> = () => {
               setStepFormValues(record);
             }}
           >
-            配置
+            编辑
           </a>
           <Divider type="vertical" />
-          <a href="">订阅警报</a>
+          <a href="">删除</a>
         </>
       ),
     },
@@ -159,7 +159,7 @@ const TableList: React.FC<{}> = () => {
       <ProTable<TableListItem>
         headerTitle="查询表格"
         actionRef={actionRef}
-        rowKey="key"
+        rowKey="objId"
         search={{
           labelWidth: 120,
         }}
@@ -180,7 +180,7 @@ const TableList: React.FC<{}> = () => {
             <div>
               已选择 <a style={{ fontWeight: 600 }}>{selectedRowsState.length}</a> 项&nbsp;&nbsp;
               <span>
-                服务调用次数总计 {selectedRowsState.reduce((pre, item) => pre + item.callNo, 0)} 万
+                服务调用次数总计 {selectedRowsState.reduce((pre, item) => pre + item.totalCount, 0)} 万
               </span>
             </div>
           }
@@ -208,7 +208,7 @@ const TableList: React.FC<{}> = () => {
               }
             }
           }}
-          rowKey="key"
+          rowKey="objId"
           type="form"
           columns={columns}
         />

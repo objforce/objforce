@@ -6,7 +6,7 @@ export interface TableListItem {
   objId: string;
   owner: string;
   desc: string;
-  callNo: number;
+  totalCount: number;
   status: number;
   updatedAt: Date;
   createdAt: Date;

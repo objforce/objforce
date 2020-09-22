@@ -64,12 +64,6 @@ export default defineConfig({
       ],
     },
     {
-      name: 'list.table-list',
-      icon: 'table',
-      path: '/list',
-      component: './ListTableList',
-    },
-    {
       name: 'custom_objects',
       icon: 'crown',
       routes: [
