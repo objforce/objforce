@@ -77,7 +77,7 @@ export default defineConfig({
           path: '/custom_objects/list',
           name: 'list',
           icon: 'smile',
-          component: './custom_objects/custom_objects',
+          component: './custom_objects/list',
         },
       ],
     },
