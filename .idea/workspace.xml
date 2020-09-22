@@ -20,12 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8139158-f01c-4dd2-a577-6370ac330db6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/web/src/pages/custom_objects/components/CreateForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/pages/custom_objects/components/UpdateForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/pages/custom_objects/data.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/pages/custom_objects/service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/config/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/config/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/mock/listTableList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/mock/listCustomObject.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/pages/custom_objects/data.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/pages/custom_objects/data.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/pages/custom_objects/list.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/pages/custom_objects/list.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

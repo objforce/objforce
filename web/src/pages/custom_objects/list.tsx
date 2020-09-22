@@ -10,7 +10,7 @@ import { TableListItem } from './data.d';
 import { queryRule, updateRule, addRule, removeRule } from './service';
 
 /**
- * 添加节点
+ * 添加对象
  * @param fields
  */
 const handleAdd = async (fields: TableListItem) => {
@@ -80,8 +80,8 @@ const TableList: React.FC<{}> = () => {
   const [selectedRowsState, setSelectedRows] = useState<TableListItem[]>([]);
   const columns: ProColumns<TableListItem>[] = [
     {
-      title: '规则名称',
-      dataIndex: 'name',
+      title: 'ObjId',
+      dataIndex: 'objId',
       tip: '规则名称是唯一的 key',
       formItemProps: {
         rules: [
@@ -112,10 +112,8 @@ const TableList: React.FC<{}> = () => {
       dataIndex: 'status',
       hideInForm: true,
       valueEnum: {
-        0: { text: '关闭', status: 'Default' },
-        1: { text: '运行中', status: 'Processing' },
-        2: { text: '已上线', status: 'Success' },
-        3: { text: '异常', status: 'Error' },
+        0: { text: '未发布', status: 'undeployed' },
+        1: { text: '已发布', status: 'deployed' },
       },
     },
     {

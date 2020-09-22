@@ -3,7 +3,7 @@ export interface TableListItem {
   disabled?: boolean;
   href: string;
   avatar: string;
-  name: string;
+  objId: string;
   owner: string;
   desc: string;
   callNo: number;
@@ -26,7 +26,7 @@ export interface TableListData {
 
 export interface TableListParams {
   status?: string;
-  name?: string;
+  objId?: string;
   desc?: string;
   key?: number;
   pageSize?: number;
