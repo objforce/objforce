@@ -20,17 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8139158-f01c-4dd2-a577-6370ac330db6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/config/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/config/config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/mock/listCustomObject.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/mock/listCustomObject.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/pages/ListTableList/components/CreateForm.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/pages/ListTableList/components/UpdateForm.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/pages/ListTableList/data.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/pages/ListTableList/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/pages/ListTableList/service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/pages/custom_objects/data.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/pages/custom_objects/data.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/pages/custom_objects/list.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/pages/custom_objects/list.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/pages/user/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/pages/user/login/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/config/defaultSettings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/config/defaultSettings.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,11 +83,11 @@
       <screen x="1680" y="-12" width="2560" height="1417" />
     </state>
     <state x="2432" y="294" key="SettingsEditor/1680.-12.2560.1417/0.23.1680.972@1680.-12.2560.1417" timestamp="1599223415303" />
-    <state x="2648" y="417" width="615" height="518" key="find.popup" timestamp="1600810159164">
+    <state x="2648" y="417" width="615" height="518" key="find.popup" timestamp="1600810251142">
       <screen x="1680" y="-12" width="2560" height="1417" />
     </state>
     <state x="2648" y="417" width="615" height="490" key="find.popup/1680.-12.2560.1417/0.23.1680.967@1680.-12.2560.1417" timestamp="1600792830866" />
-    <state x="2648" y="417" width="615" height="518" key="find.popup/1680.-12.2560.1417/0.23.1680.971@1680.-12.2560.1417" timestamp="1600810159164" />
+    <state x="2648" y="417" width="615" height="518" key="find.popup/1680.-12.2560.1417/0.23.1680.971@1680.-12.2560.1417" timestamp="1600810251142" />
     <state x="2648" y="417" width="615" height="490" key="find.popup/1680.-12.2560.1417/0.23.1680.972@1680.-12.2560.1417" timestamp="1599222883977" />
     <state x="2558" y="282" width="670" height="676" key="search.everywhere.popup" timestamp="1600791166216">
       <screen x="1680" y="-12" width="2560" height="1417" />
