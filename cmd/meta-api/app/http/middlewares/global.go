@@ -13,7 +13,7 @@ import (
 )
 
 func GlobalMiddlewares(server *gin.Engine, config *config.AppConfig, logMiddleware *LogMiddleware, tracer opentracing.Tracer) {
-	promMonitor := NewPrometheusMonitor("data_api", "com.xapis.api.data")
+	promMonitor := NewPrometheusMonitor("data_api", "com.xapis.api.meta")
 
 	server.Use(
 		// logMiddleware.Handler(),

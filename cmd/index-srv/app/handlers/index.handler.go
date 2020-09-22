@@ -1,6 +1,6 @@
 package handlers
 
-import "github.com/objforce/objforce/index-srv/app/domain/services"
+import "github.com/objforce/objforce/cmd/index-srv/app/domain/services"
 
 type IndexHandler struct {
 	indexService services.IndexService

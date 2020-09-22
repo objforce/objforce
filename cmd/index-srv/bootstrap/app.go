@@ -1,17 +1,17 @@
 package bootstrap
 
 import(
-	"github.com/objforce/objforce/index-srv/app/events"
-	"github.com/objforce/objforce/index-srv/app/handlers"
+	"github.com/objforce/objforce/cmd/index-srv/app/events"
+	"github.com/objforce/objforce/cmd/index-srv/app/handlers"
 	"go.uber.org/fx"
 	xconfig "github.com/xxxmicro/base/config"
 	xsource "github.com/xxxmicro/base/config/source"
 	gorm "github.com/xxxmicro/base/database/gorm"
 	"github.com/xxxmicro/base/opentracing/jaeger"
-	"github.com/objforce/objforce/index-srv/config"
-	"github.com/objforce/objforce/index-srv/app/providers"
-	"github.com/objforce/objforce/index-srv/app/domain/services"
-	"github.com/objforce/objforce/index-srv/app/domain/repositories"
+	"github.com/objforce/objforce/cmd/index-srv/config"
+	"github.com/objforce/objforce/cmd/index-srv/app/providers"
+	"github.com/objforce/objforce/cmd/index-srv/app/domain/services"
+	"github.com/objforce/objforce/cmd/index-srv/app/domain/repositories"
 )
 
 
