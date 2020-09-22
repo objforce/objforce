@@ -5,4 +5,4 @@ COPY build/linux/meta-api /app/meta-api
 ## 解决alipay获取时区错误
 ENV ZONEINFO /opt/zoneinfo.zip
 
-ENTRYPOINT ["./meta-api"]
+ENTRYPOINT ["/app/meta-api"]

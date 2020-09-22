@@ -54,5 +54,6 @@ func App() *fx.App {
 		*/
 		fx.Invoke(middlewares.GlobalMiddlewares),
 		fx.Invoke(routes.APIRoutes),
+		fx.Invoke(providers.StartMicroService),
 	)
 }

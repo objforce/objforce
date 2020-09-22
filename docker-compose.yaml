@@ -161,7 +161,7 @@ services:
       - MICRO_REGISTRY=consul
       - MICRO_REGISTRY_ADDRESS=consul:8500
       - JAEGER_ADDR=jaeger:6831
-    command: --server_name com.xapis.api.meta --apollo_namespace application --apollo_address http://apollo-dev.dev.lucfish.com:8080 --apollo_app_id meta-api --apollo_cluster=dev
+    command: --server_name com.xapis.api.meta --apollo_namespace application --apollo_address http://apollo-fat.dev.lucfish.com:8080 --apollo_app_id meta-api --apollo_cluster=dev
     networks:
       biz:
         aliases:
@@ -169,8 +169,8 @@ services:
 
   meta-srv:
     build:
-      context: ./cmd/meta-srv
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./cmd/meta-srv/Dockerfile
     depends_on:
       - consul
       - mysql
@@ -184,7 +184,7 @@ services:
       - MICRO_REGISTRY=consul
       - MICRO_REGISTRY_ADDRESS=consul:8500
       - JAEGER_ADDR=jaeger:6831
-    command: --server_name com.xapis.srv.meta --apollo_namespace application --apollo_address http://apollo-dev.dev.lucfish.com:8080 --apollo_app_id meta-srv --apollo_cluster=dev
+    command: --server_name com.xapis.srv.meta --apollo_namespace application --apollo_address http://apollo-fat.dev.lucfish.com:8080 --apollo_app_id meta-srv --apollo_cluster=fat
     networks:
       biz:
         aliases:
@@ -192,8 +192,8 @@ services:
 
   data-api:
     build:
-      context: ./cmd/data-api
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./cmd/data-api/Dockerfile
     depends_on:
       - consul
       - redis
@@ -211,8 +211,8 @@ services:
           - data-api
   data-srv:
     build:
-      context: ./cmd/data-srv
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./cmd/data-srv/Dockerfile
     depends_on:
       - consul
       - mysql
@@ -234,8 +234,8 @@ services:
 
   index-api:
     build:
-      context: ./cmd/index-api
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./cmd/index-api/Dockerfile
     depends_on:
       - consul
       - redis
@@ -253,8 +253,8 @@ services:
           - index-api
   index-srv:
     build:
-      context: ./cmd/index-srv
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./cmd/index-srv/Dockerfile
     depends_on:
       - consul
       - mysql

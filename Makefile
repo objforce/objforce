@@ -25,7 +25,7 @@ build-index-api:
 
 .PHONY: build-index-srv
 build-index-srv:
-	go build -o build/$(ARCH)/index-api cmd/index-srv/main.go
+	go build -o build/$(ARCH)/index-srv cmd/index-srv/main.go
 
 .PHONY: test
 test:
