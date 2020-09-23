@@ -33,7 +33,7 @@ const genList = (current: number, pageSize: number) => {
 
 let tableListDataSource = genList(1, 100);
 
-function getRule(req: Request, res: Response, u: string) {
+function getCustomObject(req: Request, res: Response, u: string) {
   let realUrl = u;
   if (!realUrl || Object.prototype.toString.call(realUrl) !== '[object String]') {
     realUrl = req.url;
@@ -100,7 +100,7 @@ function getRule(req: Request, res: Response, u: string) {
   return res.json(result);
 }
 
-function postRule(req: Request, res: Response, u: string, b: Request) {
+function postCustomObject(req: Request, res: Response, u: string, b: Request) {
   let realUrl = u;
   if (!realUrl || Object.prototype.toString.call(realUrl) !== '[object String]') {
     realUrl = req.url;
@@ -166,6 +166,6 @@ function postRule(req: Request, res: Response, u: string, b: Request) {
 }
 
 export default {
-  'GET /api/rule': getRule,
-  'POST /api/rule': postRule,
+  'GET /api/custom_object': getCustomObject,
+  'POST /api/custom_object': postCustomObject,
 };

@@ -1,4 +1,24 @@
 declare namespace API {
+  export interface PageQuery {
+    filters?: Map<string, any>;
+    pageNo?: number;                                                                                      `json:"pageNo"`
+    pageSize?: number                                                                            `json:"pageSize"`
+    sort?:SortSpec[]
+  }
+
+  export interface SortSpec {
+    property?: string
+    type?: 'ASC' | 'DSC'
+  }
+
+  export interface Page<T> {
+    total?: number;
+    pageNo?: number;
+    pageSize?: number;
+    pageCount?: number;
+    items?: T[];
+  }
+
   export interface CurrentUser {
     avatar?: string;
     name?: string;
@@ -31,5 +51,21 @@ declare namespace API {
     clickClose?: boolean;
     extra: any;
     status: string;
+  }
+
+  export interface CustomObject {
+    objId?: string;
+    orgId?: string;
+    objName?: string;
+  }
+
+  export interface CustomField {
+    fieldId?: string;
+    objId?: string;
+    orgId?: string;
+    defaultValue?: string;
+    deprecated?: boolean;
+    description?: string;
+    displayFormat?: string;
   }
 }
