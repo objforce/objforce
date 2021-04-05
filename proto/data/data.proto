@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package data;
+option go_package = "github.com/objforce/objforce/proto/data;data";
+
+import "google/protobuf/empty.proto";
+
+message SObject {
+  string orgId = 1;
+  string type = 2;
+  repeated string fieldsToNull = 3;
+  string id = 4;
+  string Fields = 5; // 打包成json, 防止类型丢失
+}
+
+service SObjectService {
+  rpc Create(CreateSObjectRequest) returns (SObject) {}
+  rpc Update(UpdateSObjectRequest) returns (SObject) {}
+  rpc Upsert(UpsertSObjectRequest) returns (UpsertSObjectResponse) {}
+  rpc Get(GetSObjectRequest) returns (SObject) {}
+  rpc Delete(DeleteSObjectRequest) returns (google.protobuf.Empty) {}
+}
+
+message CreateSObjectRequest {
+  SObject object = 1;
+}
+
+message UpdateSObjectRequest {
+  SObject object = 1;
+}
+
+message UpsertSObjectRequest {
+  string ExternalIDFieldName = 1;
+  SObject object = 2;
+}
+
+message UpsertSObjectResponse {
+  bool created = 1;
+  repeated Error errors = 2;
+  string id = 3;
+  bool success = 4;
+}
+
+message GetSObjectRequest {
+  string orgId = 1;
+  string id = 2;
+  string fields = 3;
+  string type = 4;
+}
+
+message DeleteSObjectRequest {
+  string orgId = 1;
+  string id = 2;
+  string type = 3;
+}
+
+message Error {
+  string message = 1;
+  int32 statusCode = 2;
+}

@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package meta;
+option go_package = "github.com/objforce/objforce/proto/meta;meta";
+
+import "github.com/objforce/objforce/proto/meta/types.proto";
+
+
+service CustomObjectService {
+  rpc Create(CustomObject) returns (CustomObject) {}
+  rpc Update(CustomObject) returns (CustomObject) {}
+  rpc Delete(DeleteCustomObjectRequest) returns (CustomObject) {}
+  rpc Get(GetCustomObjectRequest) returns(CustomObject) {}
+}
+
+service CustomFieldService {
+  rpc Create(CustomField) returns (CustomField) {}
+  rpc Update(CustomField) returns (CustomField) {}
+  rpc Get(GetCustomFieldRequest) returns (CustomField) {}
+  rpc Delete(DeleteCustomFieldRequest) returns (CustomField) {}
+}
+
+message GetCustomObjectRequest {
+  string objId = 1;
+}
+
+message DeleteCustomObjectRequest {
+  string objId = 1;
+}
+
+message GetCustomFieldRequest {
+  string id = 1;
+}
+
+message DeleteCustomFieldRequest {
+  string id = 1;
+}
+

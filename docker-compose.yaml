@@ -150,7 +150,7 @@ services:
   meta-api:
     build:
       context: .
-      dockerfile: ./cmd/meta-api/Dockerfile
+      dockerfile: ./api/meta/Dockerfile
     depends_on:
       - consul
       - redis
@@ -170,7 +170,7 @@ services:
   meta-srv:
     build:
       context: .
-      dockerfile: ./cmd/meta-srv/Dockerfile
+      dockerfile: ./server/meta-srv/Dockerfile
     depends_on:
       - consul
       - mysql
@@ -193,7 +193,7 @@ services:
   data-api:
     build:
       context: .
-      dockerfile: ./cmd/data-api/Dockerfile
+      dockerfile: ./api/data/Dockerfile
     depends_on:
       - consul
       - redis
@@ -212,7 +212,7 @@ services:
   data-srv:
     build:
       context: .
-      dockerfile: ./cmd/data-srv/Dockerfile
+      dockerfile: ./service/data/Dockerfile
     depends_on:
       - consul
       - mysql
@@ -235,7 +235,7 @@ services:
   index-api:
     build:
       context: .
-      dockerfile: ./cmd/index-api/Dockerfile
+      dockerfile: ./api/index/Dockerfile
     depends_on:
       - consul
       - redis
@@ -254,7 +254,7 @@ services:
   index-srv:
     build:
       context: .
-      dockerfile: ./cmd/index-srv/Dockerfile
+      dockerfile: ./server/index/Dockerfile
     depends_on:
       - consul
       - mysql

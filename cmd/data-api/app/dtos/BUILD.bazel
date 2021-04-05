@@ -1,8 +1,0 @@
-load("@io_bazel_rules_go//go:def.bzl", "go_library")
-
-go_library(
-    name = "dtos",
-    srcs = ["sobject.go"],
-    importpath = "github.com/objforce/objforce/cmd/data-api/app/dtos",
-    visibility = ["//visibility:public"],
-)

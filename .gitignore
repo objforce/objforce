@@ -2,3 +2,5 @@
 build
 
 /bazel-*
+
+application.json

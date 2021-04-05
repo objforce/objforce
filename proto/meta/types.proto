@@ -1,0 +1,554 @@
+syntax = "proto3";
+
+package meta;
+
+option go_package = "github.com/objforce/objforce/proto/meta;meta";
+
+message CustomObject {
+	string objId = 1;
+  string orgId = 2;
+	string objName = 3;
+	repeated ActionOverride actionOverrides = 4;
+	bool allowInChatterGroups = 5;
+	repeated BusinessProcess BusinessProcesses = 6;
+	string compactLayoutAssignment = 7;
+	repeated CompactLayout compactLayouts = 8;
+	string customHelp = 9;
+	string customHelpPage = 10;
+	CustomSettingsType customSettingsType = 11;
+	CustomSettingsVisibility CustomSettingsVisibility = 12;
+	string DataStewardGroup = 13;
+	string DataStewardUser = 14;
+	DeploymentStatus DeploymentStatus = 15;
+	bool Deprecated = 16;
+	string Description = 17;
+	bool enableActivities = 18;
+	bool enableBulkApi = 19;
+	bool enableDivisions = 20;
+	bool enableEnhancedLookup = 21;
+	bool enableFeeds = 22;
+	bool enableHistory = 23;
+	bool enableReports = 24;
+	bool enableSearch = 25;
+	bool enableSharing = 26;
+	bool enableStreamingApi = 27;
+	PlatformEventType eventType = 28;
+	string externalDataSource = 29;
+	string externalName = 30;
+	string externalRepository = 31;
+	SharingModel externalSharingModel = 32;
+	repeated CustomField fields = 33;
+	FieldSet fieldSets = 34;
+	Gender gender = 35;
+	bool household = 36;
+	HistoryRetentionPolicy historyRetentionPolicy = 37;
+	repeated Index indexes = 38;
+	string Label = 39;
+	repeated ListView listViews = 40;
+	repeated NamedFilter namedFilter = 41;
+	CustomField nameField = 42;
+	string pluralLabel = 43;
+	ProfileSearchLayouts profileSearchLayouts = 44;
+	PlatformEventPublishBehavior publishBehavior = 45;
+	repeated RecordType recordTypes = 46;
+	bool recordTypeTrackFeedHistory = 47;
+	bool recordTypeTrackHistory = 48;
+	SearchLayouts searchLayouts = 49;
+	SharingModel sharingModel = 50;
+	SharingReason SharingReasons = 51;
+	repeated SharingRecalculation SharingRecalculations = 52;
+	StartsWith StartsWith = 53;
+	repeated ValidationRule ValidationRules = 54;
+	SetupObjectVisibility Visibility = 55;
+	repeated WebLink WebLinks = 56;
+}
+
+message ActionOverride {
+	string ActionName = 1;
+	string comment = 2;
+	string content = 3;
+	FormFactor FormFactor = 4;
+	bool	SkipRecordTypeSelect = 5;
+	ActionOverrideType type = 6;
+}
+
+message BusinessProcess {
+	string fullName = 1;
+	string description = 2;
+	bool isActive = 3;
+	string namespacePrefix = 4;
+	repeated PicklistValue values = 5;
+}
+
+message CompactLayout {
+	string fullName = 1;
+	string Fields = 2;
+	string label = 3;
+}
+
+enum CustomSettingsType {
+	CustomSettingsTypeList = 0;
+	CustomSettingsTypeHierarchy = 1;
+}
+
+enum CustomSettingsVisibility {
+	CustomSettingsVisibilityPublic = 0;
+	CustomSettingsVisibilityProtected =1;
+}
+
+enum DeploymentStatus {
+	DeploymentStatusInDevelopment = 0;
+	DeploymentStatusDeployed = 1;
+}
+
+enum PlatformEventType {
+	PlatformEventTypeHighVolume = 0;
+	PlatformEventTypeStandardVolume = 1;
+}
+
+enum SharingModel {
+	SharingModelPrivate = 0;
+	SharingModelRead = 1;
+	SharingModelReadWrite = 2;
+	SharingModelReadWriteTransfer = 3;
+	SharingModelFullAccess = 4;
+	SharingModelControlledByParent = 5;
+	SharingModelControlledByCampaign = 6;
+	SharingModelControlledByLeadOrContact = 7;
+}
+
+message CustomField {
+	string fieldId = 1;
+	string fieldName = 2;
+	string objId = 3;
+	string orgId = 4;
+	string defaultValue = 5;
+	DeleteConstraint deleteConstraint = 6;
+	bool deprecated = 7;
+	string description = 8;
+	string displayFormat = 9;
+	bool encrypted = 10;
+	EncryptionScheme encryptionScheme = 11;
+	bool external = 12;
+	string externalColumnName = 13;
+	string formula = 14;
+	TreatBlanksAs formulaTreatBlankAs = 15;
+	string inlineHelpText = 16;
+	bool isFilteringDisabled = 17;
+	bool isSortingDisabled = 18;
+	string label = 19;
+	int32 length = 20;
+	string metadataRelationshipControllingField = 21;
+	int32 precision = 22;
+	string referenceTargetField = 23;
+	string referenceTo = 24;
+	string relationshipLabel = 25;
+	string relationshipName = 26;
+	int32 relationshipOrder = 27;
+	bool reparentableMasterDetail = 28;
+	bool required = 29;
+	int32 scale = 30;
+	SecurityClassification SecurityClassification = 31;
+	int32 startingNumber = 32;
+	bool stripMarkup = 33;
+	string summarizedField = 34;
+	repeated FilterItem summaryFilterItems = 35;
+	string summaryForeignKey = 36;
+	SummaryOperation SummaryOperation = 37;
+	bool trackFeedHistory = 38;
+	bool trackHistory = 39;
+	bool trackTrending = 40;
+	FieldType type = 41;
+	bool isUnique = 42;
+	ValueSet ValueSet = 43;
+	int32 visibleLines = 44;
+	bool writeRequiresMasterRead = 45;
+  bool indexed = 46;
+}
+
+message FieldSet {
+	repeated FieldSetItem AvailableFields = 1;
+	string Description = 2;
+	repeated FieldSetItem DisplayedFields = 3;
+	string label = 4;
+}
+
+message FieldSetItem {
+	string Field = 1;
+	bool isFieldManaged = 2;
+	bool isRequired = 3;
+}
+
+enum Gender {
+	GenderMasculine = 0;
+	GenderFeminine = 1;
+	GenderNeuter = 2;
+	GenderAnimateMasculine = 3;
+}
+
+message HistoryRetentionPolicy {
+	int32 archiveAfterMonths = 1;
+	int32 archiveRetentionYears = 2;
+	string description = 3;
+	int32 gracePeriodDays = 4;
+}
+
+message Index {
+	repeated IndexField fields = 1;
+	string label = 2;
+}
+
+message IndexField {
+	string name = 1;
+	string sortDirection = 2;
+}
+
+message ListView {
+	string fullName = 1;
+	string booleanFilter = 2;
+	repeated string columns = 3;
+	string division = 4;
+	repeated FilterScope FilterScope = 5;
+	repeated ListViewFilter Filters = 6;
+	string label = 7;
+	string language = 8;
+	string queue = 9;
+	SharedTo sharedTo = 10;
+}
+
+message NamedFilter {
+	string fullName = 1;
+	bool active = 2;
+	string booleanFilter = 3;
+	string description = 4;
+	string errorMessage = 5;
+	string field = 6;
+	repeated FilterItem filterItems = 7;
+	string InfoMessage = 8;
+	bool isOptional = 9;
+	string name = 10;
+	string sourceObject = 11;
+}
+
+message ProfileSearchLayouts {
+	repeated string profileName = 1;
+	repeated string fields = 2;
+}
+
+enum PlatformEventPublishBehavior {
+		PublishAfterCommit = 0;
+		PublishImmediately = 1;
+}
+
+message RecordType {
+	string fullName = 1;
+	bool active = 2;
+	string businessProcess = 3;
+	string compactLayoutAssignment = 4;
+	string description = 5;
+	string label = 6;
+	repeated RecordTypePicklistValue PicklistValues = 7;
+}
+
+message RecordTypePicklistValue {
+	string Picklist = 1;
+	repeated PicklistValue values = 2;
+}
+
+message SearchLayouts {
+	repeated string customTabListAdditionalFields = 1;
+	repeated string excludedStandardButtons = 2;
+	repeated string	listViewButtons = 3;
+	repeated string lookupDialogsAdditionalFields = 4;
+	repeated string lookupFilterFields = 5;
+	repeated string lookupPhoneDialogsAdditionalFields = 6;
+	repeated string searchFilterFields = 7;
+	repeated string searchResultsAdditionalFields = 8;
+	repeated string searchResultsCustomButtons = 9;
+}
+
+message SharingReason {
+	string fullName = 1;
+	string label = 2;
+}
+
+message SharingRecalculation {
+	string className = 1;
+}
+
+enum StartsWith {
+	StartsWithConsonant = 0;
+	StartsWithVowel = 1;
+	StartsWithSpecial = 2;
+}
+
+message ValidationRule {
+	string fullName = 1;
+	bool active = 2;
+	string description = 3;
+	string errorConditionFormula = 4;
+	string errorDisplayField = 5;
+	string errorMessage = 6;
+}
+
+enum SetupObjectVisibility {
+	SetupObjectVisibilityPublic = 0;
+	SetupObjectVisibilityProtected = 1;
+	SetupObjectVisibilityPackageProtected = 2;
+}
+
+message WebLink {
+	string fullName = 1;
+	WebLinkAvailability availability = 2;
+	string description = 3;
+	WebLinkDisplayType displayType = 4;
+	Encoding encodingKey = 5;
+	bool hasMenubar = 6;
+	bool hasScrollbars = 7;
+	bool hasToolbar = 8;
+	int32 height = 9;
+	bool isResizable = 10;
+	WebLinkType linkType = 11;
+	string masterLabel = 12;
+	WebLinkWindowType openType = 13;
+	string page = 14;
+	WebLinkPosition position = 15;
+	bool protected = 16;
+	bool requireRowSelection = 17;
+	string scontrol = 18;
+	bool showsLocation = 19;
+	bool showsStatus = 20;
+	string url = 21;
+	int32 width = 22;
+}
+
+enum WebLinkAvailability{
+		WebLinkAvailabilityOnline = 0;
+		WebLinkAvailabilityOffline = 1;
+}
+
+enum WebLinkDisplayType {
+		WebLinkDisplayTypeLink = 0;
+		WebLinkDisplayTypeButton = 1;
+		WebLinkDisplayTypeMassActionButton = 2;
+}
+
+enum Encoding {
+	EncodingUTF8 = 0;
+	EncodingISO88591 = 1;
+	EncodingShiftJIS = 2;
+	EncodingISO2022JP = 3;
+	EncodingEUCJP = 4;
+	EncodingKsc56011987 = 5;
+	EncodingBig5 = 6;
+	EncodingGB2312 = 7;
+	EncodingBig5HKSCS = 8;
+	EncodingXSJIS0213 = 9;
+}
+
+enum WebLinkType {
+		WebLinkTypeUrl = 0;
+		WebLinkTypeSControl = 1;
+		WebLinkTypeJavascript = 2;
+		WebLinkTypePage = 3;
+		WebLinkTypeFlow = 4;
+}
+
+enum WebLinkWindowType {
+		WebLinkWindowTypeNewWindow = 0;
+		WebLinkWindowTypeSidebar = 1;
+		WebLinkWindowTypeNoSidebar = 2;
+		WebLinkWindowTypeReplace = 3;
+		WebLinkWindowTypeOnClickJavaScript = 4;
+}
+
+enum WebLinkPosition {
+		WebLinkPositionFullScreen = 0;
+		WebLinkPositionNone = 1;
+		WebLinkPositionTopLeft = 2;
+}
+
+enum FormFactor{
+	FormFactorLarge = 0;
+	FormFactorMedium = 1;
+	FormFactorSmall = 2;
+}
+
+enum ActionOverrideType {
+		ActionOverrideTypeDefault = 0;
+		ActionOverrideTypeFlexipage = 1;
+		ActionOverrideTypeLightningcomponent = 2;
+		ActionOverrideTypeScontrol = 3;
+		ActionOverrideTypeStandard = 4;
+		ActionOverrideTypeVisualforce = 5;
+}
+
+message PicklistValue {
+	bool allowEmail = 1;
+	bool closed = 2;
+	repeated string controllingFieldValues = 3;
+	bool converted = 4;
+	bool cssExposed = 5;
+	ForecastCategories ForecastCategory = 6;
+	bool highPriority = 7;
+	int32 probability = 8;
+	string reverseRole = 9;
+	bool reviewed = 10;
+	bool won = 11;
+}
+
+enum FilterScope {
+	FilterScopeEverything = 0;
+	FilterScopeMine = 1;
+	FilterScopeQueue = 2;
+	FilterScopeDelegated = 3;
+	FilterScopeMyTerritory = 4;
+	FilterScopeMyTeamTerritory = 5;
+	FilterScopeTeam = 6;
+}
+
+message ListViewFilter {
+	string field = 1;
+	FilterOperation	Operation = 2;
+	string value = 3;
+}
+
+message SharedTo {
+	string allCustomerPortalUsers = 1;
+	string allInternalUsers = 2;
+	string allPartnerUsers = 3;
+	repeated string group = 4;
+	repeated string Groups = 5;
+	repeated string	managerSubordinates = 6;
+	repeated string managers = 7;
+	repeated string portalRole = 8;
+	repeated string portalRoleAndSubordinates = 9;
+	repeated string queue = 10;
+	repeated string role = 11;
+	repeated string	roleAndSubordinates = 12;
+	repeated string roleAndSubordinatesInternal = 13;
+	repeated string roles = 14;
+	repeated string rolesAndSubordinates = 15;
+	repeated string territories = 16;
+	repeated string territoriesAndSubordinates = 17;
+	repeated string territory = 18;
+	repeated string	territoryAndSubordinates = 19;
+}
+
+message FilterItem {
+	string field = 1;
+	FilterOperation operation = 2;
+	string value = 3;
+	string valueField = 4;
+}
+
+enum FilterOperation {
+	FilterOperationEQ = 0;
+	FilterOperationNE = 1;
+	FilterOperationLT = 2;
+	FilterOperationGT = 3;
+	FilterOperationLE = 4;
+	FilterOperationGE = 5;
+	FilterOperationContains = 6;
+	FilterOperationNotContain = 7;
+	FilterOperationStartsWith = 8;
+	FilterOperationIncludes = 9;
+	FilterOperationExcludes = 10;
+	FilterOperationWithin = 11;
+}
+
+enum ForecastCategories {
+		ForecastCategoriesOmitted = 0;
+		ForecastCategoriesPipeline = 1;
+		ForecastCategoriesBestCase = 2;
+		ForecastCategoriesForecast = 3;
+		ForecastCategoriesClosed = 4;
+}
+
+enum DeleteConstraint {
+	DeleteConstraintSetNull = 0;
+	DeleteConstraintRestrict = 1;
+	DeleteConstraintCascade = 2;
+}
+
+enum EncryptionScheme {
+		ProbabilisticEncryption = 0;
+		CaseSensitiveDeterministicEncryption = 1;
+		CaseInsensitiveDeterministicEncryption = 2;
+}
+
+enum TreatBlanksAs {
+	TreatBlanksAsBlankAsBlank = 0;
+	TreatBlanksAsBlankAsZero = 1;
+}
+
+enum SecurityClassification {
+		SecurityClassificationPublic = 0;
+		SecurityClassificationInternal = 1;
+		SecurityClassificationConfidential = 2;
+		SecurityClassificationRestricted = 3;
+		SecurityClassificationMissionCritical = 4;
+}
+
+enum SummaryOperation {
+	SummaryOperationCount = 0;
+	SummaryOperationMin = 1;
+	SummaryOperationMax = 2;
+	SummaryOperationSum = 3;
+}
+
+enum FieldType {
+		FieldTypeAutoNumber = 0;
+		FieldTypeLookup = 1;
+		FieldTypeMasterDetail = 2;
+		FieldTypeMetadataRelationship = 3;
+		FieldTypeCheckbox = 4;
+		FieldTypeCurrency = 5;
+		FieldTypeDate = 6;
+		FieldTypeDateTime = 7;
+		FieldTypeEmail = 8;
+		FieldTypeEncryptedText = 9;
+		FieldTypeExternalLookup = 10;
+		FieldTypeIndirectLookup = 11;
+		FieldTypeNumber1 = 12;
+		FieldTypePercent = 13;
+		FieldTypePhone = 14;
+		FieldTypePicklist = 15;
+		FieldTypeMultiselectPicklist = 16;
+		FieldTypeSummary = 17;
+		FieldTypeText = 18;
+		FieldTypeTextArea = 19;
+		FieldTypeLongTextArea = 20;
+		FieldTypeUrl = 21;
+		FieldTypeHierarchy = 22;
+		FieldTypeFile = 23;
+		FieldTypeHtml = 24;
+		FieldTypeLocation = 25;
+		FieldTypeTime = 26;
+}
+
+message ValueSet {
+	string controllingField = 1;
+	bool restricted = 2;
+	ValueSetValuesDefinition valueSetDefinition = 3;
+	string valueSetName = 4;
+	ValueSettings ValueSettings = 5;
+}
+
+message ValueSetValuesDefinition {
+	bool sorted = 1;
+	CustomValue Value = 2;
+}
+
+message ValueSettings {
+	repeated string controllingFieldValue = 1;
+	string valueName = 2;
+}
+
+message CustomValue {
+	string color = 1;
+	bool default = 2;
+	string description = 3;
+	bool isActive = 4;
+	string label = 5;
+}
