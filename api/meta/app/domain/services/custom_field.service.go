@@ -6,7 +6,6 @@ import (
 	"github.com/objforce/objforce/api/meta/app/dtos"
 	"github.com/objforce/objforce/api/meta/app/models"
 	"github.com/objforce/objforce/proto/meta"
-	"github.com/xxxmicro/base/mapper"
 )
 
 type CustomFieldService interface {
@@ -26,43 +25,43 @@ func NewCustomFieldService(customFieldServiceClient meta.CustomFieldService) Cus
 	}
 }
 
-func (s *customFieldService) Create(c context.Context, dto *dtos.CustomField) (*dtos.CustomField, error) {
+func (s *customFieldService) Create(c context.Context, model *models.CustomField) (*models.CustomField, error) {
 	pb := &meta.CustomField{}
-	mapper.Map(dto, pb)
+	mapstructure.Decode(model, pb)
 
 	rsp, err := s.customFieldServiceClient.Create(c, pb)
 	if err != nil {
 		return nil, err
 	}
 
-	mapper.Map(rsp, dto)
+	mapstructure.Decode(rsp, model)
 
-	return dto, nil
+	return model, nil
 }
 
-func (s *customFieldService) Update(c context.Context, dto *dtos.CustomField) (*dtos.CustomField, error) {
+func (s *customFieldService) Update(c context.Context, model *models.CustomField) (*models.CustomField, error) {
 	pb := &meta.CustomField{}
-	mapper.Map(dto, pb)
+	mapstructure.Decode(model, pb)
 
 	rsp, err := s.customFieldServiceClient.Update(c, pb)
 	if err != nil {
 		return nil, err
 	}
 
-	mapper.Map(rsp, dto)
+	mapstructure.Decode(rsp, model)
 
-	return dto, nil
+	return model, nil
 }
 
-func (s *customFieldService) FindOne(c context.Context, id string) (*dtos.CustomField, error) {
-	rsp, err := s.customFieldServiceClient.Retrieve(c, &meta.RetrieveCustomFieldRequest{FieldId: id})
+func (s *customFieldService) Get(c context.Context, id string) (*dtos.CustomField, error) {
+	rsp, err := s.customFieldServiceClient.Get(c, &meta.GetCustomFieldRequest{FieldId: id})
 	if err != nil {
 		return nil, err
 	}
 
-	dto := &dtos.CustomField{}
-	mapper.Map(rsp, dto)
-	return dto, nil
+	model := &models.CustomField{}
+	mapstructure.Decode(rsp, model)
+	return model, nil
 }
 
 func (s *customFieldService) Delete(c context.Context, id string) error {

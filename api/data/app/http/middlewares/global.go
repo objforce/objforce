@@ -3,13 +3,13 @@ package middlewares
 import (
 	limit "github.com/aviddiviner/gin-limit"
 	helmet "github.com/danielkov/gin-helmet"
+	"github.com/doulacloud/microbase/http/gin/middlewares"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-contrib/gzip"
 	"github.com/gin-contrib/static"
 	"github.com/gin-gonic/gin"
 	"github.com/objforce/objforce/api/data/config"
 	"github.com/opentracing/opentracing-go"
-	"github.com/xxxmicro/base/http/gin/middlewares"
 )
 
 func GlobalMiddlewares(server *gin.Engine, config *config.AppConfig, logMiddleware *LogMiddleware, tracer opentracing.Tracer) {

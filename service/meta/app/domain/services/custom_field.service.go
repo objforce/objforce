@@ -3,16 +3,16 @@ package services
 import (
 	"context"
 
-	"github.com/objforce/objforce/service/meta/app/domain/models"
+	"github.com/goinggo/mapstructure"
+	"github.com/objforce/objforce/service/meta/app/domain/entities"
 	"github.com/objforce/objforce/service/meta/app/domain/repositories"
-	"github.com/objforce/objforce/service/meta/app/dtos"
-	"github.com/xxxmicro/base/mapper"
+	"github.com/objforce/objforce/service/meta/app/models"
 )
 
 type CustomFieldService interface {
-	Create(c context.Context, dto *dtos.CustomField) (*dtos.CustomField, error)
-	Update(c context.Context, dto *dtos.CustomField) (*dtos.CustomField, error)
-	FindOne(c context.Context, id string) (*dtos.CustomField, error)
+	Create(c context.Context, customField *models.CustomField) (*models.CustomField, error)
+	Update(c context.Context, customField *models.CustomField) (*models.CustomField, error)
+	Get(c context.Context, id string) (*models.CustomField, error)
 	Delete(c context.Context, id string) error
 }
 
@@ -26,49 +26,49 @@ func NewCustomFieldService(customFieldRepository repositories.CustomFieldReposit
 	}
 }
 
-func (s *customFieldService) Create(c context.Context, dto *dtos.CustomField) (*dtos.CustomField, error) {
-	entity := &models.MTField{}
-	mapper.Map(dto, entity)
+func (s *customFieldService) Create(c context.Context, model *models.CustomField) (*models.CustomField, error) {
+	entity := &entities.MTField{}
+	mapstructure.Decode(model, &entity)
 
 	err := s.customFieldRepository.Create(c, entity)
 	if err != nil {
 		return nil, err
 	}
 
-	mapper.Map(entity, dto)
+	mapstructure.Decode(entity, model)
 
-	return dto, nil
+	return model, nil
 }
 
-func (s *customFieldService) Update(c context.Context, dto *dtos.CustomField) (*dtos.CustomField, error) {
-	entity := &models.MTField{FieldId: dto.FieldId}
+func (s *customFieldService) Update(c context.Context, model *models.CustomField) (*models.CustomField, error) {
+	entity := &entities.MTField{FieldId: model.FieldId}
 
-	mapper.Map(dto, entity)
+	mapstructure.Decode(model, &entity)
 
 	err := s.customFieldRepository.Update(c, entity, entity)
 	if err != nil {
 		return nil, err
 	}
 
-	err = s.customFieldRepository.FindOne(c, entity)
+	err = s.customFieldRepository.Get(c, entity)
 	if err != nil {
 		return nil, err
 	}
 
-	mapper.Map(entity, dto)
+	mapstructure.Decode(entity, &model)
 
-	return dto, nil
+	return model, nil
 }
 
-func (s *customFieldService) FindOne(c context.Context, id string) (*dtos.CustomField, error) {
-	entity := &models.MTField{FieldId: id}
-	s.customFieldRepository.FindOne(c, entity)
+func (s *customFieldService) Get(c context.Context, id string) (*models.CustomField, error) {
+	entity := &entities.MTField{FieldId: id}
+	s.customFieldRepository.Get(c, entity)
 
-	dto := &dtos.CustomField{}
-	mapper.Map(entity, dto)
-	return dto, nil
+	model := &models.CustomField{}
+	mapstructure.Decode(entity, model)
+	return model, nil
 }
 
 func (s *customFieldService) Delete(c context.Context, id string) error {
-	return s.customFieldRepository.Delete(c, &models.MTField{FieldId: id})
+	return s.customFieldRepository.Delete(c, &entities.MTField{FieldId: id})
 }

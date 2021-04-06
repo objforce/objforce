@@ -3,11 +3,10 @@ package handlers
 import (
 	"context"
 
-	"github.com/micro/go-micro/v2/logger"
+	"github.com/goinggo/mapstructure"
 	"github.com/objforce/objforce/proto/meta"
 	"github.com/objforce/objforce/service/meta/app/domain/services"
-	"github.com/objforce/objforce/service/meta/app/dtos"
-	"github.com/xxxmicro/base/mapper"
+	"github.com/objforce/objforce/service/meta/app/models"
 )
 
 type CustomFieldHandler struct {
@@ -15,23 +14,21 @@ type CustomFieldHandler struct {
 }
 
 func (h *CustomFieldHandler) Create(c context.Context, req *meta.CustomField, rsp *meta.CustomField) error {
-	dto := &dtos.CustomField{}
-	mapper.Map(req, dto)
+	model := &models.CustomField{}
+	mapstructure.Decode(req, model)
 
-	dto1, err := h.customFieldService.Create(c, dto)
+	newModel, err := h.customFieldService.Create(c, model)
 	if err != nil {
 		return err
 	}
 
-	mapper.Map(dto1, rsp)
+	mapstructure.Decode(newModel, rsp)
 
 	return nil
 }
 
 func (h *CustomFieldHandler) Delete(c context.Context, req *meta.DeleteCustomFieldRequest, rsp *meta.CustomField) error {
-	logger.Info("STARTING CustomFieldHandler.Delete()")
-
-	err := h.customFieldService.Delete(c, req.FieldId)
+	err := h.customFieldService.Delete(c, req.Id)
 	if err != nil {
 		return err
 	}
@@ -40,26 +37,26 @@ func (h *CustomFieldHandler) Delete(c context.Context, req *meta.DeleteCustomFie
 }
 
 func (h *CustomFieldHandler) Update(c context.Context, req *meta.CustomField, rsp *meta.CustomField) error {
-	dto := &dtos.CustomField{}
-	mapper.Map(req, dto)
+	model := &models.CustomField{}
+	mapstructure.Decode(req, model)
 
-	dto, err := h.customFieldService.Update(c, dto)
+	updatedModel, err := h.customFieldService.Update(c, model)
 	if err != nil {
 		return err
 	}
 
-	mapper.Map(dto, rsp)
+	mapstructure.Decode(updatedModel, rsp)
 
 	return nil
 }
 
-func (h *CustomFieldHandler) Retrieve(c context.Context, req *meta.RetrieveCustomFieldRequest, rsp *meta.CustomField) error {
-	dto, err := h.customFieldService.FindOne(c, req.FieldId)
+func (h *CustomFieldHandler) Get(c context.Context, req *meta.GetCustomFieldRequest, rsp *meta.CustomField) error {
+	model, err := h.customFieldService.Get(c, req.Id)
 	if err != nil {
 		return err
 	}
 
-	mapper.Map(dto, rsp)
+	mapstructure.Decode(model, rsp)
 	return nil
 }
 

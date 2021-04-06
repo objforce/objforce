@@ -1,21 +1,9 @@
 package repositories
 
-import(
-	_gorm "github.com/jinzhu/gorm"
-	"github.com/xxxmicro/base/domain/repository"
-	"github.com/xxxmicro/base/domain/repository/gorm"
+import (
+	"github.com/duolacloud/microbase/domain/repository"
 )
-
-type clobRepository struct {
-	repository.BaseRepository
-}
 
 type ClobRepository interface {
 	repository.BaseRepository
-}
-
-func NewClobRepository(db *_gorm.DB) ClobRepository {
-	return &clobRepository{
-		gorm.NewBaseRepository(db),
-	}
 }

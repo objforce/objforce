@@ -4,11 +4,11 @@ import (
 	"context"
 	"errors"
 
+	"github.com/goinggo/mapstructure"
 	"github.com/micro/go-micro/v2/logger"
 	"github.com/objforce/objforce/proto/meta"
 	"github.com/objforce/objforce/service/meta/app/domain/services"
-	"github.com/objforce/objforce/service/meta/app/dtos"
-	"github.com/xxxmicro/base/mapper"
+	"github.com/objforce/objforce/service/meta/app/models"
 )
 
 type CustomObjectHandler struct {
@@ -18,22 +18,20 @@ type CustomObjectHandler struct {
 func (h *CustomObjectHandler) Create(c context.Context, req *meta.CustomObject, rsp *meta.CustomObject) error {
 	logger.Info("STARTING CustomObjectHandler.Create()")
 
-	dto := &dtos.CustomObject{}
-	mapper.Map(req, dto)
+	model := &models.CustomObject{}
+	mapstructure.Decode(req, model)
 
-	dto1, err := h.customObjectService.Create(c, dto)
+	newModel, err := h.customObjectService.Create(c, model)
 	if err != nil {
 		return err
 	}
 
-	mapper.Map(dto1, rsp)
+	mapstructure.Decode(newModel, rsp)
 
 	return nil
 }
 
 func (h *CustomObjectHandler) Delete(c context.Context, req *meta.DeleteCustomObjectRequest, rsp *meta.CustomObject) error {
-	logger.Info("STARTING CustomFieldController.Delete()")
-
 	if len(req.ObjId) == 0 {
 		return errors.New("params error")
 	}
@@ -47,37 +45,27 @@ func (h *CustomObjectHandler) Delete(c context.Context, req *meta.DeleteCustomOb
 }
 
 func (h *CustomObjectHandler) Update(c context.Context, req *meta.CustomObject, rsp *meta.CustomObject) error {
-	dto := &dtos.CustomObject{}
-	mapper.Map(req, dto)
+	model := &models.CustomObject{}
+	mapstructure.Decode(req, model)
 
-	dto1, err := h.customObjectService.Update(c, dto)
+	updatedModel, err := h.customObjectService.Update(c, model)
 	if err != nil {
 		return err
 	}
 
-	mapper.Map(dto1, rsp)
+	mapstructure.Decode(updatedModel, rsp)
 
 	return nil
 }
 
-func (h *CustomObjectHandler) Retrieve(c context.Context, req *meta.RetrieveCustomObjectRequest, rsp *meta.CustomObject) error {
-	dto, err := h.customObjectService.Retrieve(c, req.ObjId)
+func (h *CustomObjectHandler) Get(c context.Context, req *meta.GetCustomObjectRequest, rsp *meta.CustomObject) error {
+	model, err := h.customObjectService.Get(c, req.ObjId)
 	if err != nil {
 		return err
 	}
 
-	mapper.Map(dto, rsp)
+	mapstructure.Decode(model, rsp)
 
-	return nil
-}
-
-func (h *CustomObjectHandler) FindCustomObjectByOrgAndType(c context.Context, req *meta.OrgAndObjTypeRequest, rsp *meta.CustomObject) error {
-	dto, err := h.customObjectService.FindCustomObjectByOrgAndType(c, req.OrgId, req.ObjType)
-	if err != nil {
-		return err
-	}
-
-	mapper.Map(dto, rsp)
 	return nil
 }
 
