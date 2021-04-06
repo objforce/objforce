@@ -6,6 +6,7 @@ import (
 	mapset "github.com/deckarep/golang-set"
 	"github.com/mitchellh/mapstructure"
 	"github.com/objforce/objforce/proto/meta"
+	"github.com/objforce/objforce/service/data/app/domain/entities"
 	"github.com/objforce/objforce/service/data/app/domain/models"
 	"github.com/objforce/objforce/service/data/app/domain/repositories"
 )
@@ -30,7 +31,7 @@ func NewDataService(dataRepository repositories.DataRepository, customObjectServ
 	}
 }
 
-func (s *dataService) Create(c context.Context, object *models.SObject) (*models.SObject, error) {
+func (s *dataService) Create(c context.Context, model *models.SObject) (*models.SObject, error) {
 	objId := calculateObjId(object.OrgId, object.Type)
 
 	metaObj, err := s.customObjectService.Get(c, &meta.GetCustomObjectRequest{ObjId: objId})
@@ -40,8 +41,8 @@ func (s *dataService) Create(c context.Context, object *models.SObject) (*models
 
 	// TODO 存储的约束
 
-	entity := &models.MTData{}
-	mapstructure.Decode(dto, entity)
+	entity := &entities.MTData{}
+	mapstructure.Decode(model, entity)
 	entity.ObjId = metaObj.ObjId
 
 	success := true
@@ -50,13 +51,13 @@ func (s *dataService) Create(c context.Context, object *models.SObject) (*models
 		success = false
 	}
 
-	newObject := &dtos.SObject{}
+	newObject := &models.SObject{}
 	mapstructure.Decode(entity, newObject)
 
 	return newObject, nil
 }
 
-func (s *dataService) Update(c context.Context, object dtos.SObject) ([]*dtos.SaveResult, error) {
+func (s *dataService) Update(c context.Context, object models.SObject) ([]*dtos.SaveResult, error) {
 	objId := calculateObjId(dto.OrgId, object.Type)
 
 	metaObj, err := s.customObjectService.Get(c, &meta.GetRequest{ObjId: objId})
@@ -64,7 +65,7 @@ func (s *dataService) Update(c context.Context, object dtos.SObject) ([]*dtos.Sa
 		return nil, err
 	}
 
-	entity := &models.MTData{}
+	entity := &entities.MTData{}
 	mapstructure.Decode(object, entity)
 	model.ObjId = metaObj.ObjId
 

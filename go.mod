@@ -55,6 +55,4 @@ require (
 	modernc.org/strutil v1.1.0 // indirect
 )
 
-replace (
-	google.golang.org/grpc => google.golang.org/grpc v1.26.0
-)
+replace google.golang.org/grpc => google.golang.org/grpc v1.26.0

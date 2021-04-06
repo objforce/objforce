@@ -2,14 +2,14 @@ GOPATH:=$(shell go env GOPATH)
 
 .PHONY: run
 run:
-	go run main.go \
-		--server_name=com.xapis.api.data \
-		--apollo_namespace=application \
-		--apollo_address=http://apollo-dev.dev.lucfish.com:8080 \
-		--apollo_app_id=data-srv \
-		--apollo_cluster=dev \
-		--registry=consul \
-        --registry_address=localhost:8500
+	MICRO_SERVICE_NAME=com.xapis.api.data \
+	APOLLO_NAMESPACE=application \
+	APOLLO_ADDRESS=http://apollo-dev.dev.lucfish.com:8080 \
+	APOLLO_APP_ID=data-srv \
+	APOLLO_CLUSTER=dev \
+	REGISTRY=consul \
+  REGISTRY_ADDRESS=localhost:8500 \
+	go run main.go
 
 .PHONY: build
 build:
