@@ -97,8 +97,8 @@ enum CustomSettingsVisibility {
 }
 
 enum DeploymentStatus {
-	DeploymentStatusInDevelopment = 0;
-	DeploymentStatusDeployed = 1;
+	InDevelopment = 0;
+	Deployed = 1;
 }
 
 enum PlatformEventType {
@@ -323,14 +323,14 @@ message WebLink {
 }
 
 enum WebLinkAvailability{
-		WebLinkAvailabilityOnline = 0;
-		WebLinkAvailabilityOffline = 1;
+	WebLinkAvailabilityOnline = 0;
+	WebLinkAvailabilityOffline = 1;
 }
 
 enum WebLinkDisplayType {
-		WebLinkDisplayTypeLink = 0;
-		WebLinkDisplayTypeButton = 1;
-		WebLinkDisplayTypeMassActionButton = 2;
+	WebLinkDisplayTypeLink = 0;
+  WebLinkDisplayTypeButton = 1;
+	WebLinkDisplayTypeMassActionButton = 2;
 }
 
 enum Encoding {
@@ -347,25 +347,25 @@ enum Encoding {
 }
 
 enum WebLinkType {
-		WebLinkTypeUrl = 0;
-		WebLinkTypeSControl = 1;
-		WebLinkTypeJavascript = 2;
-		WebLinkTypePage = 3;
-		WebLinkTypeFlow = 4;
+	WebLinkTypeUrl = 0;
+	WebLinkTypeSControl = 1;
+	WebLinkTypeJavascript = 2;
+	WebLinkTypePage = 3;
+	WebLinkTypeFlow = 4;
 }
 
 enum WebLinkWindowType {
-		WebLinkWindowTypeNewWindow = 0;
-		WebLinkWindowTypeSidebar = 1;
-		WebLinkWindowTypeNoSidebar = 2;
-		WebLinkWindowTypeReplace = 3;
-		WebLinkWindowTypeOnClickJavaScript = 4;
+	WebLinkWindowTypeNewWindow = 0;
+	WebLinkWindowTypeSidebar = 1;
+	WebLinkWindowTypeNoSidebar = 2;
+	WebLinkWindowTypeReplace = 3;
+	WebLinkWindowTypeOnClickJavaScript = 4;
 }
 
 enum WebLinkPosition {
-		WebLinkPositionFullScreen = 0;
-		WebLinkPositionNone = 1;
-		WebLinkPositionTopLeft = 2;
+	WebLinkPositionFullScreen = 0;
+	WebLinkPositionNone = 1;
+	WebLinkPositionTopLeft = 2;
 }
 
 enum FormFactor{
@@ -375,12 +375,12 @@ enum FormFactor{
 }
 
 enum ActionOverrideType {
-		ActionOverrideTypeDefault = 0;
-		ActionOverrideTypeFlexipage = 1;
-		ActionOverrideTypeLightningcomponent = 2;
-		ActionOverrideTypeScontrol = 3;
-		ActionOverrideTypeStandard = 4;
-		ActionOverrideTypeVisualforce = 5;
+	ActionOverrideTypeDefault = 0;
+	ActionOverrideTypeFlexipage = 1;
+	ActionOverrideTypeLightningcomponent = 2;
+	ActionOverrideTypeScontrol = 3;
+	ActionOverrideTypeStandard = 4;
+	ActionOverrideTypeVisualforce = 5;
 }
 
 message PicklistValue {
@@ -458,11 +458,11 @@ enum FilterOperation {
 }
 
 enum ForecastCategories {
-		ForecastCategoriesOmitted = 0;
-		ForecastCategoriesPipeline = 1;
-		ForecastCategoriesBestCase = 2;
-		ForecastCategoriesForecast = 3;
-		ForecastCategoriesClosed = 4;
+	ForecastCategoriesOmitted = 0;
+	ForecastCategoriesPipeline = 1;
+	ForecastCategoriesBestCase = 2;
+	ForecastCategoriesForecast = 3;
+	ForecastCategoriesClosed = 4;
 }
 
 enum DeleteConstraint {
@@ -472,9 +472,9 @@ enum DeleteConstraint {
 }
 
 enum EncryptionScheme {
-		ProbabilisticEncryption = 0;
-		CaseSensitiveDeterministicEncryption = 1;
-		CaseInsensitiveDeterministicEncryption = 2;
+	ProbabilisticEncryption = 0;
+	CaseSensitiveDeterministicEncryption = 1;
+	CaseInsensitiveDeterministicEncryption = 2;
 }
 
 enum TreatBlanksAs {
@@ -483,11 +483,11 @@ enum TreatBlanksAs {
 }
 
 enum SecurityClassification {
-		SecurityClassificationPublic = 0;
-		SecurityClassificationInternal = 1;
-		SecurityClassificationConfidential = 2;
-		SecurityClassificationRestricted = 3;
-		SecurityClassificationMissionCritical = 4;
+	SecurityClassificationPublic = 0;
+	SecurityClassificationInternal = 1;
+	SecurityClassificationConfidential = 2;
+	SecurityClassificationRestricted = 3;
+	SecurityClassificationMissionCritical = 4;
 }
 
 enum SummaryOperation {
@@ -498,33 +498,33 @@ enum SummaryOperation {
 }
 
 enum FieldType {
-		FieldTypeAutoNumber = 0;
-		FieldTypeLookup = 1;
-		FieldTypeMasterDetail = 2;
-		FieldTypeMetadataRelationship = 3;
-		FieldTypeCheckbox = 4;
-		FieldTypeCurrency = 5;
-		FieldTypeDate = 6;
-		FieldTypeDateTime = 7;
-		FieldTypeEmail = 8;
-		FieldTypeEncryptedText = 9;
-		FieldTypeExternalLookup = 10;
-		FieldTypeIndirectLookup = 11;
-		FieldTypeNumber1 = 12;
-		FieldTypePercent = 13;
-		FieldTypePhone = 14;
-		FieldTypePicklist = 15;
-		FieldTypeMultiselectPicklist = 16;
-		FieldTypeSummary = 17;
-		FieldTypeText = 18;
-		FieldTypeTextArea = 19;
-		FieldTypeLongTextArea = 20;
-		FieldTypeUrl = 21;
-		FieldTypeHierarchy = 22;
-		FieldTypeFile = 23;
-		FieldTypeHtml = 24;
-		FieldTypeLocation = 25;
-		FieldTypeTime = 26;
+	AutoNumber = 0;
+	Lookup = 1;
+	MasterDetail = 2;
+	MetadataRelationship = 3;
+	Checkbox = 4;
+	Currency = 5;
+	Date = 6;
+	DateTime = 7;
+	Email = 8;
+	EncryptedText = 9;
+	ExternalLookup = 10;
+	IndirectLookup = 11;
+	Number1 = 12;
+	Percent = 13;
+	Phone = 14;
+	Picklist = 15;
+	MultiselectPicklist = 16;
+	Summary = 17;
+	Text = 18;
+	TextArea = 19;
+	LongTextArea = 20;
+	Url = 21;
+	Hierarchy = 22;
+	File = 23;
+	Html = 24;
+	Location = 25;
+	Time = 26;
 }
 
 message ValueSet {

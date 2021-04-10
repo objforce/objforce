@@ -30,8 +30,7 @@ message UpdateSObjectRequest {
 }
 
 message UpsertSObjectRequest {
-  string ExternalIDFieldName = 1;
-  SObject object = 2;
+  SObject object = 1;
 }
 
 message UpsertSObjectResponse {
@@ -44,7 +43,7 @@ message UpsertSObjectResponse {
 message GetSObjectRequest {
   string orgId = 1;
   string id = 2;
-  string fields = 3;
+  repeated string fields = 3;
   string type = 4;
 }
 

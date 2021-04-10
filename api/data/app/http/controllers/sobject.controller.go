@@ -4,8 +4,8 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/objforce/objforce/api/data/app/domain/services"
-	"github.com/objforce/objforce/service/data/app/domain/models"
+	"github.com/objforce/objforce/api/data/domain/services"
+	"github.com/objforce/objforce/service/data/models"
 	"go.uber.org/zap"
 )
 

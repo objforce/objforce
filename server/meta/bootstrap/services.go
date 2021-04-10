@@ -1,7 +1,7 @@
 package bootstrap
 
 import (
-	"github.com/objforce/objforce/service/meta/app/domain/services"
+	"github.com/objforce/objforce/service/meta/domain/services"
 	"go.uber.org/fx"
 )
 

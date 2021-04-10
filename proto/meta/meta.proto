@@ -3,14 +3,16 @@ syntax = "proto3";
 package meta;
 option go_package = "github.com/objforce/objforce/proto/meta;meta";
 
+import "google/protobuf/empty.proto";
 import "github.com/objforce/objforce/proto/meta/types.proto";
 
 
 service CustomObjectService {
-  rpc Create(CustomObject) returns (CustomObject) {}
+  rpc Create(CreateCustomObjectRequest) returns (CustomObject) {}
+  rpc Retrieve(GetCustomObjectRequest) returns(CustomObject) {}
   rpc Update(CustomObject) returns (CustomObject) {}
-  rpc Delete(DeleteCustomObjectRequest) returns (CustomObject) {}
-  rpc Get(GetCustomObjectRequest) returns(CustomObject) {}
+  rpc Delete(DeleteCustomObjectRequest) returns (google.protobuf.Empty) {}
+  rpc FindByObjName(FindByObjNameRequest) returns(CustomObject) {}
 }
 
 service CustomFieldService {
@@ -18,6 +20,25 @@ service CustomFieldService {
   rpc Update(CustomField) returns (CustomField) {}
   rpc Get(GetCustomFieldRequest) returns (CustomField) {}
   rpc Delete(DeleteCustomFieldRequest) returns (CustomField) {}
+}
+
+message CreateCustomObjectRequest {
+  string orgId = 2;
+	string objName = 3;
+	DeploymentStatus DeploymentStatus = 15;
+	bool Deprecated = 16;
+	string Description = 17;
+	bool enableBulkApi = 19;
+	string externalDataSource = 29;
+	string externalName = 30;
+	repeated CustomField fields = 33;
+	repeated Index indexes = 38;
+	string Label = 39;
+}
+
+message FindByObjNameRequest {
+  string orgId = 1;
+  string objName = 2;
 }
 
 message GetCustomObjectRequest {

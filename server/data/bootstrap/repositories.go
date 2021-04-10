@@ -1,15 +1,15 @@
 package bootstrap
 
 import (
-	"github.com/objforce/objforce/service/data/app/domain/repositories"
-	"github.com/objforce/objforce/service/data/app/providers"
+	"github.com/objforce/objforce/service/data/domain/repositories/hbase"
+	"github.com/objforce/objforce/service/data/providers"
 	"go.uber.org/fx"
 )
 
 var Repositories = fx.Provide(
 	providers.NewHBaseClientProvider,
-	repositories.NewDataRepository,
-	repositories.NewClobRepository,
+	hbase.NewDataRepository,
+	// gorm.NewClobRepository,
 )
 
 var RepositoryOpts = fx.Options(

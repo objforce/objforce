@@ -4,7 +4,7 @@ import (
 	"github.com/duolacloud/microbase/datasource/gorm"
 	"github.com/duolacloud/microbase/domain/repository"
 	"github.com/micro/go-micro/v2/config"
-	"github.com/objforce/objforce/service/meta/app/providers"
+	"github.com/objforce/objforce/service/meta/providers"
 	"go.uber.org/fx"
 )
 

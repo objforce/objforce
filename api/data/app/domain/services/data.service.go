@@ -5,14 +5,14 @@ import (
 
 	"github.com/goinggo/mapstructure"
 	"github.com/objforce/objforce/proto/data"
-	"github.com/objforce/objforce/service/data/app/domain/models"
+	"github.com/objforce/objforce/service/data/models"
 )
 
 type DataService interface {
 	Create(c context.Context, object *models.SObject) (*models.SObject, error)
 	Update(c context.Context, objct *models.SObject) (*models.SObject, error)
 	Upsert(c context.Context, object *models.SObject) (*models.UpsertResult, error)
-	Get(c context.Context, req *models.GetSObjectRequest) (*models.SObject, error)
+	Retrieve(c context.Context, req *models.GetSObjectRequest) (*models.SObject, error)
 	Delete(c context.Context, req *models.DeleteSObjectRequest) error
 }
 
@@ -84,12 +84,15 @@ func (s *dataService) Upsert(c context.Context, object *models.SObject) (*models
 	return upsertResult, nil
 }
 
-func (s *dataService) Get(c context.Context, req *models.GetSObjectRequest) (*models.SObject, error) {
+func (s *dataService) Retrieve(c context.Context, req *models.GetSObjectRequest) (*models.SObject, error) {
 	orgId := c.Value("orgId").(string)
 
-	pbReq := &data.GetSObjectRequest{}
-	pbReq.OrgId = orgId
-	mapstructure.Decode(req, pbReq)
+	pbReq := &data.GetSObjectRequest{
+		OrgId:  orgId,
+		Id:     req.Id,
+		Fields: req.Fields,
+		Type:   req.Type,
+	}
 
 	pbObject, err := s.objectService.Get(c, pbReq)
 	if err != nil {

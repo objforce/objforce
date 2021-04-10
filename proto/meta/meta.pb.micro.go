@@ -6,6 +6,7 @@ package meta
 import (
 	fmt "fmt"
 	proto "github.com/golang/protobuf/proto"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	math "math"
 )
 
@@ -42,10 +43,11 @@ func NewCustomObjectServiceEndpoints() []*api.Endpoint {
 // Client API for CustomObjectService service
 
 type CustomObjectService interface {
-	Create(ctx context.Context, in *CustomObject, opts ...client.CallOption) (*CustomObject, error)
+	Create(ctx context.Context, in *CreateCustomObjectRequest, opts ...client.CallOption) (*CustomObject, error)
+	Retrieve(ctx context.Context, in *GetCustomObjectRequest, opts ...client.CallOption) (*CustomObject, error)
 	Update(ctx context.Context, in *CustomObject, opts ...client.CallOption) (*CustomObject, error)
-	Delete(ctx context.Context, in *DeleteCustomObjectRequest, opts ...client.CallOption) (*CustomObject, error)
-	Get(ctx context.Context, in *GetCustomObjectRequest, opts ...client.CallOption) (*CustomObject, error)
+	Delete(ctx context.Context, in *DeleteCustomObjectRequest, opts ...client.CallOption) (*emptypb.Empty, error)
+	FindByObjName(ctx context.Context, in *FindByObjNameRequest, opts ...client.CallOption) (*CustomObject, error)
 }
 
 type customObjectService struct {
@@ -60,8 +62,18 @@ func NewCustomObjectService(name string, c client.Client) CustomObjectService {
 	}
 }
 
-func (c *customObjectService) Create(ctx context.Context, in *CustomObject, opts ...client.CallOption) (*CustomObject, error) {
+func (c *customObjectService) Create(ctx context.Context, in *CreateCustomObjectRequest, opts ...client.CallOption) (*CustomObject, error) {
 	req := c.c.NewRequest(c.name, "CustomObjectService.Create", in)
+	out := new(CustomObject)
+	err := c.c.Call(ctx, req, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customObjectService) Retrieve(ctx context.Context, in *GetCustomObjectRequest, opts ...client.CallOption) (*CustomObject, error) {
+	req := c.c.NewRequest(c.name, "CustomObjectService.Retrieve", in)
 	out := new(CustomObject)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
@@ -80,9 +92,9 @@ func (c *customObjectService) Update(ctx context.Context, in *CustomObject, opts
 	return out, nil
 }
 
-func (c *customObjectService) Delete(ctx context.Context, in *DeleteCustomObjectRequest, opts ...client.CallOption) (*CustomObject, error) {
+func (c *customObjectService) Delete(ctx context.Context, in *DeleteCustomObjectRequest, opts ...client.CallOption) (*emptypb.Empty, error) {
 	req := c.c.NewRequest(c.name, "CustomObjectService.Delete", in)
-	out := new(CustomObject)
+	out := new(emptypb.Empty)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
 		return nil, err
@@ -90,8 +102,8 @@ func (c *customObjectService) Delete(ctx context.Context, in *DeleteCustomObject
 	return out, nil
 }
 
-func (c *customObjectService) Get(ctx context.Context, in *GetCustomObjectRequest, opts ...client.CallOption) (*CustomObject, error) {
-	req := c.c.NewRequest(c.name, "CustomObjectService.Get", in)
+func (c *customObjectService) FindByObjName(ctx context.Context, in *FindByObjNameRequest, opts ...client.CallOption) (*CustomObject, error) {
+	req := c.c.NewRequest(c.name, "CustomObjectService.FindByObjName", in)
 	out := new(CustomObject)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
@@ -103,18 +115,20 @@ func (c *customObjectService) Get(ctx context.Context, in *GetCustomObjectReques
 // Server API for CustomObjectService service
 
 type CustomObjectServiceHandler interface {
-	Create(context.Context, *CustomObject, *CustomObject) error
+	Create(context.Context, *CreateCustomObjectRequest, *CustomObject) error
+	Retrieve(context.Context, *GetCustomObjectRequest, *CustomObject) error
 	Update(context.Context, *CustomObject, *CustomObject) error
-	Delete(context.Context, *DeleteCustomObjectRequest, *CustomObject) error
-	Get(context.Context, *GetCustomObjectRequest, *CustomObject) error
+	Delete(context.Context, *DeleteCustomObjectRequest, *emptypb.Empty) error
+	FindByObjName(context.Context, *FindByObjNameRequest, *CustomObject) error
 }
 
 func RegisterCustomObjectServiceHandler(s server.Server, hdlr CustomObjectServiceHandler, opts ...server.HandlerOption) error {
 	type customObjectService interface {
-		Create(ctx context.Context, in *CustomObject, out *CustomObject) error
+		Create(ctx context.Context, in *CreateCustomObjectRequest, out *CustomObject) error
+		Retrieve(ctx context.Context, in *GetCustomObjectRequest, out *CustomObject) error
 		Update(ctx context.Context, in *CustomObject, out *CustomObject) error
-		Delete(ctx context.Context, in *DeleteCustomObjectRequest, out *CustomObject) error
-		Get(ctx context.Context, in *GetCustomObjectRequest, out *CustomObject) error
+		Delete(ctx context.Context, in *DeleteCustomObjectRequest, out *emptypb.Empty) error
+		FindByObjName(ctx context.Context, in *FindByObjNameRequest, out *CustomObject) error
 	}
 	type CustomObjectService struct {
 		customObjectService
@@ -127,20 +141,24 @@ type customObjectServiceHandler struct {
 	CustomObjectServiceHandler
 }
 
-func (h *customObjectServiceHandler) Create(ctx context.Context, in *CustomObject, out *CustomObject) error {
+func (h *customObjectServiceHandler) Create(ctx context.Context, in *CreateCustomObjectRequest, out *CustomObject) error {
 	return h.CustomObjectServiceHandler.Create(ctx, in, out)
+}
+
+func (h *customObjectServiceHandler) Retrieve(ctx context.Context, in *GetCustomObjectRequest, out *CustomObject) error {
+	return h.CustomObjectServiceHandler.Retrieve(ctx, in, out)
 }
 
 func (h *customObjectServiceHandler) Update(ctx context.Context, in *CustomObject, out *CustomObject) error {
 	return h.CustomObjectServiceHandler.Update(ctx, in, out)
 }
 
-func (h *customObjectServiceHandler) Delete(ctx context.Context, in *DeleteCustomObjectRequest, out *CustomObject) error {
+func (h *customObjectServiceHandler) Delete(ctx context.Context, in *DeleteCustomObjectRequest, out *emptypb.Empty) error {
 	return h.CustomObjectServiceHandler.Delete(ctx, in, out)
 }
 
-func (h *customObjectServiceHandler) Get(ctx context.Context, in *GetCustomObjectRequest, out *CustomObject) error {
-	return h.CustomObjectServiceHandler.Get(ctx, in, out)
+func (h *customObjectServiceHandler) FindByObjName(ctx context.Context, in *FindByObjNameRequest, out *CustomObject) error {
+	return h.CustomObjectServiceHandler.FindByObjName(ctx, in, out)
 }
 
 // Api Endpoints for CustomFieldService service

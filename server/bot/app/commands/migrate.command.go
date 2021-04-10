@@ -5,7 +5,7 @@ import (
 
 	"github.com/jinzhu/gorm"
 	proto "github.com/micro/go-micro/v2/agent/proto"
-	"github.com/objforce/objforce/service/meta/app/domain/models"
+	"github.com/objforce/objforce/service/meta/models"
 )
 
 type MigrateCommand struct {

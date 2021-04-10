@@ -1,11 +1,11 @@
 package bootstrap
 
 import (
-	"github.com/objforce/objforce/api/data/app/domain/services"
-	"github.com/objforce/objforce/api/data/app/http/controllers"
-	"github.com/objforce/objforce/api/data/app/http/middlewares"
-	"github.com/objforce/objforce/api/data/app/providers"
 	"github.com/objforce/objforce/api/data/config"
+	"github.com/objforce/objforce/api/data/domain/services"
+	"github.com/objforce/objforce/api/data/http/controllers"
+	"github.com/objforce/objforce/api/data/http/middlewares"
+	"github.com/objforce/objforce/api/data/providers"
 	"github.com/objforce/objforce/api/data/routes"
 	xconfig "github.com/xxxmicro/base/config"
 	xsource "github.com/xxxmicro/base/config/source"

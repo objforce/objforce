@@ -1,7 +1,7 @@
 package bootstrap
 
 import (
-	"github.com/objforce/objforce/service/meta/app/domain/repositories/gorm"
+	"github.com/objforce/objforce/service/meta/domain/repositories/gorm"
 	"go.uber.org/fx"
 )
 

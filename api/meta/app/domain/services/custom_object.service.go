@@ -5,7 +5,7 @@ import (
 
 	"github.com/objforce/objforce/api/meta/app/dtos"
 	"github.com/objforce/objforce/proto/meta"
-	"github.com/objforce/objforce/service/meta/app/models"
+	"github.com/objforce/objforce/service/meta/models"
 	"github.com/xxxmicro/base/mapper"
 )
 
