@@ -4,3 +4,7 @@ build
 /bazel-*
 
 application.json
+
+meta-srv
+data-srv
+index-srv
