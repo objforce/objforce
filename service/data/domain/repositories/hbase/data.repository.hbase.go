@@ -2,17 +2,13 @@ package hbase
 
 import (
 	"context"
-	"strconv"
-	"time"
 
 	"github.com/objforce/objforce/service/data/domain/entities"
 	"github.com/objforce/objforce/service/data/domain/repositories"
-	"github.com/objforce/objforce/utils"
 	"github.com/tsuna/gohbase"
 	"github.com/tsuna/gohbase/hrpc"
+	"github.com/vmihailenco/msgpack"
 )
-
-const tableName = "mt_datas"
 
 type dataRepository struct {
 	client gohbase.Client
@@ -24,7 +20,7 @@ func NewDataRepository(client gohbase.Client) repositories.DataRepository {
 	}
 }
 
-func (r *dataRepository) Get(c context.Context, orgId, objId, id string, fields []string) (*entities.MTData, error) {
+func (r *dataRepository) Retrieve(c context.Context, orgId, objId, id string, fields []string) (*entities.MTData, error) {
 	tableName := objId
 	rowkey := id
 
@@ -45,38 +41,21 @@ func (r *dataRepository) Get(c context.Context, orgId, objId, id string, fields 
 		return nil, err
 	}
 
-	data := &entities.MTData{
+	var fieldValues map[string][]byte
+	for _, cell := range rsp.Cells {
+		fieldValues[string(cell.Qualifier)] = cell.Value
+	}
+
+	goFieldValues, err := unmarshalFields(fieldValues)
+	if err != nil {
+		return nil, err
+	}
+
+	return &entities.MTData{
 		GUID:   objId,
 		ObjId:  objId,
-		Fields: make(map[string][]byte),
-	}
-
-	for _, cell := range rsp.Cells {
-		family := string(cell.Family)
-		if family == "basic" {
-			qualifier := string(cell.Qualifier)
-			switch qualifier {
-			case "created_at":
-				ms := utils.BytesToInt64(cell.Value)
-				data.CreatedAt = time.Unix(0, ms*int64(time.Millisecond))
-			case "created_by":
-				createdBy := string(cell.Value)
-				data.CreatedBy = &createdBy
-			case "updated_at":
-				ms := utils.BytesToInt64(cell.Value)
-				data.UpdatedAt = time.Unix(0, ms*int64(time.Millisecond))
-			case "updated_by":
-				updatedBy := string(cell.Value)
-				data.UpdatedBy = &updatedBy
-			case "isDeleted":
-				data.IsDeleted, _ = strconv.ParseBool(string(cell.Value))
-			}
-		}
-
-		data.Fields[string(cell.Qualifier)] = cell.Value
-	}
-
-	return data, nil
+		Fields: goFieldValues,
+	}, nil
 }
 
 /**
@@ -85,7 +64,7 @@ func (r *dataRepository) Get(c context.Context, orgId, objId, id string, fields 
 func (r *dataRepository) MultiGet(c context.Context, orgId string, objId string, ids []string, fields []string) []*entities.MTData {
 	list := make([]*entities.MTData, len(ids))
 	for i, id := range ids {
-		data, err := r.Get(c, orgId, objId, id, fields)
+		data, err := r.Retrieve(c, orgId, objId, id, fields)
 		if err != nil {
 			continue
 		}
@@ -98,28 +77,36 @@ func (r *dataRepository) MultiGet(c context.Context, orgId string, objId string,
  * 创建
  * 局部更新，只修改部分列
  */
-func (r *dataRepository) Create(c context.Context, m *entities.MTData) error {
-	rowkey := m.GUID
+func (r *dataRepository) Create(c context.Context, entity *entities.MTData) error {
+	tableName := entity.ObjId
+	rowkey := entity.GUID
 	values := make(map[string]map[string][]byte)
 
 	basic := map[string][]byte{}
-	if m.CreatedBy != nil {
-		basic["created_by"] = []byte(*m.CreatedBy)
+	var err error
+	basic["created_at"], err = msgpack.Marshal(entity.CreatedAt)
+	if err != nil {
+		return nil
 	}
-	basic["created_at"] = utils.Int64ToBytes(m.CreatedAt.UnixNano() / 1e6)
-	if m.UpdatedBy != nil {
-		basic["updated_by"] = []byte(*m.UpdatedBy)
+
+	basic["updated_at"], err = msgpack.Marshal(entity.UpdatedAt)
+	if err != nil {
+		return nil
 	}
-	basic["updated_at"] = utils.Int64ToBytes(m.UpdatedAt.UnixNano() / 1e6)
+
+	if entity.CreatedBy != nil {
+		basic["created_by"], _ = msgpack.Marshal(*entity.CreatedBy)
+	}
+	if entity.UpdatedBy != nil {
+		basic["updated_by"], _ = msgpack.Marshal(*entity.UpdatedBy)
+	}
 
 	values["basic"] = basic
 
-	ext := map[string][]byte{}
-	for fieldName, fieldValue := range m.Fields {
-		ext[fieldName] = []byte(fieldValue)
+	values["ext"], err = marshalFields(entity.Fields)
+	if err != nil {
+		return nil
 	}
-
-	values["ext"] = ext
 
 	req, err := hrpc.NewPutStr(c, tableName, rowkey, values)
 	if err != nil {
@@ -137,25 +124,26 @@ func (r *dataRepository) Create(c context.Context, m *entities.MTData) error {
 /**
  * 更新
  */
-func (r *dataRepository) Update(c context.Context, m *entities.MTData) error {
+func (r *dataRepository) Update(c context.Context, entity *entities.MTData) error {
+	tableName := entity.ObjId
+
 	values := make(map[string]map[string][]byte)
 
 	basic := map[string][]byte{}
 
-	if m.UpdatedBy != nil {
-		basic["updated_by"] = []byte(*m.UpdatedBy)
+	if entity.UpdatedBy != nil {
+		basic["updated_by"], _ = msgpack.Marshal(*entity.UpdatedBy)
 	}
-	basic["updated_at"] = utils.Int64ToBytes(m.UpdatedAt.UnixNano() / 1e6)
+	basic["updated_at"], _ = msgpack.Marshal(entity.UpdatedAt)
 	values["basic"] = basic
 
-	ext := map[string][]byte{}
-	for fieldName, fieldValue := range m.Fields {
-		ext[fieldName] = []byte(fieldValue)
+	var err error
+	values["ext"], err = marshalFields(entity.Fields)
+	if err != nil {
+		return err
 	}
 
-	values["ext"] = ext
-
-	req, err := hrpc.NewPutStr(c, tableName, m.ObjId, values)
+	req, err := hrpc.NewPutStr(c, tableName, entity.ObjId, values)
 	if err != nil {
 		return err
 	}
@@ -172,22 +160,29 @@ func (r *dataRepository) Update(c context.Context, m *entities.MTData) error {
  * 更新
  */
 func (r *dataRepository) Upsert(c context.Context, entity *entities.MTData) *entities.UpsertResult {
+	tableName := entity.ObjId
+
 	values := make(map[string]map[string][]byte)
 	basic := map[string][]byte{}
 
 	if entity.CreatedBy != nil {
-		basic["created_by"] = []byte(*entity.CreatedBy)
+		basic["created_by"], _ = msgpack.Marshal(*entity.CreatedBy)
 	}
 
-	basic["created_at"] = utils.Int64ToBytes(entity.CreatedAt.UnixNano() / 1e6)
+	basic["created_at"], _ = msgpack.Marshal(entity.CreatedAt)
 	if entity.UpdatedBy != nil {
-		basic["updated_by"] = []byte(*entity.UpdatedBy)
+		basic["updated_by"], _ = msgpack.Marshal(*entity.UpdatedBy)
 	}
 
-	basic["updated_at"] = utils.Int64ToBytes(entity.UpdatedAt.UnixNano() / 1e6)
+	basic["updated_at"], _ = msgpack.Marshal(entity.UpdatedAt)
 	values["basic"] = basic
 
-	values["ext"] = entity.Fields
+	var err error
+
+	values["ext"], err = marshalFields(entity.Fields)
+	if err != nil {
+		return &entities.UpsertResult{Created: false, Errors: []error{err}, Success: false}
+	}
 
 	req, err := hrpc.NewPutStr(c, tableName, entity.ObjId, values)
 	if err != nil {

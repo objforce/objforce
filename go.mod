@@ -3,6 +3,7 @@ module github.com/objforce/objforce
 go 1.14
 
 require (
+	github.com/aliyun/aliyun-tablestore-go-sdk v1.6.0
 	github.com/aviddiviner/gin-limit v0.0.0-20170918012823-43b5f79762c1
 	github.com/cnjack/throttle v0.0.0-20160727064406-525175b56e18
 	github.com/codahale/hdrhistogram v0.0.0-20161010025455-3a0bb77429bd // indirect
@@ -47,6 +48,7 @@ require (
 	github.com/thoas/go-funk v0.7.0
 	github.com/tsuna/gohbase v0.0.0-20200831170559-79db14850535
 	github.com/urfave/cli/v2 v2.3.0
+	github.com/vmihailenco/msgpack v4.0.4+incompatible
 	github.com/xxxmicro/base v0.1.28
 	github.com/xxxmicro/go-plugins-broker-rocketmq/v2 v2.0.0-20200805004454-ef23e9db26f3
 	go.etcd.io/etcd v3.3.25+incompatible

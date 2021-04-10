@@ -40,18 +40,16 @@ func (s *dataService) Create(c context.Context, model *models.SObject) (*models.
 		return nil, err
 	}
 
-	// TODO 存储的约束
-	var fieldMap map[string]*meta_models.CustomField
+	// 过滤无效列
+	fieldSet := mapset.NewSet()
 	for _, field := range customObject.Fields {
-		fieldMap[field.FieldName] = field
+		fieldSet.Add(field.FieldName)
 	}
 
-	entityFields := make(map[string][]byte, len(model.Fields))
+	var fieldValues map[string]interface{}
 	for fieldName, fieldValue := range model.Fields {
-		field := fieldMap[fieldName]
-		entityFields[fieldName], err = field.Type.Marshal(fieldValue)
-		if err != nil {
-			return nil, err
+		if fieldSet.Contains(fieldName) {
+			fieldValues[fieldName] = fieldValue
 		}
 	}
 
@@ -59,7 +57,7 @@ func (s *dataService) Create(c context.Context, model *models.SObject) (*models.
 		GUID:   model.Id,
 		OrgId:  model.OrgId,
 		ObjId:  customObject.ObjId,
-		Fields: entityFields,
+		Fields: fieldValues,
 	}); err != nil {
 		return nil, err
 	}
@@ -68,14 +66,16 @@ func (s *dataService) Create(c context.Context, model *models.SObject) (*models.
 }
 
 func buildMTData(customObject *meta_models.CustomObject, model *models.SObject) (*entities.MTData, error) {
-	fieldMap := customObject.FieldMap()
-	var entityFields map[string][]byte
-	var err error
+	// 过滤无效列
+	fieldSet := mapset.NewSet()
+	for _, field := range customObject.Fields {
+		fieldSet.Add(field.FieldName)
+	}
+
+	var fieldValues map[string]interface{}
 	for fieldName, fieldValue := range model.Fields {
-		field := fieldMap[fieldName]
-		entityFields[fieldName], err = field.Type.Marshal(fieldValue)
-		if err != nil {
-			return nil, err
+		if fieldSet.Contains(fieldName) {
+			fieldValues[fieldName] = fieldValue
 		}
 	}
 
@@ -83,28 +83,7 @@ func buildMTData(customObject *meta_models.CustomObject, model *models.SObject) 
 		GUID:   model.Id,
 		OrgId:  model.OrgId,
 		ObjId:  customObject.ObjId,
-		Fields: entityFields,
-	}, nil
-}
-
-func buildSObject(customObject *meta_models.CustomObject, entity *entities.MTData) (*models.SObject, error) {
-	fieldMap := customObject.FieldMap()
-
-	var fields map[string]interface{}
-	var err error
-	for fieldName, fieldValue := range entity.Fields {
-		field := fieldMap[fieldName]
-		fields[fieldName], err = field.Type.Unmarshal(fieldValue)
-		if err != nil {
-			return nil, err
-		}
-	}
-
-	return &models.SObject{
-		Id:     entity.GUID,
-		OrgId:  entity.OrgId,
-		Type:   customObject.ObjName,
-		Fields: fields,
+		Fields: fieldValues,
 	}, nil
 }
 
@@ -142,12 +121,17 @@ func (s *dataService) Retrieve(c context.Context, orgId, objName, id string, fie
 		return nil, err
 	}
 
-	entity, err := s.dataRepository.Get(c, orgId, customObject.ObjId, id, fields)
+	entity, err := s.dataRepository.Retrieve(c, orgId, customObject.ObjId, id, fields)
 	if err != nil {
 		return nil, err
 	}
 
-	return buildSObject(customObject, entity)
+	return &models.SObject{
+		Id:     entity.GUID,
+		OrgId:  entity.OrgId,
+		Type:   customObject.ObjName,
+		Fields: entity.Fields,
+	}, nil
 }
 
 func (s *dataService) Upsert(c context.Context, model *models.SObject) (*models.UpsertResult, error) {

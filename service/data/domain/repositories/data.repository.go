@@ -7,7 +7,7 @@ import (
 )
 
 type DataRepository interface {
-	Get(c context.Context, orgId, objId, id string, fields []string) (*entities.MTData, error)
+	Retrieve(c context.Context, orgId, objId, id string, fields []string) (*entities.MTData, error)
 	Create(c context.Context, m *entities.MTData) error
 	Update(c context.Context, m *entities.MTData) error
 	Upsert(c context.Context, m *entities.MTData) *entities.UpsertResult

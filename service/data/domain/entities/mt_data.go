@@ -3,16 +3,16 @@ package entities
 import "time"
 
 type MTData struct {
-	GUID  string `json:"guid,omitempty" gorm:"primary_key"`
+	GUID  string `json:"guid,omitempty"`
 	OrgId string `json:"orgId,omitempty"`
 	ObjId string `json:"objId,omitempty"`
 	// Name      string            `json:"name"`
-	Fields    map[string][]byte `json:"fields"`
-	CreatedAt time.Time         `json:"createdAt"`
-	CreatedBy *string           `json:"createdBy"`
-	UpdatedAt time.Time         `json:"updatedAt"`
-	UpdatedBy *string           `json:"updatedBy"`
-	IsDeleted bool              `json:"isDeleted"`
+	Fields    map[string]interface{} `json:"fields"`
+	CreatedAt time.Time              `json:"createdAt"`
+	CreatedBy *string                `json:"createdBy"`
+	UpdatedAt time.Time              `json:"updatedAt"`
+	UpdatedBy *string                `json:"updatedBy"`
+	IsDeleted bool                   `json:"isDeleted"`
 }
 
 type SaveResult struct {
